@@ -1,0 +1,150 @@
+{% extends 'base.html' %}
+
+{% block title %}Vizualizacije · Leadership Assesser{% endblock %}
+
+{% block head_scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+    <h1 class="h3">Vizualizacije</h1>
+    <a class="btn btn-outline-secondary" href="{{ url_for('dashboard') }}">Natrag na nadzornu ploču</a>
+</div>
+
+<ul class="nav nav-pills mb-4">
+    <li class="nav-item">
+        <a class="nav-link {% if mode == 'matrix' %}active{% endif %}" href="{{ url_for('visualizations', mode='matrix') }}">Matrica</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {% if mode == 'individual' %}active{% endif %}" href="{{ url_for('visualizations', mode='individual', selected=selected.id if selected else None) }}">Individualno</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link {% if mode == 'comparison' %}active{% endif %}" href="{{ url_for('visualizations', mode='comparison', a=comparison_a.id if comparison_a else None, b=comparison_b.id if comparison_b else None) }}">Usporedba</a>
+    </li>
+</ul>
+
+{% if mode == 'matrix' %}
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <h2 class="h5">Matrica adekvatnosti i potencijala</h2>
+            <p class="text-muted">Svaka točka predstavlja procijenjenu osobu. X os prikazuje prosječnu ocjenu adekvatnosti, a Y os prosječnu ocjenu potencijala.</p>
+            <canvas id="matrixChart" height="300"></canvas>
+        </div>
+    </div>
+{% elif mode == 'individual' %}
+    <div class="row g-4">
+        <div class="col-lg-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <form method="get" class="mb-3">
+                        <input type="hidden" name="mode" value="individual">
+                        <label class="form-label" for="selected">Odaberite osobu</label>
+                        <select class="form-select" id="selected" name="selected" onchange="this.form.submit()">
+                            {% for assessment in assessments %}
+                                <option value="{{ assessment.id }}" {% if selected and assessment.id == selected.id %}selected{% endif %}>{{ assessment.full_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </form>
+                    {% if selected %}
+                        <h2 class="h5">{{ selected.full_name }}</h2>
+                        <p class="text-muted">{{ selected.position }} · {{ selected.management_level }}</p>
+                        <div class="radar-chart-container">
+                            <canvas id="individualChart"></canvas>
+                        </div>
+                        <div class="mt-4">
+                            <h3 class="h6">Opis ponašanja po dimenzijama</h3>
+                            <ul class="list-group">
+                                {% for key, dimension in dimensions.items() %}
+                                    <li class="list-group-item">
+                                        <strong>{{ dimension.name }}</strong>
+                                        <div class="text-muted small">Ocjena: {{ selected.dimensions[key] }} · {{ dimension.scale[selected.dimensions[key]] }}</div>
+                                        <div class="small">{{ dimension.description[selected.dimensions[key]] }}</div>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    {% else %}
+                        <p class="text-muted">Nema dostupnih procjena za prikaz.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6">
+            <div class="card shadow-sm h-100">
+                <div class="card-body">
+                    <h2 class="h5">AI uvid</h2>
+                    {% if selected %}
+                        <p class="text-muted">Generira kvalitativnu analizu profila vodstva na hrvatskom jeziku.</p>
+                        <button class="btn btn-primary mb-3" id="generateInsight" data-assessment="{{ selected.id }}">Generiraj AI uvid</button>
+                        <div id="insightOutput" class="insight-output">Odaberite "Generiraj AI uvid" kako biste dobili analizu.</div>
+                    {% else %}
+                        <p class="text-muted">Nema dostupne procjene.</p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% elif mode == 'comparison' %}
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <form method="get" class="row g-3 align-items-end mb-4">
+                <input type="hidden" name="mode" value="comparison">
+                <div class="col-md-5">
+                    <label for="a" class="form-label">Osoba A</label>
+                    <select class="form-select" id="a" name="a">
+                        <option value="" {% if not comparison_a %}selected{% endif %}>Odaberite...</option>
+                        {% for assessment in assessments %}
+                            <option value="{{ assessment.id }}" {% if comparison_a and comparison_a.id == assessment.id %}selected{% endif %}>{{ assessment.full_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <label for="b" class="form-label">Osoba B</label>
+                    <select class="form-select" id="b" name="b">
+                        <option value="" {% if not comparison_b %}selected{% endif %}>Odaberite...</option>
+                        {% for assessment in assessments %}
+                            <option value="{{ assessment.id }}" {% if comparison_b and comparison_b.id == assessment.id %}selected{% endif %}>{{ assessment.full_name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="col-md-2">
+                    <button class="btn btn-primary w-100" type="submit">Usporedi</button>
+                </div>
+            </form>
+            {% if comparison_a and comparison_b %}
+                <div class="row g-4">
+                    <div class="col-md-6">
+                        <h2 class="h6">{{ comparison_a.full_name }}</h2>
+                        <div class="radar-chart-container">
+                            <canvas id="comparisonChartA"></canvas>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <h2 class="h6">{{ comparison_b.full_name }}</h2>
+                        <div class="radar-chart-container">
+                            <canvas id="comparisonChartB"></canvas>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <p class="text-muted">Za usporedbu odaberite dvije osobe.</p>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}
+{% endblock %}
+
+{% block footer_scripts %}
+<script src="{{ url_for('static', filename='visualizations.js') }}"></script>
+<script>
+    window.leadershipData = {
+        mode: '{{ mode }}',
+        selectedId: '{{ selected.id if selected else '' }}',
+        comparisonA: '{{ comparison_a.id if comparison_a else '' }}',
+        comparisonB: '{{ comparison_b.id if comparison_b else '' }}',
+        dimensionLabels: {{ [dimensions[key].name for key in dimensions.keys()] | tojson }},
+        dimensionKeys: {{ dimensions.keys() | list | tojson }}
+    };
+</script>
+{% endblock %}
