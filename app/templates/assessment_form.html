@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %}{% if assessment %}Uredi procjenu{% else %}Nova procjena{% endif %} · Leadership Assesser{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-10">
+        <div class="card shadow-sm">
+            <div class="card-header bg-secondary text-white">
+                {% if assessment %}Uredi procjenu{% else %}Nova procjena{% endif %}
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="form-label" for="full_name">Ime i prezime</label>
+                            <input class="form-control" type="text" name="full_name" id="full_name" value="{{ assessment.full_name if assessment else '' }}" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label" for="position">Pozicija</label>
+                            <input class="form-control" type="text" name="position" id="position" value="{{ assessment.position if assessment else '' }}" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label" for="management_level">Razina menadžmenta</label>
+                            <select class="form-select" name="management_level" id="management_level" required>
+                                <option value="" disabled {% if not assessment %}selected{% endif %}>Odaberite...</option>
+                                {% for level in management_levels %}
+                                    <option value="{{ level }}" {% if assessment and assessment.management_level == level %}selected{% endif %}>{{ level }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+
+                    <hr class="my-4">
+                    <h2 class="h5">Ocjene po dimenzijama</h2>
+                    <div class="row row-cols-1 row-cols-md-2 g-4">
+                        {% for key, dimension in dimensions.items() %}
+                            <div class="col">
+                                <div class="border rounded p-3 h-100">
+                                    <h3 class="h6 text-primary">{{ dimension.group }} · {{ dimension.name }}</h3>
+                                    <div class="mb-2">
+                                        <label class="form-label" for="dimension_{{ key }}">Ocjena (1-5)</label>
+                                        <select class="form-select" name="dimension_{{ key }}" id="dimension_{{ key }}" required>
+                                            {% for value, label in dimension.scale.items() %}
+                                                {% set selected_value = assessment.dimensions[key] if assessment else 3 %}
+                                                <option value="{{ value }}" {% if selected_value == value %}selected{% endif %}>{{ value }} · {{ label }}</option>
+                                            {% endfor %}
+                                        </select>
+                                    </div>
+                                    <p class="small text-muted">{% if assessment %}{{ dimension.description[assessment.dimensions[key]] }}{% else %}{{ dimension.description[3] }}{% endif %}</p>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="mt-4 text-end">
+                        <a href="{{ url_for('dashboard') }}" class="btn btn-outline-secondary">Odustani</a>
+                        <button type="submit" class="btn btn-primary">Spremi</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
