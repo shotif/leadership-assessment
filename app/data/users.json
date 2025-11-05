@@ -1,0 +1,16 @@
+{
+  "users": [
+    {
+      "id": "5c08a93d-0c45-46a1-9c16-713848d61a20",
+      "email": "master@example.com",
+      "password_hash": "scrypt:32768:8:1$ECU77X6do2CKsN5L$a3d901d373016caa78b9f16da1b8b092fe74f47197d80e12fe73f9b6157557275809390c25d94dc56ddef11f990336ff45b2108d65e9a8a662e31ea415d5651e",
+      "role": "master"
+    },
+    {
+      "id": "4c36cfc0-0840-40ed-abe8-69007f265bdd",
+      "email": "user@example.com",
+      "password_hash": "scrypt:32768:8:1$5JehDt7J8MFo4Fwd$f351bc64abe39d1551f29df6d70b271f4459a457d4fd6ba77231cab3ea3792b7eaaae3214d53daecc061ef67b6d22da75042848dd38646dc9f72f8da48ceaf3b",
+      "role": "standard"
+    }
+  ]
+}

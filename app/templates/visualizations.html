@@ -136,15 +136,15 @@
 {% endblock %}
 
 {% block footer_scripts %}
-<script src="{{ url_for('static', filename='visualizations.js') }}"></script>
 <script>
     window.leadershipData = {
-        mode: '{{ mode }}',
-        selectedId: '{{ selected.id if selected else '' }}',
-        comparisonA: '{{ comparison_a.id if comparison_a else '' }}',
-        comparisonB: '{{ comparison_b.id if comparison_b else '' }}',
-        dimensionLabels: {{ [dimensions[key].name for key in dimensions.keys()] | tojson }},
+        mode: {{ mode | tojson }},
+        selectedId: {{ (selected.id if selected else None) | tojson }},
+        comparisonA: {{ (comparison_a.id if comparison_a else None) | tojson }},
+        comparisonB: {{ (comparison_b.id if comparison_b else None) | tojson }},
+        dimensionLabels: {{ dimensions.values() | map(attribute='name') | list | tojson }},
         dimensionKeys: {{ dimensions.keys() | list | tojson }}
     };
 </script>
+<script src="{{ url_for('static', filename='visualizations.js') }}"></script>
 {% endblock %}

@@ -1,0 +1,46 @@
+{
+  "assessments": [
+    {
+      "id": "8c1eb723-eac5-40ec-b35f-f1ca8cc501d8",
+      "assessed_by": "master@example.com",
+      "full_name": "Pero Perić",
+      "position": "Direktor sanitarnog čvora",
+      "management_level": "B-1",
+      "dimensions": {
+        "A": 2,
+        "B": 1,
+        "C": 1,
+        "D": 3,
+        "E": 5,
+        "F": 4,
+        "G": 4,
+        "H": 2,
+        "I": 2
+      },
+      "adequacy": 1.75,
+      "potential": 3.4,
+      "category": "Eliminirati"
+    },
+    {
+      "id": "8ebf74f2-85fb-4965-91b3-2aaa2b36ef4e",
+      "assessed_by": "master@example.com",
+      "full_name": "Savršena Savršenić",
+      "position": "Direktorica savršenstva",
+      "management_level": "B-1",
+      "dimensions": {
+        "A": 5,
+        "B": 5,
+        "C": 5,
+        "D": 5,
+        "E": 5,
+        "F": 5,
+        "G": 5,
+        "H": 5,
+        "I": 5
+      },
+      "adequacy": 5.0,
+      "potential": 5.0,
+      "category": "Primjer"
+    }
+  ]
+}
