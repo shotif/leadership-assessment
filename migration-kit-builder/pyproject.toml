@@ -1,0 +1,22 @@
+[project]
+name = "claude-migration-kit"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Claude", email = "noreply@anthropic.com" }
+]
+requires-python = ">=3.11"
+dependencies = [
+    "anthropic>=0.97.0",
+    "pydantic>=2.13.3",
+    "rich>=15.0.0",
+    "tomli-w>=1.0",
+    "typer>=0.25.1",
+]
+
+[project.scripts]
+claude-migration-kit = "claude_migration_kit:main"
+
+[build-system]
+requires = ["uv_build>=0.8.17,<0.9.0"]
+build-backend = "uv_build"
