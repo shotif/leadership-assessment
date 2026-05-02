@@ -31,7 +31,7 @@ from .classifier import (
     render_system_prompt,
 )
 from .inventory import build_inventory
-from .models import Inventory
+from .models import ConversationSummary, Inventory
 from .parser import ParseError, parse_export
 
 app = typer.Typer(
@@ -376,11 +376,149 @@ def classify_cmd(
     )
 
 
+def _resolve_inventory(out_dir: Path, export: Path) -> Inventory:
+    """Load inventory.json from out_dir, rebuilding from export if missing."""
+    inv_path = out_dir / "inventory.json"
+    if inv_path.exists():
+        return Inventory.model_validate_json(inv_path.read_text(encoding="utf-8"))
+    parsed = parse_export(export)
+    return build_inventory(parsed)
+
+
+def _render_selection_preview(
+    result: "SelectionResult",
+    views_by_id: dict[str, "ConversationView"],
+) -> None:
+    by_project_kept: dict[str, list[ConversationSummary]] = {}
+    by_project_dropped: dict[str, int] = {}
+    for c in result.kept:
+        slug = views_by_id[c.uuid].project_slug
+        by_project_kept.setdefault(slug, []).append(c)
+    for c, _ in result.dropped:
+        slug = views_by_id[c.uuid].project_slug
+        by_project_dropped[slug] = by_project_dropped.get(slug, 0) + 1
+
+    t = Table(title="Selection result by project")
+    t.add_column("Slug", style="cyan", no_wrap=True)
+    t.add_column("Kept", justify="right")
+    t.add_column("Dropped", justify="right", style="dim")
+    t.add_column("Kept tokens", justify="right")
+    all_slugs = sorted(set(by_project_kept) | set(by_project_dropped))
+    total_kept_tokens = 0
+    for slug in all_slugs:
+        kept = by_project_kept.get(slug, [])
+        tokens = sum(c.estimated_tokens for c in kept)
+        total_kept_tokens += tokens
+        t.add_row(slug, str(len(kept)), str(by_project_dropped.get(slug, 0)), f"{tokens:,}")
+    console.print(t)
+
+    drop_reasons: dict[str, int] = {}
+    for _, reason in result.dropped:
+        drop_reasons[reason] = drop_reasons.get(reason, 0) + 1
+    if drop_reasons:
+        t = Table(title="Drop reasons")
+        t.add_column("Reason")
+        t.add_column("Count", justify="right")
+        for reason, n in sorted(drop_reasons.items(), key=lambda kv: -kv[1]):
+            t.add_row(reason, str(n))
+        console.print(t)
+
+    console.print(
+        Panel.fit(
+            f"[bold]Kept:[/bold] {len(result.kept)}    "
+            f"[bold]Dropped:[/bold] {len(result.dropped)}    "
+            f"[bold]Kept est. tokens:[/bold] {total_kept_tokens:,}",
+            title="Totals",
+        )
+    )
+
+
 @app.command("select")
-def select_cmd() -> None:
-    """Phase 2: write selection.toml from the inventory. (Not implemented yet.)"""
-    console.print("[yellow]Phase 2 not implemented yet.[/yellow]")
-    raise typer.Exit(1)
+def select_cmd(
+    export: Annotated[
+        Path,
+        typer.Argument(
+            exists=True,
+            readable=True,
+            help="Path to the Claude export — used to rebuild inventory if missing.",
+        ),
+    ],
+    out_dir: Annotated[
+        Path,
+        typer.Option("--out", "-o", help="Output directory (must contain mappings.toml)."),
+    ] = Path("migration-kit"),
+    apply_selection: Annotated[
+        bool,
+        typer.Option(
+            "--apply-selection",
+            help="Apply the rules in selection.toml and print a preview. "
+            "Default behavior writes a fresh selection.toml with defaults.",
+        ),
+    ] = False,
+) -> None:
+    """Phase 2: write/apply selection.toml to filter what enters the kit."""
+    from .selection import (
+        ConversationView,
+        Selection,
+        SelectionResult,
+        apply,
+        build_views,
+        render_default,
+    )
+
+    mappings_path = out_dir / "mappings.toml"
+    if not mappings_path.exists():
+        console.print(
+            f"[red]Missing[/red] {mappings_path}. "
+            "Run [bold]classify --apply[/bold] first."
+        )
+        raise typer.Exit(2)
+
+    try:
+        inv = _resolve_inventory(out_dir, export)
+    except ParseError as exc:
+        console.print(f"[red]Parse error:[/red] {exc}")
+        raise typer.Exit(2)
+
+    import tomllib
+
+    mappings_doc = tomllib.loads(mappings_path.read_text(encoding="utf-8"))
+    views = build_views(inv, mappings_doc)
+    views_by_id = {v.summary.uuid: v for v in views}
+
+    selection_path = out_dir / "selection.toml"
+
+    if not apply_selection:
+        slugs = sorted({p.slug for p in inv.projects} | {"standalone"})
+        out_dir.mkdir(parents=True, exist_ok=True)
+        if selection_path.exists():
+            console.print(
+                f"[yellow]Refusing to overwrite[/yellow] {selection_path}. "
+                "Delete it first if you want fresh defaults."
+            )
+            raise typer.Exit(1)
+        selection_path.write_text(render_default(slugs), encoding="utf-8")
+        console.print(f"[green]Wrote[/green] {selection_path}")
+        console.print(
+            "[dim]Edit it, then re-run with [bold]--apply-selection[/bold] "
+            "to preview the kept set.[/dim]"
+        )
+        return
+
+    if not selection_path.exists():
+        console.print(
+            f"[red]Missing[/red] {selection_path}. "
+            "Run [bold]select[/bold] (without --apply-selection) first to generate defaults."
+        )
+        raise typer.Exit(2)
+
+    sel = Selection.from_toml(selection_path)
+    result = apply(views, sel)
+    _render_selection_preview(result, views_by_id)
+    console.print(
+        f"[dim]Edit {selection_path} and re-run --apply-selection to iterate. "
+        "Phase 3 (build) will use the same selection.toml.[/dim]"
+    )
 
 
 @app.command("build")
