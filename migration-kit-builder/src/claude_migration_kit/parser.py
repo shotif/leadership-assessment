@@ -19,6 +19,9 @@ from .models import (
 CONVERSATION_FILE_NAMES = {"conversations.json"}
 PROJECT_FILE_NAMES = {"projects.json"}
 USER_FILE_NAMES = {"users.json"}
+MEMORIES_FILE_NAMES = {"memories.json"}
+# Newer exports place one JSON per project under a "projects/" directory.
+PROJECT_DIR_NAME = "projects"
 
 
 class ParseError(RuntimeError):
@@ -35,6 +38,7 @@ class Export:
         conversations: list[Conversation],
         loose_knowledge_files: dict[str, bytes],
         raw_files: dict[str, int],
+        memories: Any | None = None,
     ) -> None:
         self.source = source
         self.projects = projects
@@ -44,6 +48,8 @@ class Export:
         self.loose_knowledge_files = loose_knowledge_files
         # Inventory of every file in the archive (path -> size) for debugging.
         self.raw_files = raw_files
+        # Raw memories.json contents if present (used for memory-seed in P3).
+        self.memories = memories
 
 
 def _read_archive(path: Path) -> dict[str, bytes]:
@@ -112,12 +118,31 @@ def parse_export(path: Path) -> Export:
 
     proj_member = _pick(PROJECT_FILE_NAMES)
     projects: list[Project] = []
+    project_member_paths: set[str] = set()
     if proj_member:
         proj_raw = _load_json(files[proj_member], "projects.json")
         if isinstance(proj_raw, list):
             projects = [Project.model_validate(p) for p in proj_raw]
+            project_member_paths.add(proj_member)
 
-    # Reconstruct projects from conversations if no projects.json shipped.
+    # Newer export: one file per project under projects/.
+    if not projects:
+        for member, blob in files.items():
+            parts = Path(member).parts
+            if (
+                len(parts) >= 2
+                and parts[0] == PROJECT_DIR_NAME
+                and member.endswith(".json")
+            ):
+                try:
+                    raw = _load_json(blob, member)
+                except ParseError:
+                    continue
+                if isinstance(raw, dict) and raw.get("uuid"):
+                    projects.append(Project.model_validate(raw))
+                    project_member_paths.add(member)
+
+    # Reconstruct projects from conversations as a last resort.
     if not projects:
         seen: dict[str, Project] = {}
         for c in conversations:
@@ -129,16 +154,28 @@ def parse_export(path: Path) -> Export:
                 seen[pid] = Project(uuid=pid, name=name or pid[:8])
         projects = list(seen.values())
 
+    memories_member = _pick(MEMORIES_FILE_NAMES)
+    memories: Any | None = None
+    if memories_member:
+        try:
+            memories = _load_json(files[memories_member], "memories.json")
+        except ParseError:
+            memories = None
+
     # Loose knowledge files: anything alongside the JSON that isn't itself
     # one of the manifest files. Common layouts include a per-project
     # subdirectory or a top-level "files/" folder.
-    skip = set(CONVERSATION_FILE_NAMES | PROJECT_FILE_NAMES | USER_FILE_NAMES)
+    skip_basenames = set(
+        CONVERSATION_FILE_NAMES | PROJECT_FILE_NAMES | USER_FILE_NAMES | MEMORIES_FILE_NAMES
+    )
     loose: dict[str, bytes] = {}
     for member, blob in files.items():
         base = Path(member).name
-        if base in skip:
+        if base in skip_basenames:
             continue
         if base.startswith("."):
+            continue
+        if member in project_member_paths:
             continue
         loose[member] = blob
 
@@ -149,6 +186,7 @@ def parse_export(path: Path) -> Export:
         conversations=conversations,
         loose_knowledge_files=loose,
         raw_files=raw_inventory,
+        memories=memories,
     )
 
 
