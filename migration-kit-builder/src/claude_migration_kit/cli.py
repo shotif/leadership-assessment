@@ -522,10 +522,194 @@ def select_cmd(
 
 
 @app.command("build")
-def build_cmd() -> None:
-    """Phase 3: render the migration kit. (Not implemented yet.)"""
-    console.print("[yellow]Phase 3 not implemented yet.[/yellow]")
-    raise typer.Exit(1)
+def build_cmd(
+    export: Annotated[
+        Path,
+        typer.Argument(
+            exists=True,
+            readable=True,
+            help="Path to the Claude export.",
+        ),
+    ],
+    out_dir: Annotated[
+        Path,
+        typer.Option("--out", "-o", help="Output directory for the migration kit."),
+    ] = Path("migration-kit"),
+) -> None:
+    """Phase 3: materialize the kit on disk.
+
+    Writes the directory structure, copies instructions/knowledge, renders
+    conversations, and creates skeleton files for context-digest /
+    memory-seed / settings-checklist. Does NOT call the API. The synthesis
+    step (LLM-driven) is left for a follow-up.
+    """
+    from . import build as build_mod
+    from .selection import Selection, apply, build_views
+    import tomllib
+
+    mappings_path = out_dir / "mappings.toml"
+    selection_path = out_dir / "selection.toml"
+    if not mappings_path.exists() or not selection_path.exists():
+        console.print(
+            f"[red]Missing[/red] {mappings_path} or {selection_path}. "
+            "Run [bold]classify --apply[/bold] and [bold]select[/bold] first."
+        )
+        raise typer.Exit(2)
+
+    try:
+        parsed = parse_export(export)
+    except ParseError as exc:
+        console.print(f"[red]Parse error:[/red] {exc}")
+        raise typer.Exit(2)
+
+    inv = build_inventory(parsed)
+    mappings_doc = tomllib.loads(mappings_path.read_text(encoding="utf-8"))
+    sel = Selection.from_toml(selection_path)
+    views = build_views(inv, mappings_doc)
+    result = apply(views, sel)
+    kept_ids = {c.uuid for c in result.kept}
+
+    # Index: uuid -> Conversation, slug -> Project
+    convs_by_id = {c.uuid: c for c in parsed.conversations}
+    parsed_projects_by_uuid = {p.uuid: p for p in parsed.projects}
+    projects_by_slug = {
+        ps.slug: parsed_projects_by_uuid[ps.uuid]
+        for ps in inv.projects
+        if ps.uuid in parsed_projects_by_uuid
+    }
+    project_summaries_by_slug = {p.slug: p for p in inv.projects}
+
+    # Conversation slug -> project slug from mappings
+    slug_for_conv: dict[str, str] = {}
+    for cid, info in mappings_doc.get("conversations", {}).items():
+        if isinstance(info, dict):
+            slug_for_conv[cid] = info.get("project_slug", "standalone")
+
+    # Build per-project kept conversation lists
+    by_project: dict[str, list] = {}
+    standalone: list = []
+    for cid in kept_ids:
+        conv = convs_by_id.get(cid)
+        if conv is None:
+            continue
+        slug = slug_for_conv.get(cid, "standalone")
+        if slug == "standalone" or slug not in projects_by_slug:
+            standalone.append(conv)
+        else:
+            by_project.setdefault(slug, []).append(conv)
+
+    # Knowledge files from the loose archive set, re-keyed by project slug.
+    from .parser import attach_knowledge_to_projects
+
+    archive_kn = attach_knowledge_to_projects(
+        parsed.projects, parsed.loose_knowledge_files
+    )
+    slug_by_uuid = {ps.uuid: ps.slug for ps in inv.projects}
+    knowledge_by_slug: dict[str, list[tuple[str, bytes]]] = {}
+    for uuid, files in archive_kn.items():
+        slug = slug_by_uuid.get(uuid)
+        if not slug or not files:
+            continue
+        knowledge_by_slug[slug] = [
+            (member, parsed.loose_knowledge_files[member])
+            for member, _size in files
+            if member in parsed.loose_knowledge_files
+        ]
+
+    # Per-project memory from memories.json (keyed by uuid)
+    project_memories_by_slug: dict[str, str] = {}
+    if isinstance(parsed.memories, list) and parsed.memories:
+        first = parsed.memories[0]
+        if isinstance(first, dict):
+            pm = first.get("project_memories") or {}
+            if isinstance(pm, dict):
+                for uuid, text in pm.items():
+                    for ps in inv.projects:
+                        if ps.uuid == uuid and isinstance(text, str):
+                            project_memories_by_slug[ps.slug] = text
+
+    out_dir.mkdir(parents=True, exist_ok=True)
+    project_dirs: list[tuple[str, Path, int]] = []
+    for slug, convs in sorted(by_project.items()):
+        proj = projects_by_slug.get(slug)
+        if proj is None:
+            continue
+        proj_dir = build_mod.write_project(
+            out_dir=out_dir,
+            project=proj,
+            project_slug=slug,
+            kept_conversations=sorted(
+                convs,
+                key=lambda c: c.updated_at or c.created_at or datetime.min.replace(tzinfo=timezone.utc),
+                reverse=True,
+            ),
+            knowledge_files_from_archive=knowledge_by_slug.get(slug),
+            project_memory=project_memories_by_slug.get(slug),
+        )
+        project_dirs.append((slug, proj_dir, len(convs)))
+        console.print(
+            f"  wrote projects/{slug}/  ({len(convs)} convs, "
+            f"{len(proj.docs)} docs)"
+        )
+
+    used_standalone: set[str] = set()
+    for conv in sorted(
+        standalone,
+        key=lambda c: c.updated_at or c.created_at or datetime.min.replace(tzinfo=timezone.utc),
+        reverse=True,
+    ):
+        build_mod.write_standalone(out_dir, conv, used_standalone)
+    console.print(f"  wrote standalone/  ({len(standalone)} convs)")
+
+    # Memory seed — start from the verbatim conversations_memory if present,
+    # otherwise leave a placeholder.
+    memory_text: str | None = None
+    if isinstance(parsed.memories, list) and parsed.memories:
+        first = parsed.memories[0]
+        if isinstance(first, dict):
+            cm = first.get("conversations_memory")
+            if isinstance(cm, str) and cm.strip():
+                memory_text = cm.strip()
+
+    if memory_text:
+        memory_md = (
+            "# Memory seed\n\n"
+            "Paste the section below into a fresh Enterprise chat with the "
+            "instruction: *\"Save this as standing memory for our future "
+            "conversations.\"* Trim or rewrite anything you don't want carried "
+            "over.\n\n"
+            "---\n\n"
+            f"{memory_text}\n"
+        )
+    else:
+        memory_md = (
+            "# Memory seed\n\n"
+            "_(memories.json was empty or absent — synthesize 10–15 standing "
+            "facts manually from the project digests.)_\n"
+        )
+    (out_dir / "memory-seed.md").write_text(memory_md, encoding="utf-8")
+    console.print("  wrote memory-seed.md")
+
+    (out_dir / "settings-checklist.md").write_text(
+        build_mod.render_settings_checklist(parsed.memories), encoding="utf-8"
+    )
+    console.print("  wrote settings-checklist.md")
+
+    (out_dir / "README.md").write_text(
+        build_mod.render_readme(out_dir, project_dirs, len(standalone), bool(memory_text)),
+        encoding="utf-8",
+    )
+    console.print("  wrote README.md")
+
+    console.print(
+        f"\n[green]Mechanical build complete.[/green] {len(by_project)} projects, "
+        f"{sum(n for _, _, n in project_dirs)} project conversations, "
+        f"{len(standalone)} standalone."
+    )
+    console.print(
+        "[dim]Per-project context-digest.md is a placeholder — fill it via "
+        "API call or in-chat synthesis.[/dim]"
+    )
 
 
 def main() -> None:
