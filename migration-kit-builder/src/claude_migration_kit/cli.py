@@ -233,6 +233,20 @@ def classify_cmd(
             help="Classify 3 sample conversations and print estimated full-run cost. (Default.)",
         ),
     ] = False,
+    in_chat: Annotated[
+        bool,
+        typer.Option(
+            "--in-chat",
+            help="Skip the API; write a self-contained prompt file the user pastes into any Claude session.",
+        ),
+    ] = False,
+    import_inchat: Annotated[
+        bool,
+        typer.Option(
+            "--import-inchat",
+            help="Read inchat-classify-response.json and bake it into mappings.toml.",
+        ),
+    ] = False,
     threshold: Annotated[
         float,
         typer.Option(
@@ -242,17 +256,6 @@ def classify_cmd(
     ] = 0.6,
 ) -> None:
     """Phase 1.5: classify conversations against projects (or 'standalone')."""
-    if apply == dry_run:
-        # If both true or both false, default to dry-run (safer).
-        dry_run, apply = True, False
-
-    if not os.environ.get("ANTHROPIC_API_KEY"):
-        console.print(
-            "[red]ANTHROPIC_API_KEY is not set.[/red] "
-            "Export it before running this command."
-        )
-        raise typer.Exit(2)
-
     try:
         parsed = parse_export(export)
     except ParseError as exc:
@@ -273,6 +276,28 @@ def classify_cmd(
 
     convs = parsed.conversations
     payloads = [build_payload(c) for c in convs]
+
+    if in_chat:
+        _classify_write_inchat_prompt(
+            out_dir, system_prompt, payloads, len(catalog)
+        )
+        return
+    if import_inchat:
+        _classify_import_inchat(out_dir, payloads, valid_slugs, threshold)
+        return
+
+    if apply == dry_run:
+        # If both true or both false, default to dry-run (safer).
+        dry_run, apply = True, False
+
+    if not os.environ.get("ANTHROPIC_API_KEY"):
+        console.print(
+            "[red]ANTHROPIC_API_KEY is not set.[/red] "
+            "Export it before running this command, "
+            "or use [bold]--in-chat[/bold] to skip the API."
+        )
+        raise typer.Exit(2)
+
     client = anthropic.Anthropic()
 
     if dry_run:
@@ -374,6 +399,145 @@ def classify_cmd(
         "[dim]Edit mappings.toml by hand for anything that looks wrong, "
         "then proceed to Phase 2 (selection).[/dim]"
     )
+
+
+def _classify_write_inchat_prompt(
+    out_dir: Path,
+    system_prompt: str,
+    payloads: list[dict],
+    project_count: int,
+) -> None:
+    """Write a self-contained prompt file the user pastes into Claude."""
+    import json as _json
+
+    out_dir.mkdir(parents=True, exist_ok=True)
+    prompt_path = out_dir / "inchat-classify-prompt.md"
+    response_path = out_dir / "inchat-classify-response.json"
+
+    body = (
+        "# In-chat classification prompt\n\n"
+        "Paste **everything below the `---`** into a fresh Claude chat "
+        "(claude.ai web, Claude Code, etc.). Save the JSON Claude returns "
+        f"to `{response_path}`, then run:\n\n"
+        "```\n"
+        "uv run claude-migration-kit classify <export-path> --import-inchat\n"
+        "```\n\n"
+        f"Coverage: **{project_count} projects + standalone**, "
+        f"**{len(payloads)} conversations to classify**.\n\n"
+        "---\n\n"
+        f"{system_prompt}\n\n"
+        "## Conversations to classify\n\n"
+        "Return a JSON object with a `classifications` array. One entry per "
+        "conversation_id, in the same order. Each entry has fields: "
+        "`conversation_id` (string), `project_slug` (string), "
+        "`confidence` (number 0.0–1.0), `reason` (one sentence). "
+        "**Output JSON only, no prose.**\n\n"
+        "```json\n"
+        + _json.dumps({"conversations": payloads}, ensure_ascii=False, indent=2)
+        + "\n```\n"
+    )
+    prompt_path.write_text(body, encoding="utf-8")
+    console.print(f"[green]Wrote[/green] {prompt_path}")
+    console.print(
+        f"[dim]Paste it into Claude, save the JSON response to "
+        f"{response_path}, then re-run with --import-inchat.[/dim]"
+    )
+
+
+def _classify_import_inchat(
+    out_dir: Path,
+    payloads: list[dict],
+    valid_slugs: set[str],
+    threshold: float,
+) -> None:
+    """Read inchat-classify-response.json and bake it into mappings.toml."""
+    import json as _json
+    from .classifier import Mapping
+
+    response_path = out_dir / "inchat-classify-response.json"
+    if not response_path.exists():
+        console.print(
+            f"[red]Missing[/red] {response_path}. "
+            "Generate the prompt first with [bold]--in-chat[/bold]."
+        )
+        raise typer.Exit(2)
+
+    raw = response_path.read_text(encoding="utf-8")
+    try:
+        obj = _json.loads(raw)
+    except _json.JSONDecodeError as exc:
+        # Tolerate Claude wrapping the JSON in a markdown code fence.
+        import re as _re
+
+        match = _re.search(r"```(?:json)?\s*(.*?)\s*```", raw, _re.DOTALL)
+        if not match:
+            console.print(f"[red]Could not parse JSON:[/red] {exc}")
+            raise typer.Exit(2)
+        try:
+            obj = _json.loads(match.group(1))
+        except _json.JSONDecodeError as exc2:
+            console.print(f"[red]Could not parse JSON inside fence:[/red] {exc2}")
+            raise typer.Exit(2)
+
+    classifications = obj.get("classifications", obj if isinstance(obj, list) else [])
+    if not isinstance(classifications, list):
+        console.print(
+            "[red]Response must contain a 'classifications' array (or be the array directly).[/red]"
+        )
+        raise typer.Exit(2)
+
+    by_id: dict[str, dict] = {}
+    for r in classifications:
+        if isinstance(r, dict) and isinstance(r.get("conversation_id"), str):
+            by_id[r["conversation_id"]] = r
+
+    titles = {p["conversation_id"]: p["title"] for p in payloads}
+    mappings: list[Mapping] = []
+    missing: list[str] = []
+    for p in payloads:
+        cid = p["conversation_id"]
+        r = by_id.get(cid)
+        if r is None:
+            missing.append(cid)
+            mappings.append(
+                Mapping(
+                    conversation_id=cid,
+                    title=titles[cid],
+                    project_slug=STANDALONE_SLUG,
+                    confidence=0.0,
+                    reason="missing from in-chat response",
+                )
+            )
+            continue
+        slug = str(r.get("project_slug") or STANDALONE_SLUG)
+        if slug not in valid_slugs:
+            slug = STANDALONE_SLUG
+        try:
+            conf = float(r.get("confidence", 0.0))
+        except (TypeError, ValueError):
+            conf = 0.0
+        conf = max(0.0, min(1.0, conf))
+        mappings.append(
+            Mapping(
+                conversation_id=cid,
+                title=titles[cid],
+                project_slug=slug,
+                confidence=conf,
+                reason=str(r.get("reason") or ""),
+            )
+        )
+
+    out_dir.mkdir(parents=True, exist_ok=True)
+    mappings_path = out_dir / "mappings.toml"
+    _write_mappings_toml(mappings_path, mappings, UsageTotals(), threshold)
+    console.print(f"[green]Wrote[/green] {mappings_path}")
+    if missing:
+        console.print(
+            f"[yellow]Note:[/yellow] {len(missing)} conversation(s) were "
+            "missing from the response and defaulted to 'standalone' with "
+            "confidence 0.0 (top of file for review)."
+        )
+    _render_classify_summary(mappings, threshold, UsageTotals())
 
 
 def _resolve_inventory(out_dir: Path, export: Path) -> Inventory:
@@ -535,13 +699,22 @@ def build_cmd(
         Path,
         typer.Option("--out", "-o", help="Output directory for the migration kit."),
     ] = Path("migration-kit"),
+    in_chat: Annotated[
+        bool,
+        typer.Option(
+            "--in-chat",
+            help="Also write per-project digest prompt files the user can paste into Claude.",
+        ),
+    ] = False,
 ) -> None:
     """Phase 3: materialize the kit on disk.
 
     Writes the directory structure, copies instructions/knowledge, renders
     conversations, and creates skeleton files for context-digest /
-    memory-seed / settings-checklist. Does NOT call the API. The synthesis
-    step (LLM-driven) is left for a follow-up.
+    memory-seed / settings-checklist. Does NOT call the API. With
+    --in-chat, also drops a per-project prompt file with the embedded
+    source material that the user can paste into any Claude session to
+    generate the digest.
     """
     from . import build as build_mod
     from .selection import Selection, apply, build_views
@@ -687,29 +860,131 @@ def build_cmd(
             "_(memories.json was empty or absent — synthesize 10–15 standing "
             "facts manually from the project digests.)_\n"
         )
-    (out_dir / "memory-seed.md").write_text(memory_md, encoding="utf-8")
-    console.print("  wrote memory-seed.md")
+    if build_mod.write_text_preserve(out_dir / "memory-seed.md", memory_md):
+        console.print("  wrote memory-seed.md")
+    else:
+        console.print("  [dim]skipped memory-seed.md (already exists)[/dim]")
 
-    (out_dir / "settings-checklist.md").write_text(
-        build_mod.render_settings_checklist(parsed.memories), encoding="utf-8"
-    )
-    console.print("  wrote settings-checklist.md")
+    if build_mod.write_text_preserve(
+        out_dir / "settings-checklist.md",
+        build_mod.render_settings_checklist(parsed.memories),
+    ):
+        console.print("  wrote settings-checklist.md")
+    else:
+        console.print("  [dim]skipped settings-checklist.md (already exists)[/dim]")
 
-    (out_dir / "README.md").write_text(
+    if build_mod.write_text_preserve(
+        out_dir / "README.md",
         build_mod.render_readme(out_dir, project_dirs, len(standalone), bool(memory_text)),
-        encoding="utf-8",
-    )
-    console.print("  wrote README.md")
+    ):
+        console.print("  wrote README.md")
+    else:
+        console.print("  [dim]skipped README.md (already exists)[/dim]")
 
     console.print(
         f"\n[green]Mechanical build complete.[/green] {len(by_project)} projects, "
         f"{sum(n for _, _, n in project_dirs)} project conversations, "
         f"{len(standalone)} standalone."
     )
-    console.print(
-        "[dim]Per-project context-digest.md is a placeholder — fill it via "
-        "API call or in-chat synthesis.[/dim]"
+
+    if in_chat:
+        for slug, proj_dir, _ in project_dirs:
+            project = projects_by_slug[slug]
+            convs = sorted(
+                by_project.get(slug, []),
+                key=lambda c: c.updated_at or c.created_at or datetime.min.replace(tzinfo=timezone.utc),
+                reverse=True,
+            )
+            _build_write_inchat_digest_prompt(
+                proj_dir=proj_dir,
+                project_slug=slug,
+                project_name=project.name or slug,
+                instructions=(project.prompt_template or "").strip(),
+                knowledge_filenames=[d.name for d in project.docs],
+                project_memory=project_memories_by_slug.get(slug),
+                conversations=convs,
+            )
+            console.print(f"  wrote projects/{slug}/inchat-digest-prompt.md")
+        console.print(
+            "\n[dim]Per-project digest prompts written. Paste each into a "
+            "Claude session, then save the result over the project's "
+            "context-digest.md.[/dim]"
+        )
+    else:
+        console.print(
+            "[dim]Per-project context-digest.md is a placeholder — re-run "
+            "with [bold]--in-chat[/bold] to drop a paste-ready prompt per "
+            "project, or fill them by hand.[/dim]"
+        )
+
+
+def _build_write_inchat_digest_prompt(
+    *,
+    proj_dir: Path,
+    project_slug: str,
+    project_name: str,
+    instructions: str,
+    knowledge_filenames: list[str],
+    project_memory: str | None,
+    conversations: list,
+) -> None:
+    """Write a per-project digest prompt with embedded source material."""
+    from .build import render_conversation
+
+    transcripts: list[str] = []
+    for c in conversations:
+        transcripts.append(render_conversation(c))
+    transcripts_blob = "\n\n---\n\n".join(transcripts)
+
+    body = (
+        f"# In-chat digest prompt — {project_name}\n\n"
+        "Paste **everything below the `---`** into a fresh Claude chat. "
+        "Save Claude's markdown reply over the existing "
+        f"`{proj_dir}/context-digest.md`.\n\n"
+        "If your Claude session has a context limit, paste the source-"
+        "material section and the instructions in two messages.\n\n"
+        "---\n\n"
+        f"You are synthesizing a context digest for a Claude Enterprise "
+        f"project being rebuilt from a previous account. The digest will "
+        f"be pasted into the first chat in the new project to prime its "
+        f"memory. Project name: **{project_name}** (slug `{project_slug}`).\n\n"
+        "## Output format\n\n"
+        "Produce a Markdown document of roughly 600 words with these "
+        "sections, in this order:\n\n"
+        "1. **Purpose** — what the project is for.\n"
+        "2. **Key decisions taken so far** — bullet list of concrete "
+        "decisions with their rationale.\n"
+        "3. **Current state** — what's been produced, what's in flight.\n"
+        "4. **Important artifacts** — named deliverables / docs / "
+        "datasets to remember.\n"
+        "5. **Open threads** — what's still undecided or unfinished.\n"
+        "6. **What to ask Claude next** — the most likely follow-up "
+        "prompts when picking this project up.\n\n"
+        "Ground the digest in concrete signal from the source material. "
+        "Use named entities (people, tools, programs). Drop hedging.\n\n"
+        "## Source material\n\n"
+        "### Custom instructions\n\n"
+        + (
+            f"```\n{instructions}\n```\n"
+            if instructions
+            else "_(none)_\n"
+        )
+        + "\n### Knowledge files attached to this project\n\n"
+        + (
+            "\n".join(f"- `{f}`" for f in knowledge_filenames) + "\n"
+            if knowledge_filenames
+            else "_(none)_\n"
+        )
+        + "\n### Project memory (from `memories.json`)\n\n"
+        + (
+            f"```\n{project_memory.strip()}\n```\n"
+            if project_memory
+            else "_(none)_\n"
+        )
+        + f"\n### Conversation transcripts ({len(conversations)})\n\n"
+        f"{transcripts_blob}\n"
     )
+    (proj_dir / "inchat-digest-prompt.md").write_text(body, encoding="utf-8")
 
 
 def main() -> None:

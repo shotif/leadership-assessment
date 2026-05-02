@@ -1,0 +1,717 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Operating Plan & Steering Process — Systemic Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FAF8F5;
+    --bg-alt:#F2EEE7;
+    --ink:#161614;
+    --ink-soft:#4A4742;
+    --ink-mute:#8A857D;
+    --rule:#E1DAD0;
+    --magenta:#E20074;
+    --magenta-dim:#A8005A;
+    --magenta-wash:#FBE6F0;
+    --green:#166534;
+    --amber:#B45309;
+    --red:#B91C1C;
+    --grey-bar:#D9D2C7;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'IBM Plex Sans',-apple-system,sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  .page{max-width:880px;margin:0 auto;padding:80px 60px 120px}
+  @media (max-width:720px){.page{padding:48px 24px 80px}}
+
+  /* Cover */
+  .cover{padding-bottom:64px;border-bottom:1px solid var(--rule);margin-bottom:72px}
+  .meta{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:48px;
+  }
+  .meta .magenta-mark{
+    width:28px;height:6px;background:var(--magenta);display:inline-block;
+  }
+  h1.title{
+    font-family:'Fraunces',serif;
+    font-weight:400;
+    font-size:64px;
+    line-height:1.05;
+    letter-spacing:-0.025em;
+    margin:0 0 28px;
+    font-variation-settings:"opsz" 144,"SOFT" 30;
+  }
+  h1.title em{font-style:italic;font-weight:300;color:var(--magenta-dim)}
+  .subtitle{
+    font-family:'Fraunces',serif;
+    font-style:italic;
+    font-weight:300;
+    font-size:22px;
+    color:var(--ink-soft);
+    line-height:1.4;
+    max-width:640px;
+    margin:0 0 40px;
+  }
+  .cover-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:24px;
+    padding-top:32px;
+    border-top:1px solid var(--rule);
+  }
+  @media (max-width:720px){.cover-stats{grid-template-columns:repeat(2,1fr)}}
+  .stat{padding:0}
+  .stat .num{
+    font-family:'Fraunces',serif;
+    font-size:36px;
+    font-weight:500;
+    line-height:1;
+    color:var(--ink);
+    letter-spacing:-0.02em;
+  }
+  .stat .num.warn{color:var(--magenta-dim)}
+  .stat .label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+    margin-top:8px;
+    line-height:1.4;
+  }
+
+  /* Section */
+  section{margin-bottom:88px}
+  .section-num{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.15em;
+    color:var(--magenta);
+    margin-bottom:12px;
+  }
+  h2{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:38px;
+    line-height:1.1;
+    letter-spacing:-0.02em;
+    margin:0 0 24px;
+    max-width:680px;
+  }
+  h2 em{font-style:italic;font-weight:300;color:var(--ink-soft)}
+  h3{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:24px;
+    line-height:1.25;
+    letter-spacing:-0.01em;
+    margin:48px 0 16px;
+    color:var(--ink);
+  }
+  h3 .num-prefix{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    color:var(--magenta);
+    margin-right:14px;
+    font-weight:500;
+    vertical-align:0.15em;
+  }
+  p{margin:0 0 18px;max-width:680px}
+  p.lead{
+    font-family:'Fraunces',serif;
+    font-size:21px;
+    line-height:1.5;
+    font-weight:300;
+    color:var(--ink-soft);
+    max-width:680px;
+    margin-bottom:32px;
+  }
+  strong{font-weight:600;color:var(--ink)}
+
+  /* Pull quote */
+  .pullquote{
+    border-left:3px solid var(--magenta);
+    padding:8px 0 8px 24px;
+    margin:32px 0 32px;
+    font-family:'Fraunces',serif;
+    font-size:22px;
+    line-height:1.4;
+    font-style:italic;
+    font-weight:400;
+    color:var(--ink);
+    max-width:660px;
+  }
+
+  /* Findings list (executive summary) */
+  ol.findings{
+    list-style:none;
+    counter-reset:fitem;
+    padding:0;
+    margin:32px 0 0;
+    max-width:720px;
+  }
+  ol.findings li{
+    counter-increment:fitem;
+    padding:24px 0 24px 64px;
+    border-top:1px solid var(--rule);
+    position:relative;
+  }
+  ol.findings li:last-child{border-bottom:1px solid var(--rule)}
+  ol.findings li::before{
+    content:counter(fitem,decimal-leading-zero);
+    position:absolute;
+    left:0;
+    top:24px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--magenta);
+    letter-spacing:0.1em;
+  }
+  ol.findings li .head{
+    font-family:'Fraunces',serif;
+    font-size:19px;
+    line-height:1.3;
+    font-weight:500;
+    color:var(--ink);
+    margin-bottom:6px;
+  }
+  ol.findings li .body{
+    font-size:15px;
+    color:var(--ink-soft);
+    line-height:1.55;
+  }
+
+  /* Tables */
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:24px 0;
+    font-size:14px;
+  }
+  thead th{
+    text-align:left;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+    font-weight:500;
+    padding:10px 12px 10px 0;
+    border-bottom:1px solid var(--ink);
+  }
+  thead th.num{text-align:right}
+  tbody td{
+    padding:12px 12px 12px 0;
+    border-bottom:1px solid var(--rule);
+    vertical-align:top;
+  }
+  tbody td.num{text-align:right;font-variant-numeric:tabular-nums;font-family:'IBM Plex Mono',monospace;font-size:13px}
+  tbody td.label{font-weight:500}
+  .badge{
+    display:inline-block;
+    padding:2px 8px;
+    border-radius:2px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    font-weight:500;
+  }
+  .badge.red{background:#FEE2E2;color:var(--red)}
+  .badge.amber{background:#FEF3C7;color:var(--amber)}
+  .badge.green{background:#DCFCE7;color:var(--green)}
+  .badge.magenta{background:var(--magenta-wash);color:var(--magenta-dim)}
+
+  /* Bar viz */
+  .viz{margin:32px 0;padding:28px;background:var(--bg-alt);border:1px solid var(--rule)}
+  .viz-title{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+    margin-bottom:20px;
+  }
+  .bar-row{
+    display:grid;
+    grid-template-columns:140px 1fr 60px;
+    align-items:center;
+    gap:16px;
+    margin-bottom:10px;
+    font-size:13px;
+  }
+  .bar-row .lbl{color:var(--ink);font-weight:500}
+  .bar-row .bar{
+    height:16px;
+    background:var(--grey-bar);
+    position:relative;
+    overflow:hidden;
+  }
+  .bar-row .bar .fill{
+    height:100%;
+    background:var(--ink);
+    transition:width 0.8s ease;
+  }
+  .bar-row .bar .fill.magenta{background:var(--magenta)}
+  .bar-row .bar .fill.dim{background:var(--ink-mute)}
+  .bar-row .val{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--ink-soft);
+    text-align:right;
+    font-variant-numeric:tabular-nums;
+  }
+
+  /* Two-col split */
+  .split{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:32px;
+    margin:32px 0;
+  }
+  @media (max-width:720px){.split{grid-template-columns:1fr}}
+  .panel{
+    padding:24px;
+    background:var(--bg-alt);
+    border-top:3px solid var(--ink);
+  }
+  .panel.before{border-top-color:var(--ink-mute)}
+  .panel.after{border-top-color:var(--magenta)}
+  .panel .ptag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-mute);
+    margin-bottom:8px;
+  }
+  .panel.after .ptag{color:var(--magenta)}
+  .panel h4{
+    font-family:'Fraunces',serif;
+    font-size:18px;
+    font-weight:500;
+    margin:0 0 12px;
+    line-height:1.3;
+  }
+  .panel p{font-size:14px;color:var(--ink-soft);margin-bottom:8px}
+
+  /* Proposal block */
+  .proposal{
+    margin:24px 0;
+    padding:28px 32px;
+    background:#fff;
+    border:1px solid var(--rule);
+    border-left:3px solid var(--magenta);
+    max-width:760px;
+  }
+  .proposal .ptype{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--magenta);
+    margin-bottom:8px;
+  }
+  .proposal h4{
+    font-family:'Fraunces',serif;
+    font-weight:500;
+    font-size:22px;
+    margin:0 0 12px;
+    line-height:1.25;
+  }
+  .proposal p{font-size:15px;color:var(--ink-soft)}
+  .proposal ul{margin:12px 0 0;padding-left:20px;font-size:14.5px;color:var(--ink-soft)}
+  .proposal ul li{margin-bottom:6px}
+  .proposal ul li strong{color:var(--ink)}
+
+  /* Footer */
+  footer{
+    margin-top:80px;
+    padding-top:32px;
+    border-top:1px solid var(--rule);
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    color:var(--ink-mute);
+    display:flex;
+    justify-content:space-between;
+  }
+
+  /* Inline highlight */
+  mark{
+    background:var(--magenta-wash);
+    color:var(--ink);
+    padding:1px 4px;
+    font-weight:500;
+  }
+
+  /* Case study box */
+  .case{
+    margin:32px 0;
+    padding:0;
+    background:var(--bg-alt);
+    border:1px solid var(--rule);
+  }
+  .case-head{
+    padding:16px 24px;
+    border-bottom:1px solid var(--rule);
+    background:var(--ink);
+    color:var(--bg);
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+  }
+  .case-head .ctag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--magenta);
+  }
+  .case-head .ctitle{
+    font-family:'Fraunces',serif;
+    font-size:16px;
+    font-style:italic;
+  }
+  .case-body{padding:24px}
+  .case-body table{margin:0}
+  .case-body thead th{color:var(--ink-soft);border-bottom-color:var(--ink-mute)}
+
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ==================== COVER ==================== -->
+  <div class="cover">
+    <div class="meta">
+      <span>Hrvatski Telekom &nbsp;·&nbsp; Internal review</span>
+      <span class="magenta-mark"></span>
+      <span>April 2026 &nbsp;·&nbsp; Confidential</span>
+    </div>
+    <h1 class="title">Operating Plan &amp;<br>Steering Process<br><em>— a systemic review</em></h1>
+    <p class="subtitle">A diagnosis of the 2026 Operating Plan as a model and as a process — and a structured proposal for what to change before the Q2 cycle.</p>
+    <div class="cover-stats">
+      <div class="stat"><div class="num">159</div><div class="label">Initiatives in plan</div></div>
+      <div class="stat"><div class="num">€37.8M</div><div class="label">Capex + IDC committed</div></div>
+      <div class="stat"><div class="num warn">23%</div><div class="label">Initiatives with no KPI<br>or status response</div></div>
+      <div class="stat"><div class="num warn">1 of 159</div><div class="label">Q2 forward-looking<br>field populated</div></div>
+    </div>
+  </div>
+
+  <!-- ==================== 01. EXECUTIVE SUMMARY ==================== -->
+  <section>
+    <div class="section-num">01 — Executive summary</div>
+    <h2>Six findings the Q2 review needs to confront.</h2>
+    <p class="lead">The 2026 Operating Plan has a real strategic backbone — five objectives, eighteen KRs, clear EMM ownership. But the model used to translate that backbone into 159 initiatives is internally inconsistent, and the quarterly steering process around it is reporting backward-looking activity rather than steering forward decisions. Below, in order of leverage, the six things that matter.</p>
+
+    <ol class="findings">
+      <li>
+        <div class="head">The definition of an "initiative" varies by an order of magnitude across the plan.</div>
+        <div class="body">A single line can mean a 10-KR cross-functional programme or a single workshop. The plan treats both as equal units, which makes prioritisation, resourcing, and reporting structurally incoherent.</div>
+      </li>
+      <li>
+        <div class="head">The largest initiatives carry the weakest KPIs.</div>
+        <div class="body">The ten broadest-reaching lines in the plan have KPIs like <em>"concept definition / feasibility"</em>, <em>"complete scope by end of Q1"</em>, or no KPI at all. The bigger the bet, the vaguer the measurement.</div>
+      </li>
+      <li>
+        <div class="head">There is no programme layer above initiatives, so the same theme is fragmented across multiple owners.</div>
+        <div class="body">Nine separate initiatives across six EMMs all touch "Digital Telco" with overlapping scope, no shared status, and no single accountable owner. The plan has no mechanism to detect this.</div>
+      </li>
+      <li>
+        <div class="head">The People objective (O2) holds 3% of the initiative base.</div>
+        <div class="body">Four initiatives against the entire "Build a winning team" agenda, versus 55 for Growth. This is structural under-resourcing of the objective that gates execution of every other objective.</div>
+      </li>
+      <li>
+        <div class="head">The quarterly steering process is backward-looking only.</div>
+        <div class="body">Q1 status field is 76% populated; Q1 KPI achievement, 53%; Q2 forward decisions and focus, <strong>1 of 159 (0.6%)</strong>. The review process captures what happened, not what to decide next.</div>
+      </li>
+      <li>
+        <div class="head">Reporting discipline varies by EMM, not by random noise.</div>
+        <div class="body">38 of 159 Q1 status entries are blank, but those blanks are concentrated: two EMMs together account for 20 of them. The model does not distinguish between an underperforming initiative and an underperforming reporter.</div>
+      </li>
+    </ol>
+  </section>
+
+  <!-- ==================== 02. PORTFOLIO AT A GLANCE ==================== -->
+  <section>
+    <div class="section-num">02 — Portfolio at a glance</div>
+    <h2>The shape of the plan, in numbers.</h2>
+    <p>Before naming the structural problems, it's worth seeing the portfolio's actual proportions. Three views matter most: how the financial weight is distributed, how initiatives are spread across the five objectives, and how Q1 actually closed.</p>
+
+    <div class="viz">
+      <div class="viz-title">€ Concentration — top initiatives carry almost all the budget</div>
+      <div class="bar-row"><div class="lbl">Top 5 initiatives</div><div class="bar"><div class="fill magenta" style="width:71%"></div></div><div class="val">71% of €37.8M</div></div>
+      <div class="bar-row"><div class="lbl">Top 10</div><div class="bar"><div class="fill magenta" style="width:89%"></div></div><div class="val">89%</div></div>
+      <div class="bar-row"><div class="lbl">Top 20</div><div class="bar"><div class="fill magenta" style="width:98%"></div></div><div class="val">98%</div></div>
+      <div class="bar-row"><div class="lbl">Remaining 139</div><div class="bar"><div class="fill dim" style="width:2%"></div></div><div class="val">2%</div></div>
+    </div>
+    <p style="font-size:14px;color:var(--ink-mute);max-width:680px">In other words: <strong>78% of the plan's initiatives carry no euro at all</strong>. They are work commitments, not budget commitments — and the plan is not built to distinguish the two.</p>
+
+    <div class="viz">
+      <div class="viz-title">Initiatives by main objective — O2 People is 3% of the plan</div>
+      <div class="bar-row"><div class="lbl">O3 Growth</div><div class="bar"><div class="fill" style="width:100%"></div></div><div class="val">55</div></div>
+      <div class="bar-row"><div class="lbl">O1 Customer</div><div class="bar"><div class="fill" style="width:71%"></div></div><div class="val">39</div></div>
+      <div class="bar-row"><div class="lbl">O4 Transformation</div><div class="bar"><div class="fill" style="width:71%"></div></div><div class="val">39</div></div>
+      <div class="bar-row"><div class="lbl">O5 Reputation</div><div class="bar"><div class="fill" style="width:29%"></div></div><div class="val">16</div></div>
+      <div class="bar-row"><div class="lbl">O2 People</div><div class="bar"><div class="fill magenta" style="width:7%"></div></div><div class="val">4</div></div>
+    </div>
+
+    <div class="viz">
+      <div class="viz-title">Q1 status closeout — 24% of lines have no answer</div>
+      <div class="bar-row"><div class="lbl">On track</div><div class="bar"><div class="fill" style="width:55%"></div></div><div class="val">87 (55%)</div></div>
+      <div class="bar-row"><div class="lbl">Done</div><div class="bar"><div class="fill" style="width:9%"></div></div><div class="val">14 (9%)</div></div>
+      <div class="bar-row"><div class="lbl">Postponed</div><div class="bar"><div class="fill magenta" style="width:6%"></div></div><div class="val">9 (6%)</div></div>
+      <div class="bar-row"><div class="lbl">Delayed</div><div class="bar"><div class="fill magenta" style="width:5%"></div></div><div class="val">8 (5%)</div></div>
+      <div class="bar-row"><div class="lbl">Canceled</div><div class="bar"><div class="fill magenta" style="width:2%"></div></div><div class="val">3 (2%)</div></div>
+      <div class="bar-row"><div class="lbl">No response</div><div class="bar"><div class="fill dim" style="width:24%"></div></div><div class="val">38 (24%)</div></div>
+    </div>
+  </section>
+
+  <!-- ==================== 03. STRUCTURAL PROBLEMS ==================== -->
+  <section>
+    <div class="section-num">03 — Diagnosis</div>
+    <h2>Five structural problems<br><em>with the model itself.</em></h2>
+    <p class="lead">These are not execution problems. They are problems with how the plan is built. Fixing them would change what the same EMMs produce, with the same effort, in the next cycle.</p>
+
+    <!-- 3.1 -->
+    <h3><span class="num-prefix">3.1</span>Granularity asymmetry — the unit "initiative" is meaningless</h3>
+    <p>The plan distributes 159 lines across 32 EMMs at a median of 3.5 per owner. That looks reasonable until you measure the actual <em>scope</em> of each line. Using a simple weighted score (L=3, M=2, S=1, summed across all KR cells touched) the distribution looks like this:</p>
+
+    <div class="viz">
+      <div class="viz-title">Initiative size distribution — bimodal, not normal</div>
+      <div class="bar-row"><div class="lbl">Micro (score ≤ 1)</div><div class="bar"><div class="fill" style="width:55%"></div></div><div class="val">44 lines (28%)</div></div>
+      <div class="bar-row"><div class="lbl">Small (1–3)</div><div class="bar"><div class="fill" style="width:63%"></div></div><div class="val">50 lines (31%)</div></div>
+      <div class="bar-row"><div class="lbl">Medium (3–6)</div><div class="bar"><div class="fill" style="width:50%"></div></div><div class="val">40 lines (25%)</div></div>
+      <div class="bar-row"><div class="lbl">Large (6–10)</div><div class="bar"><div class="fill" style="width:23%"></div></div><div class="val">18 lines (11%)</div></div>
+      <div class="bar-row"><div class="lbl">Mega (10+)</div><div class="bar"><div class="fill magenta" style="width:9%"></div></div><div class="val">7 lines (4%)</div></div>
+    </div>
+
+    <p>The bottom of the distribution is dominated by what should really be tasks or operational deliverables, while the top includes lines like <em>"Digital telco Family — next Gen FMC"</em> (10 KRs touched) and <em>"Digital telco with Bill of Rights"</em> (9 KRs) which are programmes containing dozens of underlying decisions and dependencies. <strong>Treating both as a single "initiative" unit means the plan cannot prioritise or trade off between them.</strong> A cancelled micro-initiative looks the same in the dashboard as a postponed mega-programme.</p>
+
+    <div class="pullquote">A unit of work that ranges from a single workshop to a 10-KR cross-functional programme is not a unit of work at all — it is a list of unrelated things sharing a column header.</div>
+
+    <!-- 3.2 -->
+    <h3><span class="num-prefix">3.2</span>The KPI inversion — biggest bets, vaguest measurement</h3>
+    <p>If the plan worked, the largest initiatives would carry the most precise KPIs, because more is at stake. The data shows the opposite. Of the ten highest-scoring lines in the portfolio, here is what is currently in the KPI column:</p>
+
+    <table>
+      <thead>
+        <tr><th>Initiative</th><th>KRs touched</th><th>KPI as written</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="label">Digital telco Family — next Gen FMC</td><td class="num">10</td><td>"Concept definition / feasibility"</td></tr>
+        <tr><td class="label">Digital telco with Bill of Rights</td><td class="num">9</td><td>"Business value analysis and HL effort estimations by end of 02_2026"</td></tr>
+        <tr><td class="label">Digital Telco 2nd increment (family)</td><td class="num">9</td><td>"Complete scope by end of Q1"</td></tr>
+        <tr><td class="label">New M1 flagship portfolio &amp; B2B grade BB</td><td class="num">8</td><td>"Razvoj i testiranje Preconnecta..."</td></tr>
+        <tr><td class="label">Digital push</td><td class="num">8</td><td>"Not prioritized in roadmap"</td></tr>
+        <tr><td class="label">Improve FMC journeys for commercial success</td><td class="num">6</td><td>"Prioritized, CR for CPs"</td></tr>
+        <tr><td class="label">AIMO! AI and ME</td><td class="num">4</td><td><span class="badge red">No KPI</span></td></tr>
+      </tbody>
+    </table>
+    <p>None of these are KPIs. They are activity gates ("define", "complete", "prioritize") or pure status notes. They cannot be missed, because they cannot be measured. Conversely, several of the smallest initiatives in the plan (HR, training, single-customer-journey lines) have crisp numeric targets — because their authors had to defend smaller asks with sharper logic. <strong>The model rewards vagueness at the top.</strong></p>
+
+    <!-- 3.3 -->
+    <h3><span class="num-prefix">3.3</span>Programme fragmentation — no layer above the initiative</h3>
+    <p>Because there is no programme layer in the plan, large strategic themes get fragmented across whichever EMMs touch them. The result is multiple lines, multiple owners, no consolidated status, and no single decision-maker. The most visible example sits inside the file itself.</p>
+
+    <div class="case">
+      <div class="case-head">
+        <span class="ctag">Case study</span>
+        <span class="ctitle">"Digital Telco" — nine initiatives, six owners, no programme</span>
+      </div>
+      <div class="case-body">
+        <table>
+          <thead><tr><th>EMM</th><th>Initiative</th><th>Q1 status</th></tr></thead>
+          <tbody>
+            <tr><td>Diego Perez Tenessa</td><td>Improve FMC journeys to drive commercial success</td><td><span class="badge green">on track</span></td></tr>
+            <tr><td>Domagoj Paripović</td><td>New M1 flagship portfolio &amp; New B2B grade BB</td><td><span class="badge green">on track</span></td></tr>
+            <tr><td>Frederic Nin</td><td>Iskon as 3rd Digital Telco Increment</td><td><span class="badge amber">delayed</span></td></tr>
+            <tr><td>Ivan Visković</td><td>Online charging for postpaid / Digital Telco</td><td><span class="badge green">on track</span></td></tr>
+            <tr><td>Ivan Runje</td><td>AIMO! Digital Telco and Bill of Rights</td><td><span class="badge red">no response</span></td></tr>
+            <tr><td>Ivan Runje</td><td>Digital telco with Bill of Rights</td><td><span class="badge green">on track</span></td></tr>
+            <tr><td>Ivan Runje</td><td>Digital telco Family — next Gen FMC</td><td><span class="badge green">on track</span></td></tr>
+            <tr><td>Igor Musa</td><td>Digital Telco 1st increment (digital segment)</td><td><span class="badge green">on track</span></td></tr>
+            <tr><td>Igor Musa</td><td>Digital Telco 2nd increment (family segment)</td><td><span class="badge amber">delayed</span></td></tr>
+          </tbody>
+        </table>
+        <p style="margin-top:18px;font-size:14px;color:var(--ink-soft)">Two of these lines from Ivan Runje have nearly identical names and clearly overlap. Two from Igor Musa are sequential increments of the same programme. Frederic Nin's line is the third increment of yet another instance of "Digital Telco". <strong>No single EMM can answer the question "is Digital Telco on track at HT?" — and the plan structure does not require anyone to be able to.</strong></p>
+      </div>
+    </div>
+
+    <!-- 3.4 -->
+    <h3><span class="num-prefix">3.4</span>Portfolio composition — the People objective is structurally undercounted</h3>
+    <p>The 2026 plan distributes initiatives across the five objectives in a deeply uneven pattern. Growth (O3) and Customer (O1) are saturated; Transformation (O4) is well-represented; Reputation (O5) is light but coherent. <strong>People (O2) carries four initiatives in the entire company plan.</strong> The three KRs under O2 — performance management, leadership feedback culture, and 30% leadership change — are each ambitious enough to deserve their own programme, and instead share four lines.</p>
+    <p>The most likely explanation is that People-side work is being absorbed into other EMMs' initiatives ("change management", "team setup", etc.) and never surfaces as a named O2 line. The result, whatever the cause, is the same: <strong>the objective that gates the execution of every other objective shows up in the portfolio as a rounding error.</strong></p>
+
+    <!-- 3.5 -->
+    <h3><span class="num-prefix">3.5</span>The steering process captures the past, not the next decision</h3>
+    <p>The Operating Plan template has columns for Q1 status, Q1 KPI achievement, and Q2 focus / decisions. The actual fill rates tell you exactly what kind of conversation the quarterly review is having:</p>
+
+    <div class="viz">
+      <div class="viz-title">Field population — backward-looking fields fill, forward-looking does not</div>
+      <div class="bar-row"><div class="lbl">Has KPI defined</div><div class="bar"><div class="fill" style="width:82%"></div></div><div class="val">82%</div></div>
+      <div class="bar-row"><div class="lbl">Q1 status reported</div><div class="bar"><div class="fill" style="width:76%"></div></div><div class="val">76%</div></div>
+      <div class="bar-row"><div class="lbl">Q1 KPI achievement</div><div class="bar"><div class="fill" style="width:53%"></div></div><div class="val">53%</div></div>
+      <div class="bar-row"><div class="lbl">Q2 focus / decisions</div><div class="bar"><div class="fill magenta" style="width:1%"></div></div><div class="val">0.6% (1 line)</div></div>
+    </div>
+
+    <p>One initiative out of 159 has anything written in the Q2 forward-looking field. This is not a tracking failure — it is a clear signal that <strong>the quarterly review meeting is being run as a status read-out, not as a forward decision-making session.</strong> The format of the file shapes the conversation: if the only column you have to fill is "what happened in Q1", then "what we should decide next" never gets discussed at the table.</p>
+    <p>A second symptom is field decay. The file contains a column labelled <em>"current status 21.01."</em> — a tracking attempt that was started, populated for 17 of 159 lines, and then abandoned. Multiple such half-used columns exist in the workbook. The model is accreting fields rather than maintaining them.</p>
+  </section>
+
+  <!-- ==================== 04. PROCESS DIAGNOSIS ==================== -->
+  <section>
+    <div class="section-num">04 — The quarterly review</div>
+    <h2>Why the EMM steering meeting<br><em>isn't steering.</em></h2>
+    <p>Three things compound to make the quarterly EMM review weaker than it should be: the file structure is backward-looking, reporting discipline varies by owner not by initiative, and there is no mechanism for the meeting to actually <em>decide</em> anything.</p>
+
+    <h3><span class="num-prefix">4.1</span>Backward-looking by template design</h3>
+    <p>Of the seven status-related columns in the workbook, six are about the past (Q1 plan, Q1 status, Q1 KPI achievement, the dead "21.01." column, agile roadmap "current status", and a backup history sheet). Only one — Q2 focus / decisions — is forward-looking, and as shown above, it has been filled in for one initiative. <strong>The template makes status reporting easy and decision capture invisible.</strong></p>
+
+    <h3><span class="num-prefix">4.2</span>Reporting variance is concentrated, not random</h3>
+    <p>If the 38 unreported Q1 lines were spread evenly across 32 EMMs you would have 1.2 blanks per owner — within tolerance. They are not spread evenly. Two EMMs (one with 12 initiatives, one with 8) account for 20 of the 38 blanks together. A third has 5 of 11 blank. <strong>The model treats these as missing data points; they are missing accountability.</strong> The file gives no signal to the rest of the EMM table, or to the COO/CEO consuming the dashboard, that some owners simply did not respond.</p>
+
+    <h3><span class="num-prefix">4.3</span>The meeting has no decision artifact</h3>
+    <p>A well-run quarterly steering review produces three things by the end of the session: a refreshed status, a list of decisions made <em>at the table</em>, and a list of escalations passed up. The current model produces only the first. There is no field, sheet, or follow-up process that captures the second or the third. <strong>EMMs leave the room with the same information they walked in with.</strong></p>
+  </section>
+
+  <!-- ==================== 05. PROPOSALS ==================== -->
+  <section>
+    <div class="section-num">05 — Proposals</div>
+    <h2>What to change<br><em>before the Q2 cycle.</em></h2>
+    <p class="lead">Five interventions, ordered by leverage. The first two change the model. The next three change the process around the model. Together they are achievable inside the four weeks before Q2 review without renegotiating any KRs or financial commitments.</p>
+
+    <div class="proposal">
+      <div class="ptype">Proposal 01 — model</div>
+      <h4>Define an initiative formally, with an explicit S/M/L sizing standard</h4>
+      <p>Today the unit "initiative" carries no shared definition, which is why the same column contains 10-KR programmes and single workshops. Introduce a three-tier classification with hard criteria, and require every line to declare its tier explicitly:</p>
+      <ul>
+        <li><strong>Large</strong> — touches 3+ KRs across 2+ objectives, has a named programme owner, has &gt;€500k Capex+IDC, runs across all 4 quarters. Maximum ~15 in the entire plan.</li>
+        <li><strong>Medium</strong> — touches 1–2 KRs, single named owner, has a measurable Q-by-Q deliverable, runs 2–4 quarters.</li>
+        <li><strong>Small</strong> — single KR contribution, single owner, fits in 1 quarter, no separate budget line. Reported quarterly as a count, not as individual rows.</li>
+      </ul>
+      <p>Each tier carries its own minimum KPI standard: Large initiatives <em>must</em> have a quantified target, not an activity gate. Small initiatives are allowed to use binary "delivered / not delivered" KPIs. <strong>This single change collapses ~30 micro-rows into pooled "small" lines and forces the seven mega-rows to write real KPIs.</strong></p>
+    </div>
+
+    <div class="proposal">
+      <div class="ptype">Proposal 02 — model</div>
+      <h4>Add a programme layer above initiatives, with a named accountable owner</h4>
+      <p>Roughly 20–30 of today's initiatives cluster into 5–8 strategic programmes (Digital Telco, FTTH monetisation, AI &amp; data foundations, Customer Experience platform, B2B Cloud &amp; Security, Network Resilience, People transformation). Each cluster needs a single named programme owner whose job is to answer the question "is this programme on track at HT". Initiatives stay as today, but each one carries a programme tag, and the quarterly review reports at the programme level first, initiative level second.</p>
+      <ul>
+        <li>Programme owner is <strong>not</strong> necessarily the EMM with the most lines — it is the EMM most accountable for the outcome.</li>
+        <li>Programme review happens once per quarter as a 30-minute slot, before the EMM round-robin.</li>
+        <li>Programme owner has explicit authority to flag dependency conflicts between EMMs without needing escalation.</li>
+      </ul>
+      <p><strong>This is the single highest-leverage change in this document.</strong> It does not require renegotiating any initiative or any KR — it adds a layer of accountability the current model is missing.</p>
+    </div>
+
+    <div class="proposal">
+      <div class="ptype">Proposal 03 — process</div>
+      <h4>Redesign the quarterly review meeting around forward decisions</h4>
+      <p>The current meeting is a status read-out. Replace it with a three-part agenda that takes the same time but produces decisions:</p>
+      <ul>
+        <li><strong>Part 1 (20 min) — Programme health snapshot.</strong> 5–8 programme owners give a 2-minute traffic-light read on their programme. No initiative-by-initiative drill-down at the table.</li>
+        <li><strong>Part 2 (40 min) — Decisions and trade-offs.</strong> Each programme owner brings <em>one</em> decision they need from the table: a resourcing trade-off, a scope cut, an IT prioritisation, a dependency conflict. Decisions are made and recorded.</li>
+        <li><strong>Part 3 (15 min) — Escalations.</strong> Items that cannot be decided at the EMM table get captured with an explicit owner and escalation path (Board, CEO, COO, CTIO).</li>
+      </ul>
+      <p>The artefact of the meeting is not an updated status sheet — it is a one-page list of decisions and escalations, distributed within 24 hours.</p>
+    </div>
+
+    <div class="proposal">
+      <div class="ptype">Proposal 04 — process</div>
+      <h4>Make non-reporting visible, and treat it as an EMM accountability issue</h4>
+      <p>Today an EMM who does not respond and an EMM whose initiatives are in trouble look the same in the dashboard: blank cells. They should not. Three small changes:</p>
+      <ul>
+        <li>Add a single column "<strong>EMM response rate</strong>" showing what % of an EMM's lines have a Q1/Q2 status entered. EMMs below 80% surface automatically in the steering pack.</li>
+        <li>Reporting compliance becomes part of the COO's standing 1:1 agenda with each EMM, not part of the OKR cycle.</li>
+        <li>Two consecutive quarters of <80% compliance triggers a structured conversation, not a polite reminder.</li>
+      </ul>
+      <p>This is not punitive — it is a recognition that the steering process only works if the source data exists. Right now the cost of not reporting is zero, so the current pattern is rational behaviour from the EMMs concerned.</p>
+    </div>
+
+    <div class="proposal">
+      <div class="ptype">Proposal 05 — model</div>
+      <h4>Commission a People objective rebalancing review</h4>
+      <p>Four initiatives against O2 is indefensible against the strategic weight the objective carries. Either the work exists and is hidden (most likely — change management embedded in other EMMs' lines), or it doesn't and the objective is structurally underfunded. Both readings need a deliberate response:</p>
+      <ul>
+        <li><strong>Surface hidden People work</strong> — every EMM identifies the People-related work currently embedded inside their other initiatives, and tags it explicitly to an O2 KR. Expected outcome: O2 line count rises from 4 to 12–18.</li>
+        <li><strong>Identify the gap</strong> — once the hidden work is surfaced, the remaining gap against the three O2 KRs becomes visible and can be commissioned as net-new initiatives in the Q2 refresh.</li>
+        <li><strong>Assign a programme owner</strong> — under Proposal 02, People should be one of the 5–8 named programmes, with an HR-side EMM as accountable lead.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ==================== 06. ADOPTION ==================== -->
+  <section>
+    <div class="section-num">06 — Adoption path</div>
+    <h2>How this lands<br><em>before the Q2 review.</em></h2>
+    <p>None of the five proposals require renegotiating KRs, financial commitments, or EMM mandates. They are template, governance and meeting-design changes. A realistic path inside four weeks:</p>
+
+    <table>
+      <thead>
+        <tr><th>Week</th><th>Action</th><th>Owner</th><th>Output</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="label">Week 1</td>
+          <td>Review and validate this diagnosis with COO &amp; CTIO; align on the principle that the model and process need to change for Q2 onward.</td>
+          <td>Sponsor</td>
+          <td>Go / no-go on Proposals 01–05</td>
+        </tr>
+        <tr>
+          <td class="label">Week 2</td>
+          <td>Define the S/M/L initiative standard and the 5–8 programme structure. Identify programme owners. Refresh the Operating Plan template.</td>
+          <td>PMO + sponsor</td>
+          <td>Updated template; programme owner list</td>
+        </tr>
+        <tr>
+          <td class="label">Week 3</td>
+          <td>EMM working session (90 min) to re-tag every existing line into S/M/L and into a programme. Surface hidden O2 work in parallel.</td>
+          <td>All EMMs</td>
+          <td>Re-tagged plan; new O2 line draft</td>
+        </tr>
+        <tr>
+          <td class="label">Week 4</td>
+          <td>Run the new Q2 review meeting under the new format. Capture decisions and escalations as the artefact. First measurement of EMM response rate.</td>
+          <td>EMM table</td>
+          <td>Q2 decisions one-pager</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="margin-top:32px">The change that matters most — and the one that costs least — is <strong>the programme layer with named owners</strong>. Everything else is downstream of someone being accountable for whether "Digital Telco" is on track at HT, whether the People agenda is getting executed, and whether AI &amp; data infrastructure is delivering what the rest of the plan depends on. The current model has no field for that question. The next one should.</p>
+
+    <div class="pullquote">The current Operating Plan is a good list. It is not yet a plan. The difference is that a plan tells you what to decide next, and a list only tells you what already happened.</div>
+  </section>
+
+  <footer>
+    <span>Operating Plan systemic review · v1.0</span>
+    <span>HT Internal · April 2026</span>
+  </footer>
+</div>
+</body>
+</html>

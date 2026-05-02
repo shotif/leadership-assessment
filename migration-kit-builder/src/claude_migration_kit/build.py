@@ -97,6 +97,19 @@ def safe_filename(name: str) -> str:
     return s or "file"
 
 
+def write_text_preserve(path: Path, content: str, *, force: bool = False) -> bool:
+    """Write text to *path*, but never clobber an existing file unless forced.
+
+    Returns True if the file was written (created), False if it was skipped.
+    Use this for files the user is expected to edit by hand: context-digest.md,
+    memory-seed.md, settings-checklist.md, README.md.
+    """
+    if not force and path.exists():
+        return False
+    path.write_text(content, encoding="utf-8")
+    return True
+
+
 def write_project(
     out_dir: Path,
     project: Project,
@@ -151,7 +164,8 @@ def write_project(
         )
         rendered.append((cslug, cs))
 
-    # context-digest.md placeholder — will be replaced by the synthesis step.
+    # context-digest.md is a user-curated artefact: write the placeholder
+    # only on first build, never on subsequent runs.
     digest_md = (
         f"# Context digest — {project.name or project_slug}\n\n"
         "_This file will be filled in by the synthesis step "
@@ -166,7 +180,7 @@ def write_project(
             "Verbatim, for reference while writing the digest:\n\n"
             "```\n" + project_memory.strip() + "\n```\n"
         )
-    (proj_dir / "context-digest.md").write_text(digest_md, encoding="utf-8")
+    write_text_preserve(proj_dir / "context-digest.md", digest_md)
 
     return proj_dir
 
