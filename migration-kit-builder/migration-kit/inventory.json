@@ -1,0 +1,843 @@
+{
+  "export_path": "/root/.claude/uploads/d8291f54-9bcc-4180-b248-68d44e0c1d8b/f72a5fd6-data47e8d39dd45c4609b9973acc3aa7ab78177770346277bfae4fbatch0000.zip",
+  "generated_at": "2026-05-02T06:40:28.958822Z",
+  "projects": [
+    {
+      "uuid": "019d57ea-d17d-7175-a6e4-343c6c6b4f05",
+      "slug": "big-picture",
+      "name": "Big Picture",
+      "description": "",
+      "has_instructions": false,
+      "instructions_chars": 0,
+      "knowledge_files": [
+        {
+          "filename": "HRV-Big Picture-narativ-0217 final.docx",
+          "size_bytes": 13859,
+          "source": "embedded"
+        },
+        {
+          "filename": "Cre8rel8 HT Training Guide 2522026.pdf",
+          "size_bytes": 50426,
+          "source": "embedded"
+        }
+      ],
+      "conversations": []
+    },
+    {
+      "uuid": "019ccd00-6a89-75fc-89b1-101d21ece74f",
+      "slug": "cico",
+      "name": "Cico",
+      "description": "Robi's personal AI&Data Tribe Lead assistant",
+      "has_instructions": false,
+      "instructions_chars": 0,
+      "knowledge_files": [],
+      "conversations": []
+    },
+    {
+      "uuid": "019d8d46-dc23-709d-b15b-efadc8f21572",
+      "slug": "coaching",
+      "name": "Coaching",
+      "description": "",
+      "has_instructions": true,
+      "instructions_chars": 496,
+      "knowledge_files": [
+        {
+          "filename": "WhatsApp Chat with Petra.txt",
+          "size_bytes": 161321,
+          "source": "embedded"
+        },
+        {
+          "filename": "Strategic Blueprint for Building Lasting Relationships: From Digital Momentum to Emotional Commitment",
+          "size_bytes": 9415,
+          "source": "embedded"
+        }
+      ],
+      "conversations": []
+    },
+    {
+      "uuid": "019ca41a-98c3-7600-9e87-b58300bc0d86",
+      "slug": "drink-tracker",
+      "name": "Drink Tracker",
+      "description": "",
+      "has_instructions": false,
+      "instructions_chars": 0,
+      "knowledge_files": [],
+      "conversations": []
+    },
+    {
+      "uuid": "019d4797-338c-71e3-931e-8cf41fc90a9d",
+      "slug": "ht-future-operating-model",
+      "name": "HT Future Operating Model",
+      "description": "",
+      "has_instructions": false,
+      "instructions_chars": 0,
+      "knowledge_files": [],
+      "conversations": []
+    },
+    {
+      "uuid": "019d4fed-408f-701b-852f-442545be9009",
+      "slug": "petaik",
+      "name": "PetAIk",
+      "description": "",
+      "has_instructions": false,
+      "instructions_chars": 0,
+      "knowledge_files": [],
+      "conversations": []
+    },
+    {
+      "uuid": "019dbe4b-2242-748c-a745-1a4efbd926a1",
+      "slug": "qbr-next-level",
+      "name": "QBR Next Level",
+      "description": "",
+      "has_instructions": true,
+      "instructions_chars": 256,
+      "knowledge_files": [
+        {
+          "filename": "operating_plan_review.html",
+          "size_bytes": 38900,
+          "source": "embedded"
+        }
+      ],
+      "conversations": []
+    }
+  ],
+  "standalone_conversations": [
+    {
+      "uuid": "99b89462-3af6-4f55-ab41-ec2eaadb1c18",
+      "title": "Migrating personal Claude account to enterprise",
+      "project_uuid": null,
+      "message_count": 6,
+      "first_message_at": "2026-04-29T06:11:03.112515Z",
+      "last_message_at": "2026-05-02T06:24:40.476393Z",
+      "char_count": 21614,
+      "estimated_tokens": 5403
+    },
+    {
+      "uuid": "bd0739ad-e95e-4bc4-b66c-8700aa472a60",
+      "title": "Analiza zarade na prodaji dionica",
+      "project_uuid": null,
+      "message_count": 4,
+      "first_message_at": "2026-05-02T06:18:17.526401Z",
+      "last_message_at": "2026-05-02T06:21:19.698181Z",
+      "char_count": 8981,
+      "estimated_tokens": 2245
+    },
+    {
+      "uuid": "bc0618a2-7cd8-4737-a1b2-dc1a47c9324b",
+      "title": "Relationship analysis and recent communication patterns",
+      "project_uuid": null,
+      "message_count": 218,
+      "first_message_at": "2026-04-14T18:44:47.747100Z",
+      "last_message_at": "2026-05-01T21:10:03.732829Z",
+      "char_count": 177698,
+      "estimated_tokens": 44424
+    },
+    {
+      "uuid": "01d7e47b-92cd-4ee2-8287-5e8b1b8a0e75",
+      "title": "Presentation timeline for AI_Natcovisit deck",
+      "project_uuid": null,
+      "message_count": 10,
+      "first_message_at": "2026-04-29T19:11:45.258820Z",
+      "last_message_at": "2026-04-30T16:14:47.415964Z",
+      "char_count": 22414,
+      "estimated_tokens": 5603
+    },
+    {
+      "uuid": "90c03f68-1d82-4f76-9d2e-872a3865a48a",
+      "title": "Presentation restructuring for business impact",
+      "project_uuid": null,
+      "message_count": 4,
+      "first_message_at": "2026-04-29T17:53:11.106451Z",
+      "last_message_at": "2026-04-29T18:06:15.668686Z",
+      "char_count": 27169,
+      "estimated_tokens": 6792
+    },
+    {
+      "uuid": "f78dfb77-68db-4965-9737-f43f6b13e651",
+      "title": "Reviewing recent conversation highlights",
+      "project_uuid": null,
+      "message_count": 4,
+      "first_message_at": "2026-04-28T12:21:05.689692Z",
+      "last_message_at": "2026-04-28T12:24:04.511708Z",
+      "char_count": 11023,
+      "estimated_tokens": 2755
+    },
+    {
+      "uuid": "927d76e9-fab0-45ab-a9fc-de7b49990718",
+      "title": "Analiza podataka sa HT brendingom",
+      "project_uuid": null,
+      "message_count": 24,
+      "first_message_at": "2026-04-27T05:14:57.176954Z",
+      "last_message_at": "2026-04-27T12:21:11.924109Z",
+      "char_count": 100706,
+      "estimated_tokens": 25176
+    },
+    {
+      "uuid": "7da399ea-caa7-4776-b144-04bd375020d7",
+      "title": "Preparing questions for Dominique Leroy meeting",
+      "project_uuid": null,
+      "message_count": 4,
+      "first_message_at": "2026-04-27T08:07:13.171998Z",
+      "last_message_at": "2026-04-27T08:12:54.023539Z",
+      "char_count": 17898,
+      "estimated_tokens": 4474
+    },
+    {
+      "uuid": "256d371d-7355-4470-958f-601f614f9576",
+      "title": "Ažuriranje T brand designer skill",
+      "project_uuid": null,
+      "message_count": 8,
+      "first_message_at": "2026-04-27T05:29:08.377290Z",
+      "last_message_at": "2026-04-27T06:00:35.291705Z",
+      "char_count": 32147,
+      "estimated_tokens": 8036
+    },
+    {
+      "uuid": "7c23bb94-7c44-4a22-b635-e2d3bb8d3e52",
+      "title": "Big Picture strategy video production",
+      "project_uuid": null,
+      "message_count": 30,
+      "first_message_at": "2026-04-22T06:22:44.833668Z",
+      "last_message_at": "2026-04-27T05:27:41.057078Z",
+      "char_count": 131461,
+      "estimated_tokens": 32865
+    },
+    {
+      "uuid": "202c4e2f-f122-4ff2-aebe-790b2455e6d7",
+      "title": "Analiza police osiguranja i dodatak za potres",
+      "project_uuid": null,
+      "message_count": 10,
+      "first_message_at": "2026-04-25T06:40:53.351737Z",
+      "last_message_at": "2026-04-25T07:29:34.436555Z",
+      "char_count": 29733,
+      "estimated_tokens": 7433
+    },
+    {
+      "uuid": "918fd696-bb8e-4e73-8f21-f68e6ce68747",
+      "title": "Rewriting narrative: culture over strategy",
+      "project_uuid": null,
+      "message_count": 4,
+      "first_message_at": "2026-04-24T15:53:49.605728Z",
+      "last_message_at": "2026-04-24T17:15:06.443896Z",
+      "char_count": 6778,
+      "estimated_tokens": 1694
+    },
+    {
+      "uuid": "9e99e6a9-f6c7-4c95-b7cd-38c31923a89b",
+      "title": "Pregled projektnih materijala i OP_2026_Q1_v2",
+      "project_uuid": null,
+      "message_count": 24,
+      "first_message_at": "2026-04-24T07:08:56.149767Z",
+      "last_message_at": "2026-04-24T08:27:47.253276Z",
+      "char_count": 142120,
+      "estimated_tokens": 35530
+    },
+    {
+      "uuid": "9143831e-64bc-4812-a518-88b8ac8097a4",
+      "title": "Most Wanted igra razvoj nastavak",
+      "project_uuid": null,
+      "message_count": 26,
+      "first_message_at": "2026-04-20T20:37:54.560039Z",
+      "last_message_at": "2026-04-21T01:22:30.936531Z",
+      "char_count": 60877,
+      "estimated_tokens": 15219
+    },
+    {
+      "uuid": "5fc082d6-25d6-4514-8306-c5675474e4e7",
+      "title": "Poboljšanje 3D grafike u Google AI studiju",
+      "project_uuid": null,
+      "message_count": 175,
+      "first_message_at": "2026-04-12T06:22:09.565645Z",
+      "last_message_at": "2026-04-20T20:36:55.123363Z",
+      "char_count": 179705,
+      "estimated_tokens": 44926
+    },
+    {
+      "uuid": "62941468-9971-413d-b797-49cd4541e046",
+      "title": "Data governance implementation za Sprinklr i Digital telco",
+      "project_uuid": null,
+      "message_count": 4,
+      "first_message_at": "2026-04-17T06:49:15.154697Z",
+      "last_message_at": "2026-04-17T07:34:16.373221Z",
+      "char_count": 3002,
+      "estimated_tokens": 750
+    },
+    {
+      "uuid": "81572bf2-32a9-4d7f-836d-6f4266fa28b1",
+      "title": "OKR-ovi za B-2 menadžment nivo",
+      "project_uuid": null,
+      "message_count": 46,
+      "first_message_at": "2026-03-20T07:49:58.463844Z",
+      "last_message_at": "2026-04-17T05:04:48.010502Z",
+      "char_count": 62740,
+      "estimated_tokens": 15685
+    },
+    {
+      "uuid": "5e32506b-15ea-4bc0-bf8a-164a1f5b1bde",
+      "title": "Analiza procjene vrijednosti nekretnine",
+      "project_uuid": null,
+      "message_count": 24,
+      "first_message_at": "2026-03-30T13:35:46.785919Z",
+      "last_message_at": "2026-04-16T14:13:58.640696Z",
+      "char_count": 30812,
+      "estimated_tokens": 7703
+    },
+    {
+      "uuid": "182ef207-27ba-45e2-bfb9-85f752584d89",
+      "title": "Zapisnik radionice kolega",
+      "project_uuid": null,
+      "message_count": 18,
+      "first_message_at": "2026-04-16T05:22:36.938194Z",
+      "last_message_at": "2026-04-16T11:58:28.026506Z",
+      "char_count": 30229,
+      "estimated_tokens": 7557
+    },
+    {
+      "uuid": "41e217a8-e550-4bf1-88a4-d58c5cd1dfbf",
+      "title": "T-Brand designer skill creation",
+      "project_uuid": null,
+      "message_count": 2,
+      "first_message_at": "2026-04-15T08:16:04.403721Z",
+      "last_message_at": "2026-04-15T08:19:54.330485Z",
+      "char_count": 4787,
+      "estimated_tokens": 1196
+    },
+    {
+      "uuid": "fd41d8e6-6372-4383-8e1d-4d3408ec36d1",
+      "title": "Preparing for AI ethics panel at Zagreb marketing conference",
+      "project_uuid": null,
+      "message_count": 6,
+      "first_message_at": "2026-04-13T12:52:40.011300Z",
+      "last_message_at": "2026-04-15T05:02:04.717743Z",
+      "char_count": 17674,
+      "estimated_tokens": 4418
+    },
+    {
+      "uuid": "0a8b56ef-135c-4f22-8b71-db02f68d6b41",
+      "title": "Samorefleksija za godišnji performance review",
+      "project_uuid": null,
+      "message_count": 4,
+      "first_message_at": "2026-03-30T07:53:10.653903Z",
+      "last_message_at": "2026-04-13T06:57:33.099018Z",
+      "char_count": 8578,
+      "estimated_tokens": 2144
+    },
+    {
+      "uuid": "cd447fdb-eec3-4ec5-9658-d2cbd078d8a4",
+      "title": "Inspirativni tekst za most u igri",
+      "project_uuid": null,
+      "message_count": 8,
+      "first_message_at": "2026-04-12T20:43:31.604200Z",
+      "last_message_at": "2026-04-12T20:47:11.869884Z",
+      "char_count": 3863,
+      "estimated_tokens": 965
+    },
+    {
+      "uuid": "43ffd6fd-0f74-4a1c-8589-82b4cdb3abc3",
+      "title": "Brisanje in-progress game sessions u Firebase",
+      "project_uuid": null,
+      "message_count": 6,
+      "first_message_at": "2026-04-12T09:26:46.579179Z",
+      "last_message_at": "2026-04-12T09:32:32.842885Z",
+      "char_count": 3692,
+      "estimated_tokens": 923
+    },
+    {
+      "uuid": "0c2196d5-6911-4e8d-acec-201ff24ad740",
+      "title": "Odabir televizora i soundbara za dnevni boravak",
+      "project_uuid": null,
+      "message_count": 18,
+      "first_message_at": "2026-04-05T06:03:34.451999Z",
+      "last_message_at": "2026-04-12T05:32:48.074447Z",
+      "char_count": 35525,
+      "estimated_tokens": 8881
+    },
+    {
+      "uuid": "7f094323-60c6-4fef-a0cd-ec07ddcb20aa",
+      "title": "Analiza kvalitete pitanja iz dva excela",
+      "project_uuid": null,
+      "message_count": 29,
+      "first_message_at": "2026-04-11T17:50:22.506268Z",
+      "last_message_at": "2026-04-11T21:33:08.127769Z",
+      "char_count": 61814,
+      "estimated_tokens": 15453
+    },
+    {
+      "uuid": "454dbca9-c2d8-473e-a447-6a12cdf31c2f",
+      "title": "Nastavak pitanja za Most Wanted! - Korištenje upute iz privitka",
+      "project_uuid": null,
+      "message_count": 7,
+      "first_message_at": "2026-04-11T16:24:26.474487Z",
+      "last_message_at": "2026-04-11T17:48:53.988542Z",
+      "char_count": 9586,
+      "estimated_tokens": 2396
+    },
+    {
+      "uuid": "67a0afe3-bf40-4448-b644-60a14e7662be",
+      "title": "Browser game with bridge crossing challenges",
+      "project_uuid": null,
+      "message_count": 32,
+      "first_message_at": "2026-04-07T18:03:31.044420Z",
+      "last_message_at": "2026-04-11T16:23:34.039337Z",
+      "char_count": 152608,
+      "estimated_tokens": 38152
+    },
+    {
+      "uuid": "7f341215-ddf7-4694-a655-ae561f96f5d1",
+      "title": "Video content explanation",
+      "project_uuid": null,
+      "message_count": 2,
+      "first_message_at": "2026-04-11T12:35:03.215770Z",
+      "last_message_at": "2026-04-11T12:35:15.720690Z",
+      "char_count": 1195,
+      "estimated_tokens": 298
+    },
+    {
+      "uuid": "faf2acb8-da90-4ad2-a7c0-972ef18b0ec7",
+      "title": "Operating plans strategic analysis and recommendations",
+      "project_uuid": null,
+      "message_count": 6,
+      "first_message_at": "2026-04-10T10:27:07.842319Z",
+      "last_message_at": "2026-04-10T10:46:24.410208Z",
+      "char_count": 29546,
+      "estimated_tokens": 7386
+    },
+    {
+      "uuid": "8aed3291-6789-4fd6-854f-52898cae24f8",
+      "title": "Enterprise AI use case generator with custom styling",
+      "project_uuid": null,
+      "message_count": 43,
+      "first_message_at": "2026-03-07T13:06:05.253757Z",
+      "last_message_at": "2026-04-08T21:26:02.642184Z",
+      "char_count": 76601,
+      "estimated_tokens": 19150
+    },
+    {
+      "uuid": "f855fb30-b05e-4e74-82f4-9336f19832de",
+      "title": "Interaktivni vodič kroz Big Picture",
+      "project_uuid": null,
+      "message_count": 16,
+      "first_message_at": "2026-04-04T10:00:20.385614Z",
+      "last_message_at": "2026-04-07T10:30:31.322561Z",
+      "char_count": 37701,
+      "estimated_tokens": 9425
+    },
+    {
+      "uuid": "25684967-6823-4343-8518-eba0db6c6732",
+      "title": "Transferring data between Claude subscriptions",
+      "project_uuid": null,
+      "message_count": 2,
+      "first_message_at": "2026-04-06T11:12:23.385407Z",
+      "last_message_at": "2026-04-06T11:12:36.733744Z",
+      "char_count": 1552,
+      "estimated_tokens": 388
+    },
+    {
+      "uuid": "605869ea-da94-484b-9a0f-6778ba54ba4d",
+      "title": "Preporuka klima uređaja za stan od 68,5 kvadrata",
+      "project_uuid": null,
+      "message_count": 8,
+      "first_message_at": "2026-04-06T10:37:14.908552Z",
+      "last_message_at": "2026-04-06T11:07:33.558182Z",
+      "char_count": 49625,
+      "estimated_tokens": 12406
+    },
+    {
+      "uuid": "360645d8-cd7f-40eb-95cf-ab885da9041d",
+      "title": "Three-year trajectory and critical mistakes",
+      "project_uuid": null,
+      "message_count": 2,
+      "first_message_at": "2026-04-06T06:11:02.240737Z",
+      "last_message_at": "2026-04-06T06:11:31.557842Z",
+      "char_count": 4047,
+      "estimated_tokens": 1011
+    },
+    {
+      "uuid": "da48f6fc-41f1-4ae0-90b7-471537eca435",
+      "title": "Deljivi custom bot na ChatGPT Enterprise",
+      "project_uuid": null,
+      "message_count": 8,
+      "first_message_at": "2026-04-04T09:49:52.136306Z",
+      "last_message_at": "2026-04-04T09:58:51.293360Z",
+      "char_count": 10266,
+      "estimated_tokens": 2566
+    },
+    {
+      "uuid": "e52d1862-13fa-4b7a-bf6e-149ef41fafde",
+      "title": "Razjašnjavanje uloga i odgovornosti u use caseu",
+      "project_uuid": null,
+      "message_count": 8,
+      "first_message_at": "2026-04-03T07:10:04.964091Z",
+      "last_message_at": "2026-04-03T10:50:03.542723Z",
+      "char_count": 15340,
+      "estimated_tokens": 3835
+    },
+    {
+      "uuid": "9a056900-977e-4b71-adf2-273136c89a39",
+      "title": "PetAIk Razvoj koncepta sa Opusom",
+      "project_uuid": null,
+      "message_count": 8,
+      "first_message_at": "2026-04-02T20:03:54.986676Z",
+      "last_message_at": "2026-04-02T20:16:52.677823Z",
+      "char_count": 12267,
+      "estimated_tokens": 3066
+    },
+    {
+      "uuid": "aca5bd26-5af2-49b1-a68d-b20319ec2a39",
+      "title": "PetAIk koncept za HT organizaciju",
+      "project_uuid": null,
+      "message_count": 4,
+      "first_message_at": "2026-04-02T19:57:49.852683Z",
+      "last_message_at": "2026-04-02T20:02:13.149288Z",
+      "char_count": 12907,
+      "estimated_tokens": 3226
+    },
+    {
+      "uuid": "413b3bcb-3fb4-4209-b247-e47483b65b8f",
+      "title": "AI edukacija za upravu Hrvatskog Telekoma",
+      "project_uuid": null,
+      "message_count": 184,
+      "first_message_at": "2026-04-02T17:40:27.024158Z",
+      "last_message_at": "2026-04-02T19:24:34.101549Z",
+      "char_count": 60099,
+      "estimated_tokens": 15024
+    },
+    {
+      "uuid": "1c25edd3-08b9-43d5-b583-012a9211992a",
+      "title": "Video transcription and subtitle embedding app",
+      "project_uuid": null,
+      "message_count": 12,
+      "first_message_at": "2026-04-01T18:53:17.990300Z",
+      "last_message_at": "2026-04-01T19:14:34.809811Z",
+      "char_count": 28260,
+      "estimated_tokens": 7065
+    },
+    {
+      "uuid": "301458c6-8e86-4f22-9d0d-de3581cb2146",
+      "title": "Putovanje u Italiju - organizacija prijevoza i smještaja",
+      "project_uuid": null,
+      "message_count": 4,
+      "first_message_at": "2026-04-01T14:23:50.543880Z",
+      "last_message_at": "2026-04-01T14:28:25.294688Z",
+      "char_count": 5834,
+      "estimated_tokens": 1458
+    },
+    {
+      "uuid": "ce45c427-3192-4216-9169-8cbdc2f254d6",
+      "title": "Future operating model framework for Hrvatski Telekom",
+      "project_uuid": null,
+      "message_count": 24,
+      "first_message_at": "2026-03-26T14:34:12.675360Z",
+      "last_message_at": "2026-04-01T13:55:34.077968Z",
+      "char_count": 81349,
+      "estimated_tokens": 20337
+    },
+    {
+      "uuid": "d29544e1-4871-4941-911e-94dc67f4ef21",
+      "title": "Ispravljanje greške u VBA funkciji AssignIDsForAllRows",
+      "project_uuid": null,
+      "message_count": 3,
+      "first_message_at": "2026-04-01T05:46:23.802843Z",
+      "last_message_at": "2026-04-01T05:51:29.989496Z",
+      "char_count": 1983,
+      "estimated_tokens": 495
+    },
+    {
+      "uuid": "183592dd-8771-41a5-a68e-3cc977da3383",
+      "title": "AI governance model for accelerated use case delivery",
+      "project_uuid": null,
+      "message_count": 22,
+      "first_message_at": "2026-03-31T11:08:48.250017Z",
+      "last_message_at": "2026-03-31T13:10:55.903967Z",
+      "char_count": 52276,
+      "estimated_tokens": 13069
+    },
+    {
+      "uuid": "c321d7c2-c45b-45bd-89c4-824499476025",
+      "title": "Konsolidacija fotografija u PDF",
+      "project_uuid": null,
+      "message_count": 8,
+      "first_message_at": "2026-03-19T10:50:10.623198Z",
+      "last_message_at": "2026-03-31T07:32:43.647672Z",
+      "char_count": 14968,
+      "estimated_tokens": 3742
+    },
+    {
+      "uuid": "d8ed72dd-e5f4-49f2-aabc-a3b373cc6609",
+      "title": "Sistemska analiza leadership tima kroz peer feedback",
+      "project_uuid": null,
+      "message_count": 42,
+      "first_message_at": "2026-03-17T07:05:32.466894Z",
+      "last_message_at": "2026-03-30T18:03:00.048008Z",
+      "char_count": 90498,
+      "estimated_tokens": 22624
+    },
+    {
+      "uuid": "9a629133-bd32-4d61-80a7-94df24007212",
+      "title": "Analiza nekretnine i preporuka za kupnju u Zagrebu",
+      "project_uuid": null,
+      "message_count": 66,
+      "first_message_at": "2026-03-19T11:06:51.831324Z",
+      "last_message_at": "2026-03-30T12:19:44.672580Z",
+      "char_count": 86739,
+      "estimated_tokens": 21684
+    },
+    {
+      "uuid": "73c5cab0-b118-4465-a88c-56ade7adc0d2",
+      "title": "Claude Enterprise license inquiry",
+      "project_uuid": null,
+      "message_count": 2,
+      "first_message_at": "2026-03-30T07:43:15.651093Z",
+      "last_message_at": "2026-03-30T07:43:25.023061Z",
+      "char_count": 1258,
+      "estimated_tokens": 314
+    },
+    {
+      "uuid": "e4516261-ab94-4e8f-b407-570d6cc348de",
+      "title": "Priprema za panel o financiranju AI transformacije",
+      "project_uuid": null,
+      "message_count": 8,
+      "first_message_at": "2026-03-20T12:01:54.909122Z",
+      "last_message_at": "2026-03-29T17:33:31.573281Z",
+      "char_count": 22679,
+      "estimated_tokens": 5669
+    },
+    {
+      "uuid": "73d07b39-f8ea-47ed-be5d-3fee7e89dc16",
+      "title": "Analiza i dorade opisa AI Developer pozicije",
+      "project_uuid": null,
+      "message_count": 10,
+      "first_message_at": "2026-03-27T08:21:54.624275Z",
+      "last_message_at": "2026-03-27T18:25:42.174114Z",
+      "char_count": 10356,
+      "estimated_tokens": 2589
+    },
+    {
+      "uuid": "f547ce90-8e96-4bf1-a346-bcec9a8d83ae",
+      "title": "Povrat poreza mladima sa suvlasništvom nekretnine",
+      "project_uuid": null,
+      "message_count": 4,
+      "first_message_at": "2026-03-26T05:23:12.954838Z",
+      "last_message_at": "2026-03-26T05:25:10.460465Z",
+      "char_count": 4969,
+      "estimated_tokens": 1242
+    },
+    {
+      "uuid": "85a9d2b0-3c6b-4aeb-9a81-3aedf9aa778e",
+      "title": "NEXT program session preparation in Rotterdam",
+      "project_uuid": null,
+      "message_count": 36,
+      "first_message_at": "2026-03-20T19:42:41.764824Z",
+      "last_message_at": "2026-03-24T14:09:05.827056Z",
+      "char_count": 72449,
+      "estimated_tokens": 18112
+    },
+    {
+      "uuid": "352835c6-c7bb-42f9-b825-7824ab307e2f",
+      "title": "Idealan omjer rada s ljudima i tehnologijom",
+      "project_uuid": null,
+      "message_count": 10,
+      "first_message_at": "2026-03-22T09:08:31.921466Z",
+      "last_message_at": "2026-03-22T09:15:31.927596Z",
+      "char_count": 12319,
+      "estimated_tokens": 3079
+    },
+    {
+      "uuid": "d329b57b-9cbc-41ca-92fe-4c219b657901",
+      "title": "Argumentacija za povećanje plaća AI & Data Tribea",
+      "project_uuid": null,
+      "message_count": 8,
+      "first_message_at": "2026-03-21T08:13:46.888030Z",
+      "last_message_at": "2026-03-21T08:28:02.689871Z",
+      "char_count": 18117,
+      "estimated_tokens": 4529
+    },
+    {
+      "uuid": "a68a32a7-d76f-4d17-8b63-e022a36241f7",
+      "title": "B2Digital OKR struktura i prioritizacija",
+      "project_uuid": null,
+      "message_count": 2,
+      "first_message_at": "2026-03-20T21:08:47.617216Z",
+      "last_message_at": "2026-03-20T21:09:02.355266Z",
+      "char_count": 2430,
+      "estimated_tokens": 607
+    },
+    {
+      "uuid": "aab3e433-7c02-4ea2-8999-c012a45bbe73",
+      "title": "Priprema za intervju o AI-ju u Hrvatskom Telekomu",
+      "project_uuid": null,
+      "message_count": 4,
+      "first_message_at": "2026-03-20T11:40:42.636826Z",
+      "last_message_at": "2026-03-20T13:02:04.247028Z",
+      "char_count": 9854,
+      "estimated_tokens": 2463
+    },
+    {
+      "uuid": "1869ac55-88af-44c0-934c-ee164d50aff3",
+      "title": "LinkedIn objava za direktora",
+      "project_uuid": null,
+      "message_count": 4,
+      "first_message_at": "2026-03-19T21:39:20.401058Z",
+      "last_message_at": "2026-03-19T21:41:53.880639Z",
+      "char_count": 1782,
+      "estimated_tokens": 445
+    },
+    {
+      "uuid": "65297c61-b00d-412e-b090-e59c96508b46",
+      "title": "Modern 2026 dashboard redesign",
+      "project_uuid": null,
+      "message_count": 4,
+      "first_message_at": "2026-03-18T07:20:07.127869Z",
+      "last_message_at": "2026-03-18T07:27:11.491215Z",
+      "char_count": 3472,
+      "estimated_tokens": 868
+    },
+    {
+      "uuid": "df419f44-5f06-4205-80c0-2af290806944",
+      "title": "Comprehensive meeting notes and action plan",
+      "project_uuid": null,
+      "message_count": 16,
+      "first_message_at": "2026-03-16T18:37:45.830536Z",
+      "last_message_at": "2026-03-17T12:12:04.497037Z",
+      "char_count": 39357,
+      "estimated_tokens": 9839
+    },
+    {
+      "uuid": "6ea58c29-cdf2-4d81-8bb5-252ec30edf5d",
+      "title": "Analiza tablica ocjena leadership tima",
+      "project_uuid": null,
+      "message_count": 48,
+      "first_message_at": "2026-03-15T11:56:29.634426Z",
+      "last_message_at": "2026-03-16T22:23:56.733383Z",
+      "char_count": 85505,
+      "estimated_tokens": 21376
+    },
+    {
+      "uuid": "1fc529d4-aea8-448f-8827-baac8213be75",
+      "title": "Analiza stabilnosti Big5 osobina kroz tri godine",
+      "project_uuid": null,
+      "message_count": 26,
+      "first_message_at": "2026-03-15T21:35:56.072082Z",
+      "last_message_at": "2026-03-15T22:50:47.424344Z",
+      "char_count": 31590,
+      "estimated_tokens": 7897
+    },
+    {
+      "uuid": "750d6651-d9b9-4666-9fa2-eee25ca73c13",
+      "title": "AI analiza bilješki Uprave HT-a",
+      "project_uuid": null,
+      "message_count": 8,
+      "first_message_at": "2026-03-14T20:33:30.082761Z",
+      "last_message_at": "2026-03-14T20:46:12.715695Z",
+      "char_count": 20290,
+      "estimated_tokens": 5072
+    },
+    {
+      "uuid": "f1d8a070-0752-4f2d-b09f-02939806ad88",
+      "title": "Analiza dokumenta i strategija za kritičku infrastrukturu",
+      "project_uuid": null,
+      "message_count": 6,
+      "first_message_at": "2026-03-12T21:38:57.082705Z",
+      "last_message_at": "2026-03-12T21:51:50.927245Z",
+      "char_count": 6894,
+      "estimated_tokens": 1723
+    },
+    {
+      "uuid": "5866c4ee-03e2-4910-91c9-5e6ef950e075",
+      "title": "Kritička analiza prezentacije i prijedlozi poboljšanja",
+      "project_uuid": null,
+      "message_count": 2,
+      "first_message_at": "2026-03-09T08:04:57.976029Z",
+      "last_message_at": "2026-03-09T08:06:05.448077Z",
+      "char_count": 5417,
+      "estimated_tokens": 1354
+    },
+    {
+      "uuid": "d787fc2f-bc04-4461-8f96-53eae73637fb",
+      "title": "AI use cases by skill",
+      "project_uuid": null,
+      "message_count": 6,
+      "first_message_at": "2026-03-08T10:45:33.813055Z",
+      "last_message_at": "2026-03-08T11:01:57.685429Z",
+      "char_count": 7174,
+      "estimated_tokens": 1793
+    },
+    {
+      "uuid": "ce478e78-27e6-4ab6-9e49-e5d8efb49a5e",
+      "title": "Customizing a new skill with skill creator",
+      "project_uuid": null,
+      "message_count": 20,
+      "first_message_at": "2026-03-08T10:33:35.431588Z",
+      "last_message_at": "2026-03-08T10:44:45.290788Z",
+      "char_count": 16153,
+      "estimated_tokens": 4038
+    },
+    {
+      "uuid": "fece2e6c-10e1-4531-aa5a-2e60ccc398a8",
+      "title": "Skill builder skill availability",
+      "project_uuid": null,
+      "message_count": 2,
+      "first_message_at": "2026-03-08T10:32:10.497996Z",
+      "last_message_at": "2026-03-08T10:32:13.529124Z",
+      "char_count": 633,
+      "estimated_tokens": 158
+    },
+    {
+      "uuid": "94007264-611d-4817-a684-48a774ad0663",
+      "title": "Enterprise AI use case generator",
+      "project_uuid": null,
+      "message_count": 8,
+      "first_message_at": "2026-03-07T12:52:23.308536Z",
+      "last_message_at": "2026-03-07T13:06:24.481617Z",
+      "char_count": 17335,
+      "estimated_tokens": 4333
+    },
+    {
+      "uuid": "064ce9b7-854e-4d6e-9ed0-019c65854a51",
+      "title": "Audio transcription in Croatian",
+      "project_uuid": null,
+      "message_count": 2,
+      "first_message_at": "2026-03-06T15:52:16.861372Z",
+      "last_message_at": "2026-03-06T15:52:59.950369Z",
+      "char_count": 3800,
+      "estimated_tokens": 950
+    },
+    {
+      "uuid": "34a5db17-3291-4306-b855-e0bf9d2636fb",
+      "title": "Enhancing Hrvatski Telekom's board presentation",
+      "project_uuid": null,
+      "message_count": 4,
+      "first_message_at": "2026-03-06T07:08:24.583517Z",
+      "last_message_at": "2026-03-06T07:21:57.110139Z",
+      "char_count": 21903,
+      "estimated_tokens": 5475
+    },
+    {
+      "uuid": "a927d5f4-1f88-463d-9ab2-2cc34c0c9310",
+      "title": "Career role recommendations for Telekom AI & Data Tribe",
+      "project_uuid": null,
+      "message_count": 2,
+      "first_message_at": "2026-03-05T17:19:50.258301Z",
+      "last_message_at": "2026-03-05T17:20:12.833521Z",
+      "char_count": 3433,
+      "estimated_tokens": 858
+    },
+    {
+      "uuid": "55f259e6-bb3a-44fd-bbce-42bdb143661d",
+      "title": "Meeting notes summary and action items",
+      "project_uuid": null,
+      "message_count": 2,
+      "first_message_at": "2026-03-05T07:08:09.374863Z",
+      "last_message_at": "2026-03-05T07:11:51.827764Z",
+      "char_count": 4026,
+      "estimated_tokens": 1006
+    }
+  ],
+  "totals": {
+    "projects": 7,
+    "conversations": 73,
+    "standalone_conversations": 73,
+    "messages": 1471,
+    "estimated_tokens": 622842
+  }
+}

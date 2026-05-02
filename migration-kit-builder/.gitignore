@@ -3,6 +3,9 @@ __pycache__/
 *.pyc
 .python-version
 
-# Generated output — contains private export data, never commit.
-migration-kit/
+# Don't commit raw exports.
 *.dms
+
+# migration-kit/ is intentionally tracked: this user has no privacy
+# concerns and wants the rebuild artefacts checked into the repo.
+# Treat as confidential business data when sharing the repo.

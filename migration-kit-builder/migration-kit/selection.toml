@@ -1,0 +1,40 @@
+# selection.toml — edit, then re-run with `--apply-selection` to preview the result.
+#
+# Rule priority (high → low):
+#   1. conversations.exclude  — force drop
+#   2. conversations.include  — force keep (overrides everything below)
+#   3. projects.exclude       — drop the whole project
+#   4. projects.include       — when non-empty, drop everything not in the list
+#   5. filters.min_messages
+#   6. filters.date_floor
+#   7. filters.exclude_keywords (case-insensitive substring on title)
+
+[meta]
+generated_at = "2026-05-02T07:13:08.758178+00:00"
+inventory    = "inventory.json"
+mappings     = "mappings.toml"
+
+[filters]
+# Drop conversations with fewer than this many messages.
+# Default 4 trims one-off questions but keeps any real exchange.
+min_messages     = 4
+
+# Drop conversations whose last message predates this date (ISO 8601, e.g. "2025-01-01").
+# Empty string disables the floor.
+date_floor       = ""
+
+# Drop if any of these substrings appears in the title (case-insensitive).
+exclude_keywords = ["nekretnine", "klima", "televizora", "police osiguranja", "putovanje", "porez", "dionica"]
+
+[projects]
+# Slugs to include. Empty list = include all (subject to filters).
+# Available slugs: big-picture, cico, coaching, drink-tracker, ht-future-operating-model, petaik, qbr-next-level, standalone
+include = []
+# Slugs to exclude entirely.
+exclude = ["coaching"]
+
+[conversations]
+# Force-include specific conversation UUIDs (skips all filters).
+include = []
+# Force-exclude specific conversation UUIDs (highest priority).
+exclude = []

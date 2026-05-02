@@ -1,0 +1,1387 @@
+# In-chat digest prompt — HT Future Operating Model
+
+Paste **everything below the `---`** into a fresh Claude chat. Save Claude's markdown reply over the existing `migration-kit/projects/ht-future-operating-model/context-digest.md`.
+
+If your Claude session has a context limit, paste the source-material section and the instructions in two messages.
+
+---
+
+You are synthesizing a context digest for a Claude Enterprise project being rebuilt from a previous account. The digest will be pasted into the first chat in the new project to prime its memory. Project name: **HT Future Operating Model** (slug `ht-future-operating-model`).
+
+## Output format
+
+Produce a Markdown document of roughly 600 words with these sections, in this order:
+
+1. **Purpose** — what the project is for.
+2. **Key decisions taken so far** — bullet list of concrete decisions with their rationale.
+3. **Current state** — what's been produced, what's in flight.
+4. **Important artifacts** — named deliverables / docs / datasets to remember.
+5. **Open threads** — what's still undecided or unfinished.
+6. **What to ask Claude next** — the most likely follow-up prompts when picking this project up.
+
+Ground the digest in concrete signal from the source material. Use named entities (people, tools, programs). Drop hedging.
+
+## Source material
+
+### Custom instructions
+
+_(none)_
+
+### Knowledge files attached to this project
+
+_(none)_
+
+### Project memory (from `memories.json`)
+
+```
+**Purpose & context**
+
+Robi works in a senior leadership role connected to the AI & Data Tribe at Hrvatski Telekom (HT), Croatia's leading telecommunications operator. His work centers on large-scale strategic and organizational transformation, with a current focus on defining HT's trajectory through 2030 and 2040. Success means producing rigorous, board-ready strategic frameworks that are both analytically grounded and visually compelling for executive audiences.
+
+Key domain expertise involved: telecommunications operating models, eTOM/TM Forum frameworks, agile organizational design, AI/automation strategy, workforce transformation, and segment-based operating models. HT operates within the Deutsche Telekom (DT) Group context, with selective autonomy as a design constraint. Pluto is HT's data platform, positioned for data-as-a-product including external monetization.
+
+**Current state**
+
+Three major strategic deliverables have been developed in close collaboration with Claude:
+
+1. **Future Operating Model for 2030+** — Framed as the "lights-out telco" archetype (full infrastructure ownership + radical automation). Structured across six layers: North Star constraints, Strategic Design Principles, Capability Architecture (12 clusters, 3 tiers), Operating Model Blueprint (6 dimensions), Transition Architecture (3 horizons: 2025–2027 Foundation, 2027–2029 Scale, 2029–2031 Complete), and Governance & Steering. Key parameters confirmed: revenue dominated by core telco (<10% beyond-core), full network owner-operator, four firm digital targets (95% digital channels, 100% AI L1 support, zero-touch operations, fully digital products), 55/45 B2C/B2B split with enterprise as growth lever, workforce reduction from ~5,500 to minimum ~4,125 FTEs, IT dissolved into business domains.
+
+2. **2040 Vision** — Framed as the "segment-sovereign telco," a fundamental shift from domain-organized to segment-organized around seven customer segments (Family, Smart Shopper, Digital Basic, Young, Modern Loyalist, SMB, Enterprise). Includes segment team compositions with human roles and AI agents, a 12-skill framework, eight central platform functions, and a people model projecting ~2,800 FTEs by 2040. A critical sequencing principle was established: the 2030 domain model is a *precondition* for 2040 segment sovereignty, not merely a waypoint.
+
+3. **45 Structured Assumptions** — Underpinning the 2030 TOM across eight categories, with four highest-risk assumptions flagged (including BSS modernization without full rip-and-replace, and scaling the AI & Data Tribe to 80–100 people).
+
+A **Way of Work principles framework** was also in scope as a third deliverable (status from available summaries: in progress).
+
+**On the horizon**
+
+- Completion and refinement of the Way of Work principles framework
+- Potential stress-testing or scenario planning around the four highest-risk TOM assumptions
+- Likely executive presentation or stakeholder alignment work building on these deliverables
+
+**Key learnings & principles**
+
+- The 2030 → 2040 sequencing is load-bearing: domain-model discipline in 2030 is what makes segment sovereignty achievable in 2040; conflating the two phases would undermine both
+- The "lights-out telco" framing clarifies trade-offs: full infrastructure ownership combined with radical automation is a coherent archetype, not a contradiction
+- Workforce transformation should be modeled explicitly (with FTE trajectories) rather than treated as a downstream consequence — it is a first-class design variable
+- Assumptions documentation is treated as a strategic risk management tool, not just a footnote
+
+**Approach & patterns**
+
+- Robi works through structured strategic dialogue: Claude asks clarifying questions to establish key parameters before building frameworks, rather than producing generic outputs
+- Deliverables are consistently produced as **standalone, interactive HTML documents** — self-contained, no external dependencies, suitable for direct sharing with executives
+- Visual and brand standards are firm: Deutsche Telekom magenta (#E20074), white background, DM Sans typography, T-logo mark
+- Frameworks are layered (constraints → principles → capabilities → operations → transitions → governance) and designed for drill-down interactivity
+- Iteration is expected: Robi refines visual structure (e.g., domain merges, layout redesigns) after seeing initial versions
+
+**Tools & resources**
+
+- TM Forum eTOM Business Process Framework (v24.5) as the structural backbone for operating model design
+- Standalone interactive HTML as the primary deliverable format
+- Deutsche Telekom Group brand guidelines as a design constraint
+```
+
+### Conversation transcripts (2)
+
+# Zapisnik radionice kolega
+- **Conversation ID:** `182ef207-27ba-45e2-bfb9-85f752584d89`
+- **Created:** 2026-04-16T05:22:35.407631+00:00
+- **Updated:** 2026-04-16T11:58:28.026506+00:00
+- **Messages:** 18
+
+---
+
+## Human  *(2026-04-16T05:22:36.938194+00:00)*
+
+Kolege su održali jednu radionicu i u nastavku donosim zapisnik:
+
+## Assistant  *(2026-04-16T05:22:41.748244+00:00)*
+
+The user is about to share meeting notes/minutes from a workshop their colleagues held. Let me wait for the content - it seems like they might be about to paste it or upload it. Let me respond and ask them to share it.Vidim da si započeo poruku, ali čini se da sam zapisnik nije stigao — vjerojatno ga tek trebaš zalijepiti ili uploadati. Slobodno ga podijeli pa da ga pogledamo zajedno.
+
+## Human  *(2026-04-16T05:23:21.766456+00:00)*
+
+pričekaj dok ti ne kažem da sam sve poslao, šaljem dio po dio: Plan je da se kroz radionice skeniranja AS IS stanja vodimo capabilityjima.
+Krenuli smo sa Sales & channel mgmntom – zasebno smo prošli RES i BUS dio.
+Kroz pitanja i diskusiju došli smo do pain pointova (kao i onih dobrih strana) koje će nam biti polazište za TO BE operativni model. Pain pointove i dobre strane mapirali smo na elemente operativnog modela (org i governance, skillove, tech acceleratore,..).
+ 
+
+Prošli smo tjedan testirali pristup te je zaključak da nastavljamo s isprobanim konceptom (najavu i pripremu za četvrtak pošaljem vam naknadno).
+
+## Assistant  *(2026-04-16T05:23:25.527903+00:00)*
+
+Robi is sending me workshop notes piece by piece. He asked me to wait until he says he's done. I'll acknowledge and wait.Primljeno, čekam ostatak. Šalji dalje kad budeš spreman.
+
+## Human  *(2026-04-16T05:23:32.238788+00:00)*
+
+Pitanja koja smo si postavljali:
+
+Tko donosi odluke?
+Je li sve jasno svima uključenima?
+Gdje imamo najviše izazova?
+Što nas sprječava da budemo bolji?
+Postoji li sync odgovornih u ovom flowu? 
+.........
+ 
+
+PLAYBOOK (rezultat s WAR GAMES) → potrebno uključiti u flow; dio TO BE operativnog modela
+
+Pitam se "kako mogu", a ne "zašto ne mogu"!
+
+## Assistant  *(2026-04-16T05:23:36.252039+00:00)*
+
+Robi is sending me notes from a workshop, piece by piece. I should wait for him to tell me everything is sent before I respond substantively.Primljeno, nastavi — čekam da mi javiš kad je sve poslano.
+
+## Human  *(2026-04-16T05:25:32.831059+00:00)*
+
+to je kraj zapisnika. sljedeće područje za koje ćemo danas održati radionicu: AI&DATA/IT&DIGITAL PLATFORMS/PRODUCT&SERVICE&PROPOSITIONS. Pomozi mi s pripremom temeljem ovoga što sam ti poslao iz prethodne radionice
+
+## Assistant  *(2026-04-16T05:26:26.464801+00:00)*
+
+Robi wants me to help him prepare for today's workshop covering AI&DATA / IT&DIGITAL PLATFORMS / PRODUCT&SERVICE&PROPOSITIONS capabilities, using the same methodology proven in the Sales & Channel Management workshop.
+
+Let me synthesize what I learned from the workshop notes and images:
+
+**Workshop methodology:**
+1. Capability-led AS IS scanning
+2. Operational view of each capability (mapping the flow: Market Model → Planning → Channel Mgmt → Sales → Care → Monitoring & Performance Mgmt, with Cost/Resources overlay)
+3. Discussion questions: Who decides? Is it clear? Where are challenges? What blocks us? Is there sync?
+
+4. Map pain points and strengths against the operating model pillars—Governance & Organization, Way of Work, Skills, and Technology Accelerators—then separate the findings into RES and BUS perspectives.
+
+From the Sales & Channel Management workshop, I'm seeing a pattern of governance gaps on the RES side: unclear direction, slow decision-making due to missing priorities, fragmented ownership, and weak execution discipline. The Way of Work is largely undocumented with no clear end-to-end workflows or feedback mechanisms, and there's a significant AI skills gap alongside leadership capability issues around empowerment and recognition.
+
+On the business side, the pain points center on segment optimization opportunities, lengthy negotiation cycles, and unclear market data on key account losses, while the Way of Work actually shows strength in solution quality and customer relationships despite awareness of skill and technology constraints.
+
+For today's workshop on the three new capabilities, I'm thinking through what would be most valuable: operational flow diagrams tailored to each capability, targeted discussion prompts that surface the specific pain points we've identified, and a structured approach to capture how these capabilities map back to the operating model gaps we've uncovered.
+
+Mapping out the operational flows for each capability—how data strategy feeds into platform development and AI deployment, how IT architecture supports integration and compliance, and how market intelligence drives product strategy through launch and lifecycle management—gives us a clear framework for the discussions.Odlična baza iz prve radionice. Evo pripreme za danas po istoj metodologiji — tri capabilityja, svaki sa specifičnim kutom napada.
+
+---
+
+**Operativni flow za svaki capability**
+
+Za svaki od tri područja predlažem analogan prikaz kao što ste imali Market Model → Planning → Ch. Mgmt → Sales → Care → Monitoring:
+
+**AI & Data:** Data Strategy/Governance → Data Platform (Pluto) → Data Products → AI/ML Development → Deployment & Ops → Value Tracking
+
+**IT & Digital Platforms:** IT Strategy & Architecture → Platform Dev & Integration → Deployment & Release → Operations & Support → Security & Compliance → Performance Monitoring
+
+**Product, Service & Propositions:** Market Intelligence → Product Strategy → Design & Development → Launch & GTM → Lifecycle Management → Performance Monitoring
+
+---
+
+**Pitanja prilagođena za danas**
+
+Osnova ostaje ista (tko odlučuje, je li jasno, gdje su izazovi, što nas koči, postoji li sync), ali za svako područje dodaj specifična:
+
+*AI & Data:*
+- Tko je vlasnik podatkovnog proizvoda — tribe ili biznis?
+- Imamo li jasan put od use casea do produkcije (ili stvari "ostaju u zraku" kao što ste detektirali u Sales)?
+- Koliko biznis razumije što može tražiti od AI & Data tribea?
+- Postoji li feedback loop iz biznisa natrag u prioritizaciju AI inicijativa?
+
+*IT & Digital Platforms:*
+- Tko odlučuje o platformskim prioritetima — IT, biznis, ili nitko eksplicitno?
+- Koliko su release ciklusi usklađeni s biznis potrebama?
+- Gdje je najveći tehnički dug koji nas koči?
+- Postoji li E2E vlasništvo nad platformom ili je odgovornost fragmentirana (isto kao "podijeljena odgovornost" iz Sales radionice)?
+
+*Product, Service & Propositions:*
+- Tko donosi go/no-go odluku za novi proizvod?
+- Koliko brzo možemo lansirati nešto novo od ideje do tržišta?
+- Postoji li sync između product tima, Salesa i IT-a (ili su silosi)?
+- Koristimo li podatke iz AI & Data za oblikovanje ponude, ili idemo na intuiciju?
+
+---
+
+**Što prenijeti iz prve radionice kao kontekst**
+
+Iz Sales & Channel radionice već su isplivali problemi koji će se gotovo sigurno pojaviti i danas — vrijedi ih imati na radaru kao "hipoteze za validaciju":
+
+- **Governance nejasnoće** (tko je accountable) — provjeriti ponavlja li se isti obrazac
+- **E2E workflow ne postoji ili nije dokumentiran** — posebno relevantno za product development i AI deployment pipeline
+- **Nedostatak AI skillova** — pojavio se i u RES i u BUS; danas testirati iz perspektive samog AI & Data tribea
+- **Previše ručnog rada / niska automatizacija** — direktno povezano s IT & Digital Platforms capabilityjem
+- **Micromanagement i sporo odlučivanje na B-1/B-2** — provjera je li isto i u product/IT domeni
+- **Neusklađeni targeti (Combis vs. HT)** — relevantno za IT platforme koje Combis isporučuje
+
+---
+
+**Praktični savjet za facilitaciju**
+
+S obzirom da su danas tri capabilityja u jednoj sesiji, preporučam vremenski okvir po svakom (npr. 30-40 min) i da za svaki prvo nacrtate operativni flow na ploču, pa tek onda ulazite u pain pointove mapirane na ista 4 stupca: Governance & Org, WoW, Skills, Tech Accelerators. Tako ostajete konzistentni s prvom radionicom i rezultati su direktno usporedivi.
+
+Trebaš li da ti pripremim i vizualni template za danas kao HTML?
+
+## Human  *(2026-04-16T05:27:43.294445+00:00)*
+
+Pripremi
+
+## Assistant  *(2026-04-16T05:31:11.224260+00:00)*
+
+Robi wants me to prepare a visual template for today's workshop. Let me read the relevant skills first - the t-brand-designer skill and frontend-design skill since this will be an interactive HTML document.
+
+Now let me read the frontend-design skill.
+
+Now I'll create an interactive HTML workshop template for today's session. It should cover the three capabilities: AI & Data, IT & Digital Platforms, and Product/Service/Propositions. I'll use the same structure as the previous workshop (operativni prikaz + pain points mapped to 4 pillars).
+
+Let me copy it to outputs and present it.
+
+Done, let me present the file.
+
+Done.Evo template-a. Četiri taba: po jedan za svaki capability koji danas prolazite (AI & Data, IT & Digital Platforms, Product & Service), plus četvrti tab s rekapom nalaza iz Sales & Channel radionice kao referenca.
+
+Svaki capability tab ima isti format: E2E operativni flow s placeholder pitanjima za svaki korak, blok ključnih pitanja specifičnih za to područje, hipoteze za validaciju izvučene iz prethodne radionice, te prazan grid za mapiranje nalaza na 4 stupca operativnog modela (Governance & Org, WoW, Skills, Tech Accelerators).
+
+Ako trebaš nešto prilagoditi prije radionice — drugačiji redoslijed koraka u flowu, dodatna pitanja, ili nešto treće — javi.
+
+## Human  *(2026-04-16T07:12:33.384849+00:00)*
+
+krećemo po capabilityima za AI proces, u privitku je wow i dolje je raspisano: Prikupljanje  ideja
+
+Ideje prikupljaju  Business analisti i određuju im vrijednost prilikom toga se ideja smješta u jedan od tri stupova vijednosti. 
+
+Raspisivanje Use Casea
+
+Nakon što je određena vrijednost Use Casea Business analist kreće raditi analizu i počinje raspisisvati Product Development Document. (PDD)
+
+PDD mora sadržavati slijedeće :
+* Opis poslovne potrebe
+* Raspisanu vrijednost
+* Dijagrame prcesa ili Dijagram toka  podataka
+* potrebno je pokrenuti PSA i DEAu i u PDD nalinkati  PSA  sa PSA portala
+
+Refinement
+
+Event na kojem zajedniički Biznis analisti i developeri komentiraju raspisan Use Case i ukoliko je sve jasno  developeri uzimaju ticket u  razvoj.
+Refinement se odvija svaka dva tjedna , na refinementu sudjeluju - PO, BA, Tech Lead, Developer, PM
+BA prezentira Use Case koji mora sadržavati:
+* Definiranu vrijednost Use Casea
+* Opis use casea
+* Detaljnu razradu use case koja može sadržavati AS iS →TO BE design, DIjagram toka podataka
+* PSA /DEA - ako je razvoj nekog novog casea na novoj okolini BA treba pokazati da li je započeo postupak PSA I DEAe ili ukoliko nije potreban PSA/DEA onda treba jasno navesti da to nije potrebno
+* U ovom trenu nije nužno navbesti Acceptance kriterije  ali se trebaju početi reaspisivati
+
+Razvoj
+
+Developeri daju estimaciju i kreću sa razvojem.
+Nadopunjuju PDD dokument sa podacima o tehničkom rješenju i o tom kako će se nešto predati operationsu na održavanje.
+Testiranje
+
+Nakon razvoje kreće testiranje, Testni  scenariji postaju dio PDDa i kada je  test odrađen i testovi  odrađeni pozitivno krećemo u predaju na produkciju.
+Review
+
+Event na kojem AI tim zajedno sa  donosiocem ideje i sa operationsem prolazi kroz odrađeni  posao te se provjerava  da li je sve odrađeno kako treba i imamo li sve upute za operations.
+NA reviewu se mora pokazati:
+* DEMO rješenja
+* dio dokumentacije kojim se razvijeni kod predaje operationsu
+* Zatvoreni PSA/DEA
+
+Ukoliko se zbog nekog razloga odustaje od Use Casea potrebno je zatvoriti PSA/DEA.
+
+Produkcija
+Operations monitorira kod na produkciji.
+
+## Assistant  *(2026-04-16T07:12:59.616313+00:00)*
+
+Robi is sharing the AI & Data team's Way of Work (WoW) process from their Telekom Wiki. This is the actual AS IS process for the AI capability. Let me digest this:
+
+The flow is:
+1. Prikupljanje ideja (Idea Collection) - Business analysts collect and value ideas into 3 value pillars
+2. Raspisivanje Use Casea (Use Case Documentation) - BA creates PDD (Product Development Document)
+3. Refinement - Bi-weekly event where BA + devs review use case (PO, BA, Tech Lead, Developer, PM)
+
+4. Razvoj (Development) - Devs estimate and build, update PDD with technical solution
+5. Testiranje (Testing) - Test scenarios added to PDD
+6. Review - Team reviews with idea originator and operations
+7. Produkcija (Production) - Operations monitors
+
+The PDD document is the central artifact that evolves throughout, with PSA/DEA compliance checks built in. Robi's kicking off the workshop by walking through their capability-based AI process, so I should be ready to dig deeper as we work through this together.Odlično, ovo je solidan i relativno zreo WoW za AI tim. Evo što mi odmah upada u oči kao relevantno za AS IS diskusiju:
+
+**Što ovaj proces radi dobro** — postoji definiran E2E flow od ideje do produkcije s jasnim gatevima (Refinement, Review), PDD dokument se kumulativno nadograđuje kroz faze, PSA/DEA compliance je ugrađen u proces, i postoji formalna predaja operationsu.
+
+**Što vrijedi propitati na radionici:**
+
+Oko *Prikupljanja ideja* — tko su "business analisti" koji određuju vrijednost? Jesu li to BA-ovi unutar AI tribea ili iz biznisa? Tri stupa vrijednosti — kako se ta klasifikacija pretvara u prioritizacijski backlog? Tko odlučuje redoslijed kad imamo 20 ideja s vrijednošću?
+
+Oko *Refinementa* — svaka dva tjedna je dobar ritam, ali što se događa s use caseovima koji nisu jasni na refinementu? Vraćaju se BA-u, ali koliko iteracija je realno? I postoji li bottleneck na BA resursima (koliko BA-ova vs. koliko ideja)?
+
+Oko *Razvoj → Testiranje* — tko testira? Developeri sami ili postoji QA? Tko validira business vrijednost (ne samo tehnički test, nego "radi li ovo što je biznis htio")?
+
+Oko *Review → Produkcija* — ovo je ključni gap iz Sales radionice — feedback loop. Kad use case ode u produkciju, tko prati je li ostvarena obećana vrijednost? Postoji li mehanizam za to ili PDD "umire" nakon predaje?
+
+Oko *Operations* — "monitorira kod" — je li to samo uptime/incident monitoring ili i model performance monitoring (drift, accuracy degradation)?
+
+Nastavi sa slanjem nalaza s radionice, pratim.
+
+## Human  *(2026-04-16T09:43:42.464885+00:00)*
+
+šaljem ti slike bilješki sa ploče, pokušaj ih analizirati i sistematizirati u ovom kontekstu redizajna operativnog modela. Radi se o bilješkama koje opisuju AS-IS stanje
+
+## Assistant  *(2026-04-16T09:44:57.823087+00:00)*
+
+Let me carefully analyze all three whiteboard photos and systematize the findings.
+
+**Image 1 - SKILLS (AI & Data)**
+Post-it notes:
+1. "Apr. neg-at. → Predomljeno/prepoznavanje potrebnih skillova" (Approximately: Need to recognize required skills)
+2. "Najbolje skillane ljude koristimo se za BAU" (Best skilled people are used for BAU)
+3. "Ne razumijemo proces E2E" (We don't understand the E2E process)
+4. "Mindset more important than skill" 
+
+5. "Be the example"
+6. "AI kao podrška propositionu" (AI as support to proposition)
+7. "Proizvodi/koristi AI toolove" (Produce/use AI tools)
+8. "Engineering mindset everywhere"
+9. "Not challenging enough → new things → not informal"
+10. "Be brave to experiment"
+11. "Business skills lack"
+12. "Data skills gap"
+13. "Utilize IT & BUS knowledge"
+14. "Technology not the issue - we can learn everything"
+15. "Lack of critical thinking, system thinking"
+16. "Doing good things vs. good doing" (doing the right things vs doing things right)
+
+The core issues emerging are that while we have technical capability, we're missing the mindset shift—people need to embrace experimentation and systems thinking rather than just executing tasks, and we're not leveraging our combined business and technical knowledge effectively.
+
+Looking at the organizational side, there's a disconnect between commitment levels across teams, our KPI-driven approach limiting innovation, and resources being misallocated to the wrong priorities. Data infrastructure is becoming a bottleneck, we lack clear AI leadership, and we're treating experimental initiatives the same as proven approaches instead of giving them space to breathe.
+
+The core issues are unclear requirements coming in, teams not understanding how data decisions ripple across the company, and needing to prove value before getting organizational buy-in. There's also tension around whether centralized reporting and processes are the right approach for everything. The solution seems to involve closer business-IT collaboration, peer-to-peer communication across functions, and organizing around four main streams: AI tools, internal efficiency, customer-facing AI, and new business opportunities.
+
+Now I'm looking at the data architecture and roadmap considerations. The key insight is that value creation goes beyond just cost savings—it's about increasing overall value. They're managing multiple data types including KPIs, regulatory requirements, and analytical research, with monthly processing cycles and inputs from third parties. There's a challenge around customer data fragmentation across different systems, and they're considering an experimental approach to accelerating the end-to-end flow. The strategic questions center on whether they have a clear data strategy and who owns these initiatives.
+
+For the skills and capabilities side, I'm thinking through whether they have the right people in place and if the business truly understands what AI can deliver—there might be a gap in translation between technical and business perspectives. On the value front, they need to identify where AI is currently creating value, where the untapped potential lies, and where opportunities are being missed. From a technical standpoint, they're weighing manual versus automated processes and assessing whether the necessary data and tools are accessible to scale their AI use cases.
+
+Now looking at IT and digital platforms, I'm considering where IT infrastructure accelerates the business versus where it becomes a bottleneck, how quickly they can respond to changing business needs, and where IT limitations are actually costing them value. For organization and governance, the key questions are around how prioritization decisions get made and who owns them, plus establishing clear ownership across different platforms and systems. On the skills side, there's a gap between legacy and modern technology expertise, and they need to evaluate whether they have the capacity to support what they're trying to build. The technical acceleration piece seems to be comparing legacy versus newer approaches.Pročitao sam sve tri ploče. Evo sistematizacije — krećem s transkripcijom pa s analizom.
+
+---
+
+**PLOČA 1 — SKILLS (AI & Data)**
+
+Čitam sljedeće post-it-ove:
+
+*Pain pointovi / izazovi:*
+- Najbolje skillane ljude koristimo za BAU
+- Ne razumijemo proces E2E
+- Business skills lack
+- Data skills gap
+- Not challenging enough → new things → not informal
+- Lack of critical thinking, system thinking
+- Doing good things vs. good doing (radimo li prave stvari vs. radimo li stvari dobro)
+
+*Mindset / aspiracije (TO BE signali):*
+- Mindset more important than skill
+- Be the example
+- Engineering mindset everywhere
+- Be brave to experiment
+- AI kao podrška propositionu
+- Proizvodi/koristi AI toolove
+- Utilize IT & BUS knowledge
+- Technology not the issue — we can learn everything
+- Prepoznavanje potrebnih skillova (need to map what we actually need)
+
+---
+
+**PLOČA 2 — ORGANIZATION & GOVERNANCE (AI & Data)**
+
+*Pain pointovi:*
+- Nedovoljno committment / decentralizacija (cross-functional)
+- KPI orijentirani → klasično planiranje
+- Sredstva/resursi na krive stvari
+- Data bottleneck — HW, stakeholderi
+- Nemamo AI leadershipa
+- Novi i staro testirano isto (nema razlike u pristupu)
+- Optimizacija vremena → za nešto novo (nema prostora)
+- Requests are not clear
+- Not aware of data impact to other parts of company
+- Nema ni consultinga/partnera
+- Trebamo dokazati i onda dobivamo buy-in
+- Consider processes when setting up data
+- Reporting/centralizacija — maybe not good direction for everything
+- Overlapping of reporting — solving mix by control
+- One customer on different sources = 2/3 instance
+
+*Pozitivno / u tijeku:*
+- Prioritization is now OK
+- BUS & IT work together (zaokruženo)
+- Peer 2 peer communic. (finance etc.)
+
+*Strateški okvir koji su definirali:*
+- 4 streama: (1) AI toolovi, (2) Interna efikasnost (SIMPL DK), (3) AI prema korisnicima, (4) Nove poslovne prilike
+- "Nije ušteda jedini cilj nego povećanje valuea!"
+- DATA: KPIs/reporting, Regulatory data, Analysis/research → proces stoji na 14 business procesa
+- Challenge: accelerating the flow E2E
+- Start with customer
+- EXPERIMENT (istaknuto)
+- Transform. + legacy (koegzistencija)
+
+---
+
+**PLOČA 3 — FRAMEWORK / FACILITACIJSKA PRIPREMA**
+
+Ovo je očito bila facilitacijska struktura za diskusiju, podijeljena po capabilityjima:
+
+*AI & Data:*
+- Org & Gov: Imamo li strategiju? Ownership nad inicijativama? Prioriteti? Bottlenecks?
+- Skills: Imamo li ih dovoljno/prave? Razumije li business što AI donosi? Translatori?
+- Value: Gdje danas stvara value? Gdje je potencijal? Gdje gubimo prilike?
+- Tech Acc: Manualno vs. automatizirano? Data i alati dostupni? Skaliranje AI use caseova?
+
+*IT & Digital Platforms:*
+- Value: Gdje IT ubrzava business? Gdje usporava? Koliko smo brzi u reakcijama? Gdje gubimo vrijednost?
+- Org & Gov: Prioritizacija — tko i kako? Ownership po platformama i sustavima?
+- Skills: IT/Digital skillovi? Gap legacy vs. moderne tech? Kapaciteti za podržati ono što želimo?
+- Tech Acc: Legacy vs. udio? Brzina promjene? Manualno vs. automatizirano? Integrirane vs. fragmentirane platforme?
+
+---
+
+**SINTEZA — Ključni obrasci iz AI & Data radionice**
+
+Uspoređujući s nalazima iz Sales & Channel radionice, evo što vidim:
+
+**Ponavljajući obrasci (validiraju hipoteze iz Salesa):**
+Nedostatak AI skillova se potvrdio, ali s dodatnom dimenzijom — problem nije samo "nemamo AI ljude" nego "najbolji nam rade BAU, a ne inovaciju." Data skills gap je eksplicitan. E2E nerazumijevanje procesa se ponavlja, samo iz druge perspektive — tamo Sales nije znao tko što radi, ovdje AI tim ne vidi E2E. I feedback loop opet nedostaje — trebaju dokazivati vrijednost da bi dobili buy-in, umjesto da postoji sustavan mehanizam.
+
+**Novo — specifično za AI & Data:**
+Nema AI leadershipa na razini organizacije, što je fundamentalno drugačije od "governance nejasan" u Salesu — ovdje se radi o tome da nitko ne vodi AI agendu strateški. Resursi su na krivim stvarima — ovo je jače od "sporih odluka", govori o misalignment prioriteta. "Doing good things vs. good doing" je izvrsna distinkcija — tim preispituje rade li prave stvari uopće, ne samo kako ih rade. I jedan kupac na 2-3 izvora podataka — konkretan data architecture problem.
+
+**Mindset signali (TO BE input):**
+Ova radionica je dala puno jačih aspiracijskih signala nego Sales. "Be brave to experiment", "Engineering mindset everywhere", "Technology not the issue — we can learn everything" — tim želi više autonomije i eksperimentiranja. Četiri definirana streama su dobar znak strateške artikulacije.
+
+Šalji dalje ako ima još ploča — ili da počnem slagati konsolidirani dokument?
+
+## Human  *(2026-04-16T09:49:34.030361+00:00)*
+
+nije bio zaključak da nema AI leadershipa, to imamo kroz AI & Data Tribe, nego ostatak leadershipa nema AI mindset
+
+## Assistant  *(2026-04-16T09:49:48.766183+00:00)*
+
+Robi is correcting my interpretation. The sticky note "Nemamo AI leadershipa" doesn't mean the AI & Data Tribe lacks leadership - it means the rest of the organization's leadership doesn't have an AI mindset. Important distinction.Hvala na korekciji, to je bitna razlika. Dakle AI & Data Tribe ima svoj leadership i strateški okvir (4 streama, WoW proces), ali problem je što **širi leadership HT-a nema AI mindset** — ne razumiju što AI može, ne znaju što tražiti, i ne integriraju AI u svoje odlučivanje.
+
+To zapravo objašnjava i neke druge post-it-ove s ploče puno bolje: "Razumije li business što AI donosi?", "Translatori?", "Trebamo dokazati i onda dobivamo buy-in", "Not aware of data impact to other parts of company." Sve to upućuje na isti root cause — AI tribe radi svoj posao, ali ostatak organizacije nema sposobnost apsorpcije.
+
+To je strukturno ozbiljniji problem nego kad bi sam tribe bio bez leadershipa. Jer to znači da demand strana nije artikulirana — biznis ne zna formulirati što mu treba, a AI tim mora istovremeno evangelizirati i isporučivati. Otuda i "sredstva/resursi na krive stvari" — kad leadership nema AI mindset, prioritizacija ne reflektira pravi potencijal.
+
+U kontekstu TOM-a to je nalaz koji sjeda na **Governance & Org** (tko odlučuje o AI prioritetima — tribe sam ili biznis leadership koji razumije AI?) i na **Skills** (ne AI skillovi u tribeu, nego AI literacy u ostatku organizacije).
+
+Šalji dalje, ima li još ploča?
+
+## Human  *(2026-04-16T11:53:18.321446+00:00)*
+
+evo zadnje slike, analiziraj i strukturiraj i zatim mi daj finalni output dokument u wordu sa HT dizajnom
+
+## Assistant  *(2026-04-16T11:58:28.026506+00:00)*
+
+Let me analyze all four new images, which appear to cover IT & Digital Platforms and Product/Service/Propositions capabilities.
+
+Image 1 - TECH ACCEL (likely IT & Digital Platforms):
+- Ponude generiraju ručni rad u pozadini
+- Prostor za automatizaciju, testing, use caseovi
+- Oslonac na bazu → IT support AI
+- Alati kolaboracija neki novi
+- Utilizacija AI kvaliteta alignment!
+- Trebali bi alati 2 stacka B2B B2C
+
+Image 2 - SKILLS (IT & Digital Platforms / Product):
+
+Looking at the skills gaps, there's a critical issue with leadership mindset and agility across teams — we're missing the product owner perspective and technical depth needed for modern delivery. The real problem is we don't have a critical business mindset, we're not managing skill categories systematically, and there's a fundamental lack of trust and confidence in how we develop people and handle capacity planning.
+
+Now examining the organizational structure and governance around IT and digital platforms — ownership is unclear, there's no clear roadmap which creates misaligned expectations, and prioritization gets muddled between propositions and processes. The key roles like enterprise architects, business analysts, and delivery leads need to take real ownership, but right now prioritization is opaque and we're not getting close enough collaboration between product and the platform owners on what actually matters.
+
+Looking at how we're handling value and propositions — we're not measuring how relevant our offerings are to users or how quickly we're turning ideas into actual products. We tend to underestimate project complexity and we're missing domain retrospectives by component, which should be standard practice. The proposition flow moves from planning through design to implementation, but we're running parallel iterations on transformations while trying to prioritize customer experience across new systems.
+
+Now I'm thinking through the design phase — there's something about user surprise or delight, and maybe demos are how we bring them along. Let me pull together everything from both workshops into a comprehensive document.
+
+Now let me analyze the four new images and create a comprehensive Word document.
+
+Image 1 - TECH ACCEL:
+- Ponude generiraju ručni rad u pozadini
+- Prostor za automatizaciju, testny moda, test UC-ovi
+- Oslonac na bazu → IT support AI
+- Alati kolaboracija neki novi
+- Utilizacija AI kvaliteta alignment!
+- Trebali bi alati 2 stacka B2B B2C
+
+Image 2 - SKILLS (IT & Digital Platforms):
+- Gap leadership skills
+- Agility kao mindset! Root cause: timovi
+
+- PO mindset needs strengthening across the board, with B+ level tech skills and AI/digital capabilities as key propositions for product owners
+- Beyond core competencies, we're missing critical domain retrospectives by component, lack of trust and support structures, and don't have the right mindset to manage categories and their skill development
+- Tech leads should be solving capacity and portfolio issues, but we're not thinking critically enough about business implications
+
+Image 3 - ORG & GOV (IT & Digital Platforms + Product):
+- Nejasan ownership
+
+, no clear roadmaps leading to misaligned expectations, though prioritization attempts to balance propositions and processes
+- Leadership needs to own responsibility, with key roles like ESM/DEL, customer journey, portfolio process, enterprise architects, and BAs working in closer collaboration
+- Horizontal connections and transparent prioritization are missing, and we need to clarify who owns what and ensure propositions are genuinely relevant and differentiated for users
+
+Now I'm looking at how we're losing customers — it comes down to how quickly we can turn ideas into actual offers, and we're underestimating project complexity without domain retrospectives as standard practice, plus we're applying discounts to every proposal which devalues them. The proposition flow moves through planning with ideation and scoping, then design with customer journey work, then implementation with development and testing, but we need parallel iterations and transformations, especially for new systems where customer journey redesign and user enterprise considerations matter, and demos should bring actual users into the conversation.
+
+Good, docx is installed. Now let me create the comprehensive document.
+
+Let me run this script now.
+
+Let me validate the document.
+
+Great, the document is valid. Let me copy it to the output directory and present it.
+
+Now let me also analyze the last four images properly before presenting. Let me provide the analysis in my response along with the document.
+
+Good, the document is ready. Let me summarize what's in it for Robi.Dokument sadrži sedam poglavlja: kontekst i metodologiju, Sales & Channel (RES + BUS), AI & Data (uključujući WoW proces i 4 streama), IT & Digital Platforms, Product/Service/Propositions, cross-cutting analizu ponavljajućih obrazaca kroz sve capabilityje, i implikacije za TO BE model.
+
+Svaki capability ima nalaze mapirane na ista 4 stupca (Governance, WoW, Skills, Tech Accelerators) u tablicama s vizualnim razlikovanjem pain pointova i snaga.
+
+Korekcija oko AI leadershipa je integrirana — kroz cijeli dokument naglasak je da AI tribe ima svoj leadership i proces, ali širi leadership HT-a nema AI mindset, što blokira demand stranu.
+
+Javi ako trebaš korekcije ili dopune — pogotovo ako sam krivo pročitao nešto s ploča (rukopis na nekim post-it-ovima je bio izazovan).
+
+
+---
+
+# Future operating model framework for Hrvatski Telekom
+- **Conversation ID:** `ce45c427-3192-4216-9169-8cbdc2f254d6`
+- **Created:** 2026-03-26T14:34:11.452387+00:00
+- **Updated:** 2026-04-01T13:55:34.090517+00:00
+- **Messages:** 24
+
+---
+
+## Human  *(2026-03-26T14:34:12.675360+00:00)*
+
+Create a puzzle-style visualization using the attached telco operating map. The goal is to create a simplified framework for creation of the Future Operating Model for Hrvatski Telekom. Use the domains customer, market&sales, product, service, resource and focus on the capability management, business value development, operations readiness & support and fulfillment areas.
+
+## Assistant  *(2026-03-26T14:36:32.384330+00:00)*
+
+The user wants me to create a puzzle-style visualization based on the eTOM framework, focused on specific domains and areas for Hrvatski Telekom's Future Operating Model. Let me plan this out.
+
+Domains to include: Customer, Market & Sales, Product, Service, Resource
+Areas to focus on: Capability Management, Business Value Development, Operations Readiness & Support, Fulfillment
+
+Let me read the visualizer readme first to understand the design guidelines.
+
+The user wants a puzzle-style interactive visualization of the eTOM framework for Hrvatski Telekom's Future Operating Model. Let me plan this carefully.
+
+Domains (rows): Customer, Market & Sales, Product, Service, Resource
+Areas (columns): Capability Management, Business Value Development, Operations Readiness & Support, Fulfillment
+
+This is a 5x4 grid = 20 cells. Each cell should contain the key process groups from the eTOM framework. I need to make this interactive and "puzzle-style" - meaning interlocking pieces or a jigsaw-like visual.
+
+Let me think about what goes in each cell based on the eTOM framework:
+
+Now I'm mapping out the specific process groups for each domain. The Customer domain covers management capabilities, strategy and relationship development, support operations, and order processing. Market & Sales includes sales development and market research for capability building, marketing campaigns and communications for value creation, readiness support, and the actual selling and lead management processes. The Product domain starts with development and specification capabilities.
+
+I'm thinking about how to visualize this as an interactive puzzle where each piece represents one of these process areas, and users can click through to explore the details and relationships between them.
+
+Building the interactive widget...Robi, this is a great framework exercise. Let me build a puzzle-style interactive visualization mapping the eTOM process areas to HT's future operating model — focusing on the five core domains across your four selected lifecycle phases.
+
+The visualization is rendered. Let me provide a brief explanation of the structure and how to use it.The puzzle maps eTOM v24.5 process areas into a 5×4 grid that reads left-to-right as the operating lifecycle — from strategic capability build-out through to live fulfillment. Each piece is clickable and expands with AI opportunity areas specific to HT's context.
+
+A few structural observations worth noting for the working session:
+
+The **vertical integration** is where the real operating model design happens — a customer order triggers product fulfillment, which decomposes into service activation, which dispatches resource orders. That cascade across the five rows is where zero-touch ambitions either work or break down.
+
+The **capability management column** (leftmost) is where your AI Tribe has the most strategic leverage — it's pre-operational, so you're shaping future capabilities before they hit production. The **fulfillment column** (rightmost) is where AIOps delivers the fastest measurable ROI, especially in the service and resource layers.
+
+The middle two columns — business value development and operations readiness — are the connective tissue that most telcos underinvest in. That's typically where catalog quality, spec accuracy, and support tooling either enable or block the automation ambitions at both ends.
+
+Want me to drill into any specific piece, or would it help to layer on a priority/maturity overlay showing where HT currently stands versus the target state?
+
+## Human  *(2026-03-26T14:36:47.874946+00:00)*
+
+Group the Service and Resource domains into Network domain
+
+## Assistant  *(2026-03-26T14:38:45.739347+00:00)*
+
+Robi wants me to merge the Service and Resource rows into a single "Network" domain. This simplifies the framework from 5 rows to 4 rows. I need to rebuild the puzzle visualization combining the service and resource process areas under one unified "Network" domain.
+
+Good, the visualization is rendered. Let me provide context on the merge decision.Done — Service and Resource are now unified under a single **Network** domain, with each puzzle piece preserving the two-layer internal structure via the dashed divider (service layer above, resource layer below).
+
+This grouping makes practical sense for HT's operating model because the organizational reality is that network teams already operate across both eTOM layers — a NOC engineer doesn't think "I'm doing service performance management now" vs "resource trouble management." The dashed line inside each piece keeps the logical distinction visible for process mapping purposes without inflating the model to five rows.
+
+The 4-domain model also maps more cleanly to HT's actual org structure: Customer-facing teams, Commercial/Sales teams, Product management, and Network/Technology. That's a more intuitive framework for a Board-level conversation than the purist eTOM five-layer split.
+
+Want me to add a maturity or priority overlay, or export this as a standalone HTML deliverable you can use in the working session?
+
+## Human  *(2026-03-26T14:40:39.705265+00:00)*
+
+createa a Standalone HTML I can share, and please use the Telekom branding for styling, with a white background
+
+## Assistant  *(2026-03-26T14:43:13.342930+00:00)*
+
+The user wants a standalone HTML file with Deutsche Telekom branding (magenta theme) and white background. Let me read the relevant skill file for creating HTML files, then build a polished standalone version.
+
+Now let me create a standalone HTML file with Deutsche Telekom branding. The key Telekom brand elements are:
+
+- Magenta (#E20074) as primary color
+- White background
+- TeleNeo or similar font (I'll use a clean sans-serif since TeleNeo isn't publicly available on CDN)
+- Clean, corporate feel
+- The "T" logo mark
+
+Let me build this as a polished standalone HTML file.
+
+Let me copy it to outputs and present it.
+
+Done, let me present the file.
+
+Done.Here's your standalone HTML file with Telekom branding — white background, magenta accents on the header/footer borders, DM Sans typography, and the T-logo mark. It's fully self-contained with no external dependencies beyond the Google Font, so it works offline after first load.
+
+The interactive click-to-expand panels work the same way as the inline version. It also includes print styles that auto-expand all detail panels when you print or export to PDF, and it's responsive down to tablet widths.
+
+## Human  *(2026-03-26T14:45:05.498886+00:00)*
+
+can you style the domains in a puzzle-like grid of 2x2, with the lifecycle expanding in a circle-like structure? Also, can you simplify the descriptions in the overview into 1 sentence per domain so it's easy to read and understand, with the details available on click?
+
+## Assistant  *(2026-03-26T14:53:46.268577+00:00)*
+
+The user wants a redesign of the HTML file with:
+1. Domains arranged in a 2x2 grid (Customer, Market & Sales, Product, Network)
+2. Lifecycle phases expanding in a circle-like structure around each domain
+3. Simplified descriptions - 1 sentence per domain in the overview
+4. Details available on click
+
+This is a significant visual redesign. Let me think about the layout:
+
+- 2x2 grid of domains: Customer (top-left), Market & Sales (top-right), Product (bottom-left), Network (bottom-right)
+- Each domain is a "hub" with 4 lifecycle phases radiating outward in a circular/radial arrangement
+
+- Each hub displays just the domain name and a single sentence summary, with the full lifecycle details hidden until clicked
+
+I'm considering how to structure this interactively. A fully circular layout for each of the four domains might get visually crowded, so I'm thinking of a cleaner approach where each domain card acts as a central hub that expands on click to reveal its four lifecycle phases arranged around it.
+
+Actually, I like the idea of a 2x2 grid where each quadrant represents a domain, with the domain name and description centered and the four lifecycle phases positioned around it in a clockwise circular flow. This creates a more cohesive puzzle-like visual where the phases naturally orbit the domain center—Capability Management at the top-left, Business Value Development at the top-right, Operations Readiness & Support at the bottom-right, and Fulfillment at the bottom-left.
+
+For the interaction pattern, I'm thinking the main view shows a clean 2x2 grid of domain tiles with the name, a brief description, and a subtle visual indicator of the four phases. When a user clicks a domain, it expands to reveal the full circular lifecycle arrangement where each phase becomes clickable for detailed AI opportunities.
+
+Building the visual structure... Building the interactive layout... Building the layout...
+
+Let me design a really polished 2x2 grid where each domain is a circular hub. The lifecycle phases orbit around each domain center in a clockwise pattern. I'll use SVG for the circular arrows and position the phases at cardinal points.
+
+Design direction: Clean, corporate-editorial with Telekom magenta as the accent. White background, generous whitespace, each domain as a self-contained circular system. Think of it like 4 orbital diagrams in a 2x2 grid.
+
+Each domain hub:
+- Center: Domain name + 1-sentence description
+- N (top): Capability Management
+
+- E (right): Business Value Development
+- S (bottom): Operations Readiness & Support
+- W (left): Fulfillment
+
+The clockwise flow connects them: Capability Management → Business Value Development → Operations Readiness & Support → Fulfillment → back to start. I'm sizing each domain cell at roughly 550px × 450px and building the layout with SVG circles, orbital paths, and connecting arrows.
+
+For the interaction model, clicking a phase card will display a detail panel below showing the relevant process items and AI opportunity tags. Now I'm working through the geometry of the connecting arrows—I need to draw curved paths between the phase positions that flow clockwise around the center hub, though the bottom-left transition requires some careful positioning to avoid awkward angles. Writing SVG arrow paths...
+
+Actually, I'm reconsidering the whole approach here. Since this needs to work across different screen sizes, I should make each hub a flexible container with the center domain label and position the phase cards around it using absolute positioning, then layer SVG arrows on top for the connections. Let me simplify the sizing—I'll use a responsive container with consistent proportions for the center circle and phase cards, keeping the arrow track at a fixed radius from the center.
+
+For the layout itself, I'm thinking a 3×3 CSS grid where the corners stay empty, the center holds the domain name, and the cardinal directions hold each phase. Then I'll overlay curved SVG arrows between adjacent phases to show the flow. The detail panel will sit below the 2×2 grid and slide in when someone clicks a phase.
+
+I'm going to stick with the Telekom magenta and white palette, using DM Sans throughout. For the circular flow visualization, I could either draw subtle curved arrows in SVG or use a dashed circle with chevrons—I think the SVG arrows will look cleaner and more intentional.
+
+Writing the HTML structure... I'm realizing grid layout might be too constraining for the circular arrangement I want, so I'll switch to absolute positioning instead—that'll give me precise control over placing each phase at the cardinal directions around a centered hub. I'm setting up the container with relative positioning, the center element absolutely centered, and each phase positioned at the north, east, south, and west points, with an SVG overlay for the connecting arrows.
+
+Now I'm planning the overall page structure: a header with the logo and title, a 2x2 grid of domain hubs below it, each with its own circular lifecycle, a detail panel area, and a footer. For the arrows between phases, I'll use SVG with curved bezier paths to create a subtle clockwise flow, and I'll add a staggered entrance animation when the page loads.
+
+Each hub will have the domain name in a colored circle at the center with a description underneath, four phase cards positioned at the cardinal directions, and SVG arrows connecting them. Clicking any phase will display details below. I'm working out the precise positioning now—each hub is roughly 500×420 pixels, with the center at (250, 210) and the phase cards positioned at the cardinal points. The cards themselves will be consistent at 130 pixels wide and about 56 pixels tall.
+
+Writing the component structure... I'm simplifying the approach—instead of manually calculating bezier curves between card edges, I'll draw a dashed circular track around the center point and place small arrow chevrons at intervals to show clockwise flow. The phase cards themselves will be positioned via CSS at the cardinal points on this circle, while an SVG overlay handles the track and directional indicators. Writing SVG arrow paths...
+
+Now I'm thinking through the interaction model—when someone clicks a phase card, I'll highlight it and display a detail panel below the grid showing the process items and AI opportunities for that phase.
+
+I'm finalizing the domain descriptions to be concise yet comprehensive, then I'll write out the complete HTML structure. For the layout, I need to size the 2x2 grid cells to fit within the max-width constraint while keeping the phase cards compact and positioned around each domain.
+
+Writing the HTML structure... Writing positioning styles...
+
+I need to set up the SVG with a fixed viewBox that scales with the container, then map out the phase positions and curved arrow paths that connect them in a clockwise flow around the hub.
+
+Now I'm defining the specific arrow paths with quadratic curves to create smooth quarter-circle arcs between each phase, and I'll add arrow markers to show direction. I'm also planning to give each domain hub a subtle colored background that matches its theme, creating that puzzle-piece effect where the four quadrants fit together visually.
+
+For the responsive layout, I'm thinking through whether to use SVG with viewBox scaling or CSS pseudo-elements for the arrows—I'm leaning toward keeping the arrows as part of a background SVG so everything scales proportionally together.
+
+Actually, I'm overcomplicating this. Let me just use fixed dimensions that work well on desktop since that's the primary viewing context, and I can make it scrollable on smaller screens if needed. I'll set up a grid with two columns, no gap between cells, and position each hub with a fixed height so the phase cards and arrows can be absolutely positioned within them.
+
+Setting up the layout structure... Building the grid layout... Writing SVG coordinate system... I'm scrapping the SVG approach entirely and going with pure CSS instead. I'll create a dashed circular orbit using a positioned div with a border, place the four phase cards around it at cardinal directions, and add small arrow indicators as CSS triangles to show the flow between phases.
+
+Styling the orbit ring... Writing SVG arrow paths... Writing the SVG and animations... Defining the clip-path patterns for the interlocking edges... Finishing the clip-path polygons for the remaining tab configurations, defining the precise coordinates for the inward and outward notches on each edge.
+
+Actually, I'm overcomplicating this with the negative values and complex polygon calculations—browsers might struggle with the rendering. Let me simplify by using a 2x2 grid layout with minimal spacing and rounded corners applied only to the outer edges of each cell, which will give that puzzle-piece aesthetic without the geometric complexity. I'll use distinct background colors for each quadrant to reinforce the four-part operating model concept.
+
+Now I'm ready to write the actual code. For the arrows connecting these pieces, I want them thin and semi-transparent with a dashed style, small arrowheads, and maybe a flowing dash animation to emphasize the lifecycle progression through the model.
+
+Writing the HTML and CSS... Writing the complete HTML structure...
+
+Now I'm thinking through the SVG arrow markers—I need arrowheads on those curved arrows pointing outward from each hub. The cleanest approach is to define the marker once in a hidden SVG at the top of the page, then reference it from each hub's individual SVG elements rather than duplicating it in every hub.
+
+For the flowing animation effect on the arrows, I'm setting up a keyframe animation that shifts the stroke dash offset to create that sense of movement along the path.
+
+Now I'm organizing the content for all the phase-domain combinations into a data structure so the code stays clean and maintainable. I'll hardcode the detail panels directly in the HTML with matching IDs for reliability, then focus on building out the phase cards with their titles and key bullet points for the simplified view. Now I'm mapping out the remaining domains—Sales and Market with their four directional capabilities, Product with its full lifecycle from development through operations, and Network as the foundational service layer supporting everything else.
+
+For the phase labels, I'm considering whether to embed them directly in each card or position them as global axis labels across all four hubs. I think keeping them self-contained within each card works better—that way every phase card shows both the lifecycle phase name and the domain-specific activities it encompasses.
+
+I'm settling on a compact format where the domain title sits prominently at the top with the lifecycle phase as a smaller, muted subtitle below it, giving context without bloating the card size.
+
+Now I'm ready to build the HTML file, and I need to finalize the hub dimensions—each hub around 545px wide with 440px height, phase cards at roughly 125px, and a 150px center circle. I'll also add a close button to the detail panel and style the active phase card with a highlight.
+
+Building the interactive layout... Writing SVG arrow paths... Writing SVG arc paths... Writing SVG code... I'm verifying the arrow coordinates are correct, and they look good—I'll use clockwise small arcs for the SVG paths. Now I need to make sure the CSS positioning of the phase cards aligns with the SVG viewBox coordinates so everything renders in the right proportions.
+
+Calculating card positions...
+
+I'm realizing the scaling issue—when the container width changes, the viewBox units don't map 1:1 to pixels anymore, so the SVG arrows won't align with the HTML cards. The simplest fix is to lock the hub to a fixed 500px × 420px size, which makes the viewBox scale predictable for a presentation context.
+
+But actually, I'm overthinking this. Instead of wrestling with SVG-to-HTML alignment, I'll use a cleaner approach: position the phase cards with CSS and draw a subtle circular orbit ring behind them with small arrow indicators at key angles, skipping the complex arrow-positioning math entirely.
+
+Positioning the chevron arrows...
+
+CSS doesn't support trigonometric functions in calc() reliably, so I'll hardcode the positions instead. For a 140px radius ring, the cardinal offsets work out to roughly 99px, which I can use to place the chevrons at the four diagonal points around the ring. Writing SVG overlay... I need to recalculate the SVG coordinates to account for the card's transform origin—the CSS percentage positions place the card's top-left corner, but I need to find where the card's center actually lands in the SVG viewBox so the arrows connect properly. Now I'm calculating the positions for the remaining cards and realizing the orbit isn't a perfect circle—the north and south cards are 176 pixels from the hub center while the east and west cards are 197 pixels away, so I'll need to draw an ellipse instead.
+
+Let me adjust the card positions to create a more balanced orbit by increasing the vertical padding for the north and south cards while keeping the horizontal padding tighter for east and west. After recalculating with these new percentages, the distances are closer but still not perfectly equal—north and south are 167 pixels out while east and west are 176 pixels out.
+
+Now I'm setting up the SVG arrows to follow an elliptical path with those dimensions, calculating the start and end points for each directional arrow based on angles around the ellipse.
+
+Calculating arrow paths... I'm finishing up the arc calculations for the elliptical paths connecting the phase cards, then I'll add arrowheads with SVG markers. Now I'm moving into the actual implementation—I'll structure the detail panel below the grid and use a JavaScript data object to store all the content for each phase, keeping it clean and organized.
+
+Writing the component code...
+
+For the animations, I want the hub cells to fade in with a stagger effect, the phase cards sliding in from their cardinal directions, and the arrows drawing themselves in smoothly. I'm also adding lifecycle phase labels at each position—capability management to the north, value development to the east, readiness and support to the south, and fulfillment to the west—as small, muted subtitles on each card to give context without cluttering the design.
+
+The phase cards themselves will be clean and compact, showing the phase label in uppercase, a bold domain title, and a few key items listed below. When clicked, a detail panel expands to show the full breakdown with AI tags. I'm keeping the cards as simple rounded rectangles rather than adding puzzle-piece notches, since the puzzle metaphor already comes through from how the four domains fit together conceptually.
+
+Writing the component code... Writing SVG positioning logic...
+
+Now I need to handle the grid layout for the hub cells—I'll use a 2x2 grid with a minimal 2px gap that acts as a subtle border between them, letting the background show through for that puzzle-piece feel. Each cell will contain its domain information.
+
+I'm realizing the SVG arrows need to stay perfectly aligned with the CSS layout regardless of how the hub scales, so I'm verifying that the proportional math works out—since the viewBox aspect ratio matches the container's aspect ratio, percentage-based CSS positions will translate directly to SVG coordinates.
+
+Writing the final implementation... Calculating the arc paths for each transition around the orbit...
+
+Now I'm defining the marker for the arrowheads, but I realize CSS variables won't work in SVG marker fills, so I'll need to use actual color values instead. I'm realizing that since all the SVGs are embedded in the same HTML document, they share the DOM, so I need unique marker IDs across all hubs rather than reusing the same ID. Let me prefix each marker with its hub identifier like "ah-c" for one hub and "ah-m" for another.
+
+Actually, a cleaner approach would be to define a single shared marker in a hidden SVG at the top of the page, then reference it from all the visible hub SVGs using cross-SVG references, which work fine in modern browsers.
+
+Now I'm organizing the full implementation into sections: CSS variables, base styles, header, hub grid, phase cards, detail panel, animations, HTML structure, and JavaScript. Before I start writing though, I need to decide what information shows on the phase cards themselves—the user wants simplicity with details on click, so I'll keep each card minimal with just the lifecycle phase label and the domain-specific title.
+
+Writing the complete code now... Writing the complete implementation... Writing the comprehensive HTML file...
+
+Let me copy it to outputs and present it.
+
+Let me present the file to the user.
+
+Done. Let me provide a brief summary.Here's the redesigned version. The key changes:
+
+**2×2 puzzle grid** — Customer (top-left), Market & Sales (top-right), Product (bottom-left), Network (bottom-right) fit together as four colored quadrants with a tight 3px border creating the puzzle effect.
+
+**Circular lifecycle** — Each domain has four phase cards orbiting the center in a clockwise flow: Capability Management (top) → Value Development (right) → Readiness & Support (bottom) → Fulfillment (left). Animated dashed arcs with arrowheads show the lifecycle direction.
+
+**Simplified overview** — Each domain center shows just the name and one sentence. Phase cards show only the lifecycle stage and a domain-specific title. Clean and scannable at a glance.
+
+**Details on click** — Clicking any phase card opens a detail panel below the grid with two columns: process areas (left) and AI opportunity tags (right). Network phases show the Service/Resource sublayer breakdown. A magenta ring highlights the active selection.
+
+The file is fully standalone with the Telekom branding (magenta accents, T logo, DM Sans typography, white background) and includes entrance animations on load.
+
+## Human  *(2026-03-31T08:38:05.429712+00:00)*
+
+You are a world-class strategist and organizational expert, with deep insights into futurology, philosophy and technology. I want to define a top-down approach for Future target operating model definition for Hrvatski Telekom 2030.+ -> some guidelines are: 2M mobile customers, 1M fixed customers (across fiber, satellite and FWA technologies) and significant new business models beyond the core. We want to be completely digital company, with channel shares on digital 95%, <5% physical stores and 0% other channel sales. We want to have 100% of 1st level support handled by AI, and all company operations with zero-touch processes handled by AI. Our telco products should be fully digital. Ask me additional questions to understand the vision, then lay out a plan for the top-down approach
+
+## Assistant  *(2026-03-31T08:38:37.927581+00:00)*
+
+Robi is asking me to help define a top-down Future Target Operating Model for Hrvatski Telekom 2030+. He's given me some key parameters already. Let me think about what I need to understand better before laying out the plan.
+
+Key parameters already shared:
+- 2M mobile customers, 1M fixed customers (fiber, satellite, FWA)
+- Significant new business models beyond core
+- 100% digital company: 95% digital channels, <5% physical stores, 0% other
+- 100% 1st level support = AI
+- All operations = zero-touch AI
+- Fully digital telco products
+
+What I need to understand better to define a proper top-down TOM:
+
+Before I can map out the full operating model, I need clarity on several critical dimensions: the revenue ambition from new business lines and which models they're prioritizing (B2B2X, IoT, data monetization, edge computing, fintech), the workforce transformation target and current headcount baseline, and their technology strategy around cloud-native architecture and whether they'll leverage DT group platforms or build independently. I also need to understand their B2B versus B2C positioning, their network ownership philosophy (own infrastructure versus wholesale/MVNO), the regulatory and convergence context they're operating in, and how Pluto and their data platform fit into the overall model, plus their partnership strategy.Great brief, Robi. Before I lay out the framework, I need to pressure-test a few dimensions that would fundamentally shape the TOM differently depending on the answer. Let me group these into the areas that matter most.
+
+Good, I've asked the structured questions. Now let me also ask some open-ended questions that are important for the TOM definition.And a few open-ended questions that will shape the organizational and capability layers:
+
+**Workforce & org structure** — What's the current headcount ballpark, and is there a target envelope for 2030? Are you envisioning a continuation of the tribe/squad model, or a more radical restructuring? How much autonomy does HT have from DT group on org design?
+
+**DT group dependency** — For the TOM, how tightly coupled should HT be to DT group platforms (IT, BSS/OSS, procurement)? Is there appetite to diverge where it makes strategic sense, or is group alignment non-negotiable?
+
+**B2B ambition** — The 2M mobile / 1M fixed numbers feel consumer-heavy. What's the B2B/B2C revenue split target? Is there a dedicated enterprise/ICT play, or does B2B run through the same operating model?
+
+**Pluto's role** — Should the data platform be positioned as internal enabler only, or is there a data-as-a-product / data monetization angle that should be architecturally baked into the TOM from day one?
+
+These answers will determine whether the TOM looks more like a "lean digital telco" or a "platform company that happens to own a network" — two very different target states with different capability requirements, cost structures, and talent models.
+
+## Human  *(2026-03-31T08:40:53.359246+00:00)*
+
+Q: Revenue ambition 2030+ — what share of total revenue should come from beyond-core business models (IoT/B2B2X, data monetization, edge, digital services, etc.)?
+A: <10% — core telco dominates
+
+Q: Network ownership model — how do you see HT's infrastructure position in 2030?
+A: Full owner-operator (build & run everything)
+
+Q: Which of these are genuine 2030 ambitions vs aspirational stretch targets? (select all that are firm commitments) (Select all that apply)
+A: 95% digital channel share, 100% AI 1st-level support, Zero-touch operations, Fully digital products (no manual provisioning)
+
+## Assistant  *(2026-03-31T08:41:16.987914+00:00)*
+
+Robi has given me clear answers. Let me synthesize:
+
+1. Revenue: Core telco dominates (<10% beyond-core) — this is a "lean digital telco" not a platform company
+2. Network: Full owner-operator — they own and run everything
+3. All four targets are firm commitments, not stretch goals
+
+He hasn't answered the open-ended questions yet about workforce, DT group dependency, B2B, and Pluto. Let me ask those as follow-ups before laying out the plan.
+
+Actually, let me re-read his message. He answered the widget questions but not the open-ended ones I asked in prose. I should follow up on those before proceeding, as they're critical for the TOM design.
+
+I'll structure the remaining questions clearly so I can get the answers I need to move forward with the design.Good — that's a very clear signal. You're building a **lean digital telco that owns its infrastructure and runs it with radical automation**, not a platform pivot. All four targets being firm commitments means the TOM needs to be engineered backward from those end states, not iterated toward them incrementally.
+
+I still need the open-ended answers to lock in the organizational and capability layers. Let me sharpen them based on what you've told me:
+
+Waiting for Robi's answers to these questions.And two final open-ended questions that I can't widget-ify:
+
+**Workforce envelope** — What's the current headcount range (rough is fine), and is there a target for 2030? The zero-touch commitment implies significant workforce reshaping — I need to know whether you're designing for 50% of current headcount, 70%, or "same headcount, radically different skills."
+
+**Organizational model** — Do you see the tribe/squad model surviving into 2030, or is the TOM an opportunity to rethink the operating structure entirely? And how much of the org design is HT's call vs DT group mandate?
+
+These are the last inputs I need. Once I have them, I'll lay out the full top-down approach — starting from the 2030 end-state vision and decomposing backward through capability architecture, operating model layers, transition phases, and the governance needed to get there.
+
+## Human  *(2026-03-31T08:41:53.446066+00:00)*
+
+Q: B2B vs B2C revenue split target for 2030 — where does the weight sit?
+A: ~55/45 balanced (enterprise is a growth lever)
+
+Q: DT group platform coupling — how much freedom does HT have on IT/BSS/OSS stack choices?
+A: Selective autonomy (can diverge with business case)
+
+Q: Pluto's strategic position in the 2030 TOM — what role does the data platform play?
+A: Data-as-a-product (internal + external monetization)
+
+## Assistant  *(2026-03-31T08:43:47.058971+00:00)*
+
+Robi has given me comprehensive answers. Let me synthesize everything before laying out the plan:
+
+**Vision summary:**
+- Lean digital telco, full infrastructure owner-operator
+- 2M mobile, 1M fixed (fiber/satellite/FWA)
+- <10% beyond-core revenue (core telco dominates)
+- 55/45 B2C/B2B split (enterprise as growth lever)
+- All four digital targets are FIRM commitments: 95% digital channels, 100% AI L1 support, zero-touch ops, fully digital products
+- Selective autonomy from DT group
+- Pluto as data-as-a-product (internal + external monetization)
+
+- He's sidestepped the workforce envelope and org model questions, but he's clearly ready for the plan, so I'll proceed with reasonable assumptions I can flag as gaps.
+
+Now I'm thinking through what a world-class strategic framework should look like—starting with a 2030+ end-state vision, then layering in design principles, capability architecture, operating model structure, transition roadmap, and governance. I could jump straight into building a comprehensive Board-level HTML deliverable, but it makes more sense to walk through the approach conversationally first to get alignment before investing in the full production.
+
+The real strategic challenge here is that HT wants to be capital-intensive on infrastructure but operationally lean through automation—that's the core tension I need to resolve. The operating model has to handle two completely different capability profiles: the infrastructure side is engineering-heavy and long-cycle, while operations and commercial functions need to be AI-native and run with minimal human intervention. And there's something compelling about the Pluto angle—treating data as a product that drives core telco revenue.
+
+Now I'm seeing how Pluto actually functions in this model: it's not a standalone revenue center but rather the connective tissue that strengthens the core business while creating strategic optionality. The 55/45 B2B/B2C split with enterprise as the growth engine means I can't design this as a pure consumer-digital operation. Enterprise customers need different fulfillment—complex, multi-service, SLA-driven—plus relationship-based sales and dedicated support. The "95% digital" aspiration works differently here; for enterprise it means APIs, portals, and self-service dashboards rather than just a mobile app. And the selective autonomy from DT is crucial—I need to map out which parts of the TOM are HT-sovereign and which stay group-aligned, because that distinction directly affects implementation feasibility.
+
+I'm going to structure this as a comprehensive top-down framework starting with the north star, then the strategic design principles that constrain everything downstream, followed by the capability architecture organized around the four domains, and finally the operating model itself.
+
+The operating model has six critical layers—governance, commercial, product, technology, data, and people—that all need to work in concert. Then I'll map out the transition architecture with three clear horizons and milestones, and finish with the governance framework that actually makes decisions stick.
+
+The real insight here is the zero-touch paradox: moving to zero-touch operations doesn't reduce your total talent needs, it just shifts them from operators to engineers. Most telcos cut headcount first and then realize they can't build the automation they need. And that 95% digital channel with a 55/45 B2B split is deceptively complex—it's not just a channel strategy, it's a fundamental reshaping of how the business operates.
+
+Enterprise digital means API-first platforms, self-service configuration for bundled services, and automated SLA negotiation. That's a completely different beast than B2C digital. When you combine full owner-operator responsibility with radical automation, you're essentially building a lights-out factory—the infrastructure still exists and still requires capital, but it runs with minimal human touch. And for data monetization in this model, Pluto becomes the intelligence backbone that makes every business line smarter, not a separate P&L chasing its own revenue.
+
+The tension here is that DT group platforms move at group speed, but HT's automation ambitions need to move faster. I need to design the TOM with explicit decoupling—APIs and abstraction layers that let HT innovate on top of group foundations without fragmenting them.Excellent. The picture is now sharp enough to build on. You haven't answered the workforce and org model questions yet — I'll flag where those answers would change the plan, but I have enough to lay out the full architecture.
+
+Let me also note: you've described something that has a very specific strategic shape. Let me name it before I unpack it.
+
+---
+
+## What you're actually building
+
+You're describing a **lights-out telco** — borrowing the manufacturing metaphor where the factory still exists, is still capital-intensive, and still produces physical output, but runs with minimal human intervention. The assets are heavy; the operations are radically light. This is rare in European telecoms. Most operators either go asset-light (sell the network) or stay operationally heavy (keep the people). You're choosing the harder third path: own everything, automate everything.
+
+That framing matters because it resolves what would otherwise be a contradiction — how can you be a full owner-operator AND have zero-touch operations? The answer is that infrastructure ownership becomes a capital allocation discipline, not an operational one. You build and maintain through engineering and AI, not through headcount.
+
+The second thing worth naming: Pluto as data-as-a-product in a core-dominated revenue model doesn't make Pluto a business unit — it makes it the **nervous system** of the entire operating model. Every zero-touch process, every AI-handled support interaction, every automated provisioning flow depends on data quality, data availability, and data intelligence. The external monetization is a proof point for the platform's maturity, not the primary business case.
+
+Now let me lay out the approach.
+
+---
+
+## Top-down TOM design framework: six layers
+
+The design works backward from the 2030 end-state through six layers, each constraining the one below it. I'll walk through the logic of each, then we can build the detailed deliverable.
+
+### Layer 1 — North star codification
+
+Before anything gets designed, the end-state needs to be locked down in language that's precise enough to make architectural decisions against. Not vision statements — **design constraints**. What you've given me translates to seven hard constraints:
+
+**The magnificent seven** (these are non-negotiable end-state requirements):
+1. 3M customer relationships (2M mobile + 1M fixed) across fiber, satellite, and FWA
+2. 95% digital channel revenue share (B2C via app/web, B2B via portal/API)
+3. 100% AI-handled first-level support (zero human escalation at L1)
+4. Zero-touch operations across provisioning, assurance, and billing
+5. Fully digital products (no manual provisioning or configuration)
+6. Full infrastructure ownership across all access technologies
+7. 55/45 B2C/B2B revenue balance with enterprise as the growth vector
+
+Each of these has second-order implications that cascade through the operating model. For instance, constraint #2 (95% digital) applied to constraint #7 (55/45 with enterprise growth) means you need an enterprise digital commerce platform that handles complex multi-service B2B deals through self-service — not just a consumer app. That's a fundamentally different capability than most telcos' "digital transformation."
+
+### Layer 2 — Strategic design principles
+
+These are the guardrails that govern every downstream decision. I'd propose eight, derived from your constraints:
+
+**P1: AI-native, not AI-augmented.** Every process is designed for autonomous execution first. Human involvement is the exception that requires justification, not the default that gets optimized away. This is the difference between "let's add a chatbot" and "let's design support so it doesn't need humans."
+
+**P2: API-first commercial architecture.** Both B2C and B2B channels consume the same product/service APIs. The app, the web portal, the enterprise self-service platform, and the remaining physical stores are all thin clients on top of a common digital commerce layer. This is the only way to reach 95% digital without building four separate channel stacks.
+
+**P3: Data is infrastructure, not a function.** Pluto isn't a team that produces reports — it's the substrate that every operational process runs on. The TOM should treat data pipelines with the same criticality as network links.
+
+**P4: Group-aligned foundations, HT-sovereign intelligence.** Use DT group platforms where they provide commodity capability (billing, core network, procurement). Diverge where HT's automation and AI ambitions require faster iteration — primarily in the AI/ML layer, the digital experience layer, and the data platform. This means explicit architectural decoupling points (APIs, abstraction layers) that let HT innovate without forking group systems.
+
+**P5: Engineering over operations.** The workforce profile shifts from "people who run things" to "people who build things that run themselves." Every operational role should have an engineering counterpart that automates it — and the TOM should measure the ratio.
+
+**P6: Segment-native, not segment-adapted.** B2C and B2B aren't the same operating model with different frontends. They have different fulfillment complexity, different SLA structures, different sales motions. The TOM should have shared foundations (network, data, core IT) but segment-specific commercial and fulfillment layers.
+
+**P7: Product simplicity as a design constraint.** Fully digital products require radically simple product architecture. If a product can't be configured, provisioned, and supported without human intervention, it shouldn't exist in the portfolio. This is the most culturally difficult principle — it means killing legacy products, not just digitizing them.
+
+**P8: Closed-loop everything.** Every operational domain (network, service, product, customer) runs a closed loop: sense → decide → act → learn. The zero-touch commitment requires autonomous feedback loops, not just automation of individual steps.
+
+### Layer 3 — Capability architecture
+
+This maps directly to the four-domain model we already built (Customer, Market & Sales, Product, Network), but now organized around **capability clusters** rather than process areas. Each cluster is a bundle of capabilities that must exist as a coherent unit.
+
+I'd structure this as **12 capability clusters across 3 tiers**:
+
+**Tier 1 — Customer-facing (visible to the market)**
+- Digital commerce engine (B2C + B2B channels, product catalog, ordering)
+- AI customer operations (L1 support, proactive service, bill management)
+- Enterprise solutions delivery (complex B2B fulfillment, managed services, SLA)
+- Commercial intelligence (campaigns, personalization, churn, pricing)
+
+**Tier 2 — Product & service (the factory)**
+- Digital product factory (product lifecycle, catalog, configuration)
+- Service orchestration (activation, assurance, performance, closed-loop)
+- Network automation (resource provisioning, fault management, capacity)
+- Field operations (the residual physical layer — installs, repairs, satellite)
+
+**Tier 3 — Foundational (the substrate)**
+- Data & intelligence platform (Pluto — the nervous system)
+- Core IT & BSS/OSS (billing, CRM, inventory — group-aligned where possible)
+- Cybersecurity & trust (NIS2, privacy, identity, zero-trust)
+- People & organizational capability (engineering talent, AI literacy, culture)
+
+### Layer 4 — Operating model blueprint
+
+This is where the TOM gets concrete. Six operating model dimensions, each designed against the principles above:
+
+**Governance model** — How decisions are made. Dual-speed: strategic decisions (investment, architecture, partnerships) on a quarterly cycle; operational decisions (automation deployment, model updates, incident response) on a continuous/real-time cycle. The Board governs outcomes and constraints; the operating model governs itself within those constraints.
+
+**Commercial model** — How value is captured. B2C runs as a high-volume digital machine (app-first, self-service, AI-driven retention). B2B runs as a solution engine (portal + API + enterprise sales, with AI-assisted configuration and dedicated account management for top accounts only). Shared product catalog, divergent go-to-market.
+
+**Delivery model** — How products reach customers. Fully automated for standard products (order → provision → activate in minutes). Semi-automated for complex B2B (AI-assisted design → automated provisioning → human QA for enterprise SLA). The split between "fully automated" and "semi-automated" defines the residual human workforce in fulfillment.
+
+**Technology model** — How the stack is structured. Three layers: group-aligned foundation (core network, billing, ERP), HT-sovereign intelligence (Pluto, AI/ML, digital experience), and edge/access (fiber, satellite, FWA — owned and operated). The decoupling between group and sovereign layers is the single most important architectural decision.
+
+**Data model** — How intelligence flows. Pluto as the single integration layer. Every operational system writes to Pluto; every AI/automation system reads from Pluto. External data products (anonymized, aggregated) as a revenue stream and a proof point. The data model isn't a department — it's an architectural pattern that every domain must implement.
+
+**People model** — How the organization is shaped. This is where I need your workforce envelope answer. But directionally: radical shift from operations roles to engineering roles. The residual operations workforce is concentrated in field services (physical installs, repairs) and enterprise solution design (complex B2B). Everything else is either automated or handled by engineers who build/maintain automation.
+
+### Layer 5 — Transition architecture
+
+Three horizons, working backward from 2030:
+
+**Horizon 1 (2025–2027): Foundation** — Build the architectural substrate. Pluto maturity to gold-layer coverage across all domains. Core automation of high-volume processes (standard provisioning, L1 support for top 10 contact reasons, basic network fault remediation). Digital channel share to 70%. B2B portal MVP. Product portfolio simplification — retire products that can't be digitized.
+
+**Horizon 2 (2027–2029): Scale** — Automation becomes the default. AI L1 support covers 80%+ of contacts. Zero-touch provisioning for all standard products. Enterprise self-service for mid-market. Digital channel share to 85%. Workforce restructuring — operations roles transition to engineering or exit. Data-as-a-product first external offerings.
+
+**Horizon 3 (2029–2031): Complete** — Hit all seven north star targets. Full AI L1. 95% digital. Zero-touch standard operations. Remaining human roles are engineers, enterprise solution architects, field technicians, and leadership. Pluto is the intelligence backbone for both internal operations and external data products.
+
+### Layer 6 — Governance & steering
+
+The TOM itself needs a governance model for its own implementation. I'd recommend:
+
+- **TOM Board** (quarterly) — Board-level steering on north star KPIs, investment allocation, and organizational transformation decisions
+- **Domain councils** (monthly) — One per domain (Customer, Market & Sales, Product, Network) — owns capability maturity, automation progress, and interdependency management
+- **Automation office** (continuous) — A cross-functional team (likely sitting in your AI & Data Tribe) that tracks the automation backlog, measures zero-touch coverage, and removes blockers
+
+---
+
+## What comes next
+
+This is the strategic logic. The next step is to turn it into a working deliverable — I'm thinking an interactive HTML document that visualizes all six layers, lets you click through capability clusters, and includes the eTOM mapping we already built as the process-level foundation underneath.
+
+Before I build that, two things:
+
+1. **Your workforce and org model answers** would sharpen Layer 4 (People model) and Layer 5 (transition) significantly. What's the current headcount range, and what organizational model do you envision?
+
+2. **Prioritization input** — Of the 12 capability clusters, which 3–4 do you see as the biggest gaps today? That would let me sequence the transition architecture more precisely.
+
+Want to answer those and then I'll build the full deliverable? Or should I proceed with reasonable assumptions and flag them?
+
+## Human  *(2026-03-31T08:45:24.692210+00:00)*
+
+Workforce envelope - reduce from today's 5,5k employees by at least 25%. Organizational model - minimally we need to restructure the Agile operating model to support real-time production, integration of IT into business, radically simplified and automated (AI-powered) ways of working
+
+## Assistant  *(2026-03-31T08:50:10.636014+00:00)*
+
+Robi has given me the final pieces. Let me synthesize everything and build the comprehensive deliverable. Key inputs:
+
+- Current: 5,500 employees → Target: ~4,125 or less (25%+ reduction)
+- Org model: Restructure agile model, integrate IT into business, AI-powered ways of working
+- This is a massive transformation - from 5,500 to ~4,100 while simultaneously automating everything
+
+Let me think about what this means for the TOM:
+
+1. The workforce reduction is significant but achievable if zero-touch targets are real
+2. IT integration into business means no separate IT department - embedded engineering
+3. "Real-time production" means the agile model needs to shift from sprint cycles to continuous delivery
+
+4. AI-powered ways of working means AI isn't just customer-facing - it's embedded into how employees operate daily
+
+Now I'm building an interactive HTML deliverable that visualizes the complete TOM framework across all six layers, incorporating everything Robi's provided. This needs to be Board-quality and impressive as a standalone piece.Now the picture is complete. The 25% reduction from 5,500 to ~4,125 is actually conservative relative to your automation ambition — which tells me the real play is that you're not just cutting, you're **recomposing**. The headcount envelope forces prioritization; the automation targets determine where the cuts fall; and the org restructuring determines what the surviving roles look like.
+
+Let me name the most important implication before I build the deliverable:
+
+**The death of the IT department as a separate entity.** When you say "integration of IT into business," you're describing the end of the model where business units request things and IT builds them. In a zero-touch company, every business domain IS a technology operation. Product managers write product logic that executes autonomously. Network engineers build self-healing systems. Commercial teams configure AI-driven campaigns. The people who remain are all, in some sense, engineers — whether they carry that title or not. This means the TOM doesn't have an "IT domain" — it has embedded engineering capability in every domain, orchestrated by a thin platform layer (which is where your AI & Data Tribe evolves to).
+
+Let me build this into the full deliverable now.
+
+This is a major deliverable. Let me plan the HTML structure carefully. This needs to be Board-quality, visually impressive, and comprehensive. Let me build it section by section:
+
+1. Hero/header with the core vision statement
+2. North Star - the 7 design constraints as bold metric cards
+3. 8 Strategic Design Principles
+4. 12 Capability Clusters in 3 tiers (with the 4-domain mapping)
+5. Operating Model Blueprint (6 dimensions)
+6. Workforce Transformation (5,500 → ~4,125)
+7. Transition Architecture (3 horizons)
+8. Governance & Steering
+
+9. 
+I'm going with Deutsche Telekom's visual language—magenta accents on a clean white background with DM Sans typography. The design needs to feel editorial and executive-grade, with collapsible sections for deeper exploration and interactive elements throughout.
+
+Let me copy to outputs and present the file.
+
+Now present the file.
+
+Great, the file is ready. Let me give Robi a concise summary of what's in the deliverable and where to go next.Here's the full strategic deliverable. It covers all six layers in a single navigable document with a sticky nav, interactive capability cluster drill-downs, and animated workforce bars.
+
+A few things I'd flag for your attention:
+
+**The workforce chart is the slide that will get the most Board attention.** The -90% on contact center and -85% on traditional IT are the numbers that make the "lights-out telco" tangible. But they only land if the growth bars (AI engineering +200%, data & platform +120%) are presented in the same breath — this is a recomposition narrative, not a cost-cutting story.
+
+**The "IT dissolved into business" principle is the hardest organizational change in the entire plan.** It's easy to say, extremely difficult to execute. The Horizon 1 milestone "begin IT dissolution" needs a concrete mechanism — I'd suggest starting with one domain (probably Product, since it's closest to tech already) as a proof point before doing it across the board.
+
+**The transition architecture assumes Product portfolio simplification happens in Horizon 1.** That's the gating constraint for everything else — you can't have zero-touch provisioning for products that were designed for manual processes. The cultural fight will be around killing profitable legacy products that can't be digitized.
+
+Where would you like to go from here? I can see a few natural next steps: deeper design on any specific layer, the eTOM process mapping underneath the capability clusters (connecting this back to the puzzle we built earlier), or a Board-ready presentation deck distilling this into 12–15 slides.
+
+## Human  *(2026-03-31T08:59:12.311958+00:00)*
+
+Let's go even further into the Horizon - operating model vision for 2040 where the whole company has AI deeply embedded at it's core. We need to define the target skills, organizational model centered around segments (Family, Smart shopper, Digital basic, Young, Modern loyalist, SMB, Enterprise) with self-sustaining teams handling market overview, product market fit, product and proposition design and engineering, supported by central common enterprise functions. Provide a proposal for this vision and align the 2030 operating model transformation to it.
+
+## Assistant  *(2026-03-31T09:04:30.495332+00:00)*
+
+Robi wants me to think really big here - a 2040 vision where AI is deeply embedded, and the organization is restructured around customer segments rather than functional domains. This is a fundamental shift from the 2030 model we built. Let me think through what this means strategically and then build a comprehensive deliverable.
+
+The key insight: moving from domain-organized (Customer, Market & Sales, Product, Network) to segment-organized (Family, Smart Shopper, etc.) is a radical shift. Each segment becomes a self-sustaining P&L with embedded capabilities, supported by shared platforms.
+
+Let me think about what this looks like:
+
+**2040 Vision - "The Segment-Sovereign Telco"**
+
+Each segment team operates as an autonomous unit controlling their entire value chain—from market research and product design through engineering and P&L accountability. This transforms us from a functional matrix into a collection of mini-companies, each optimized for their specific customer base. Supporting this are centralized platforms handling network infrastructure, the evolved data intelligence system, shared AI capabilities, and core functions like finance and security that need to remain unified.
+
+The seven segments span from Family bundles and price-conscious Smart Shoppers through self-service Digital Basic users, Young digital natives, premium Modern Loyalists, SMBs, and Enterprise customers. By 2040, AI becomes a genuine team member rather than a tool—the org chart includes both humans and AI agents as equal participants. Each segment operates lean with 15-30 humans plus AI agents, yet maintains full capability to serve their market. The network becomes a shared utility accessed via APIs, and AI systems generate or configure products based on segment-specific insights, allowing the entire company to run with roughly 2,500-3,000 people.
+
+Now I'm thinking through what skills these segment leads actually need—they'll require a blend of commercial acumen and...
+
+Still building the skills framework...
+
+I'm also mapping how this 2040 vision connects back to the 2030 work: the 2030 phase establishes functional excellence and automation foundations, 2035 pivots from functional to segment-based organization, and 2040 fully realizes the segment-sovereign model. I should create a comprehensive deliverable that visualizes the 2040 vision, defines the segment model, outlines the skills framework, and shows how the entire journey from 2030 through 2040 builds toward this future state.This is the right question at the right time. Let me think out loud about what you're actually describing before I build it, because the organizational shift from 2030 to 2040 is more profound than it might initially appear.
+
+**What you're proposing is the end of the functional telco.** The 2030 model we built is still organized by capability domain — Customer, Market & Sales, Product, Network. That's the inherited telco logic: specialists grouped by what they do. The 2040 model you're describing inverts this entirely — people grouped by **who they serve**. Each segment team owns the full stack from market insight through engineering. The shared infrastructure (network, data, AI platform) becomes a utility that segment teams consume via APIs.
+
+This is philosophically closer to how Amazon structures around customer obsession, or how Spotify's original squad model was supposed to work but rarely did — because most companies don't have the automation foundation to make small teams truly self-sustaining. HT in 2040, with the lights-out infrastructure built by 2030, actually could.
+
+Let me build the complete vision.
+
+Let me copy to outputs and present.
+
+Done, let me present.
+
+Done. Let me provide the strategic commentary.Here's the full 2040 vision document. Let me walk through the most important strategic decisions embedded in it.
+
+**The ~2,800 FTE target is derived, not imposed.** Seven segment teams averaging 15–25 humans each gives you ~140 in segments. Platform teams (AI, data, network, commerce, security) at ~980. Field operations at ~450. Corporate functions at ~280. Enterprise key accounts at ~150. That math lands around 2,800 — roughly half of today's headcount over 15 years.
+
+**The segment team sizes are deliberately asymmetric.** Digital Basic runs with ~6 humans (the automation proof point). Enterprise runs with ~15 humans plus dedicated key account directors. Family and SMB are the largest because they have the most product complexity. This asymmetry is a feature — it means you're allocating human capital to where it creates value, not spreading it evenly.
+
+**The critical sequencing insight** that I'd push hard in any Board conversation: you cannot pivot to segment sovereignty without first achieving functional automation. The 2030 domain model builds the muscles; the 2040 segment model deploys them differently. A segment team of 20 people can only own the full value chain if operations are already autonomous. Skip the 2030 work and you get small teams drowning in manual processes — which is exactly what happens when telcos do "agile transformation" without automation transformation first.
+
+**The AI-as-team-member distinction matters philosophically.** In 2030, AI is a tool that humans direct. By 2040, AI agents are autonomous participants in the segment loop — the Market Scanning Agent doesn't wait to be asked, it produces the weekly intelligence brief independently. The human segment lead reviews and redirects, but doesn't initiate. This is a fundamentally different relationship with technology than anything in the current operating model.
+
+**The skills framework is designed to make this transition survivable.** The four universal skills (AI orchestration, data fluency, systems thinking, commercial acumen) are the filter — anyone who develops all four can move into a segment team or platform team. Anyone who can't is in the 25–50% that exits over 15 years. Starting the upskilling program now, against the 2030 milestones, gives people a decade to adapt.
+
+Want me to merge both documents (2030 TOM + 2040 vision) into a single unified strategic framework, or would you prefer a Board-ready slide deck that tells the story in 15–20 slides?
+
+## Human  *(2026-03-31T13:24:13.643728+00:00)*
+
+Please create a draft set of assumptions first for the 2030 TOM, I will read them and provide you with strategic streams and projects that are already on the horizon
+
+## Assistant  *(2026-03-31T13:25:28.947514+00:00)*
+
+Robi wants a comprehensive set of assumptions that underpin the 2030 TOM. These should be structured, clear, and specific enough that he can validate/challenge each one and then map his existing strategic streams and projects against them. This is a working document, not a presentation — it needs to be scannable and editable.
+
+Let me think about what categories of assumptions matter for a TOM:
+
+1. Market & competitive assumptions
+2. Customer & demand assumptions
+3. Technology & platform assumptions
+4. Regulatory & compliance assumptions
+5. DT Group relationship assumptions
+6. Financial & investment assumptions
+7. Workforce & organizational assumptions
+8. AI & automation maturity assumptions
+9. Product & portfolio assumptions
+
+10. Network & infrastructure assumptions
+
+Each assumption needs to be specific and testable — if it turns out to be wrong, it should materially change how the TOM is designed. Since this is a working draft he'll annotate and iterate on, I'll create a clean HTML document that's easy to scan and edit rather than burying it in conversation, especially given the volume of assumptions across all these categories.Good call — assumptions first, then we map reality to them. Let me lay these out directly so you can react fast, then I'll build the formal document once we've pressure-tested them.
+
+I'm structuring these as **testable statements** — each one either holds or doesn't, and if it doesn't, it changes the TOM design.
+
+---
+
+## Market & competitive environment
+
+**A1.** The Croatian telecom market remains a three-player oligopoly (HT, A1, Telemach) through 2030, with no significant new entrant or disruptive MVNO gaining >5% share.
+
+**A2.** Market-level mobile subscriber growth is flat to slightly negative — HT's 2M target is achieved through share gain and convergence, not market expansion.
+
+**A3.** Fixed broadband demand continues shifting toward fiber, with satellite and FWA serving as gap-fillers for rural/underserved areas, not mainstream alternatives in urban zones.
+
+**A4.** Price competition intensifies on standalone products but convergent bundles remain defensible — customers who hold 3+ products churn at less than half the rate of single-product customers.
+
+**A5.** B2B/ICT market in Croatia grows at 8–12% CAGR through 2030, driven by cloud adoption, NIS2 compliance requirements, and SMB digitalization — this is the primary growth vector for HT's enterprise push.
+
+**A6.** OTT players (streaming, messaging, fintech) continue to commoditize connectivity but do not enter infrastructure ownership in Croatia by 2030.
+
+## Customer & demand
+
+**A7.** Customer tolerance for digital-only interaction reaches 90%+ in B2C by 2028, driven by generational shift and banking/retail sector normalization of app-first service.
+
+**A8.** B2B mid-market (companies with 10–250 employees) becomes willing to self-serve for standard ICT products by 2027, reducing the need for field sales in this segment.
+
+**A9.** Enterprise customers (top 200 accounts) continue to require human relationship management and custom solution design — full digital self-service is not viable for complex multi-site deals.
+
+**A10.** Croatian-language AI support (voice + text) reaches human-equivalent quality for L1 interactions by 2028, enabled by advances in multilingual LLMs and HT-specific fine-tuning.
+
+**A11.** Customer expectations for resolution speed converge with digital-native benchmarks — meaning <2 minute response and <24h resolution for standard issues becomes the baseline, not a differentiator.
+
+## Technology & platforms
+
+**A12.** DT Group BSS/OSS platforms (billing, CRM, core network) remain the mandated foundation, but HT retains selective autonomy to build sovereign layers on top — particularly for AI, data, and digital experience.
+
+**A13.** Pluto (Data Vault 2.0 on GCP) reaches gold-layer maturity across all 14 data domains by end of 2027, providing the data foundation for all AI and automation use cases.
+
+**A14.** Cloud-native architecture becomes the default for all new applications by 2027 — no new on-premise deployments except for regulatory or latency requirements.
+
+**A15.** API-first architecture is achievable across the core BSS/OSS stack by 2029, enabling the single digital commerce layer that all channels (app, web, portal, stores) consume.
+
+**A16.** The current BSS/OSS stack can be progressively modernized rather than requiring a full rip-and-replace — i.e., HT doesn't need a €100M+ BSS transformation program to achieve the 2030 targets.
+
+**A17.** GenAI/LLM capabilities continue to advance at current trajectory, making autonomous L1 support, content generation, and AI-assisted coding production-grade by 2027–2028.
+
+## AI & automation maturity
+
+**A18.** Zero-touch provisioning for standard mobile and fixed broadband products is achievable by 2027 with current technology trajectory and Pluto as the data backbone.
+
+**A19.** AI-handled L1 support can reach 100% coverage by 2030, but this requires solving for the long tail of low-frequency, high-complexity contact reasons — not just the top 10.
+
+**A20.** Zero-touch operations across billing, assurance, and network management requires closed-loop automation (sense → decide → act → learn), not just rule-based automation of individual steps.
+
+**A21.** AI governance, safety, and regulatory frameworks (EU AI Act) are manageable within HT's operating model and don't fundamentally block deployment of autonomous AI systems in customer-facing roles.
+
+**A22.** The AI & Data Tribe (currently ~25 direct reports + extended network) needs to scale to ~80–100 people by 2028 to deliver on the automation ambition — this is the single biggest hiring challenge.
+
+## Network & infrastructure
+
+**A23.** HT maintains full infrastructure ownership across all access technologies through 2030 — no structural separation, no network sale, no significant infrastructure-sharing beyond existing agreements.
+
+**A24.** Fiber coverage reaches 65–70% of Croatian households by 2030, with satellite and FWA covering the remaining rural/underserved areas to achieve near-universal broadband.
+
+**A25.** 5G coverage reaches 90%+ population by 2028, with 5G SA (standalone) enabling network slicing and edge computing capabilities needed for enterprise propositions.
+
+**A26.** Network CAPEX remains at 15–18% of revenue through 2030, with efficiency gains from automation offsetting the investment in fiber expansion and 5G rollout.
+
+**A27.** Network operations can transition from human-managed NOC to AIOps-driven autonomous operations by 2029, reducing network operations headcount by 40–50%.
+
+## Product & portfolio
+
+**A28.** The current product portfolio can be simplified to <50 active SKUs by 2028 — this requires retiring legacy products that cannot be digitally provisioned, even if they still generate revenue.
+
+**A29.** All new products launched after 2027 are digital-native: configurable, provisionable, and supportable without human intervention as a design requirement.
+
+**A30.** Convergent bundling (mobile + fixed + TV + IoT) remains the primary ARPU growth lever in B2C, and the product architecture supports flexible, AI-configurable bundles.
+
+**A31.** TV/entertainment remains part of the product portfolio through 2030, but increasingly as an aggregation/partnership model rather than own-platform investment.
+
+**A32.** Data-as-a-product (external monetization) generates first revenue by 2028 but remains <2% of total revenue through 2030 — it's a proof point, not a revenue pillar.
+
+## Financial & investment
+
+**A33.** The 2030 TOM delivers net OPEX reduction of 20–25% vs 2025 baseline, primarily through automation of operations, support, and back-office — funding the transformation investment.
+
+**A34.** Total transformation investment (2025–2030) is in the range of €150–250M, covering Pluto scaling, AI development, BSS/OSS modernization, digital channel build, and workforce restructuring.
+
+**A35.** Revenue growth is modest (2–4% CAGR) through 2030, driven by B2B growth and ARPU uplift from convergence — the business case for transformation is primarily cost-led, not revenue-led.
+
+**A36.** The workforce reduction from 5,500 to ~4,125 generates annual savings of €40–60M by 2030, partially offset by higher average cost per FTE (engineering roles command premium vs operations roles).
+
+## Workforce & organization
+
+**A37.** The 25% headcount reduction is achievable through natural attrition (retirement, voluntary turnover) combined with targeted restructuring — without mass layoffs that would trigger regulatory or reputational risk.
+
+**A38.** Croatia's labour market can supply the engineering talent needed (AI/ML, data engineering, full-stack development) through a combination of local hiring, upskilling existing staff, and selective use of DT Group shared services or nearshoring.
+
+**A39.** The agile operating model restructuring (from current model to domain-embedded engineering) can be executed in 2–3 years without catastrophic productivity loss during transition.
+
+**A40.** Croatian labour law and works council requirements are navigable for the restructuring — they'll slow things down but not fundamentally block the organizational changes.
+
+**A41.** DT Group gives HT sufficient organizational autonomy to restructure the operating model, provided it stays within financial guardrails and maintains group platform commitments.
+
+## Regulatory & compliance
+
+**A42.** EU AI Act obligations for high-risk AI systems (which may include autonomous customer support) are manageable with appropriate governance, documentation, and human oversight mechanisms.
+
+**A43.** NIS2 implementation in Croatia imposes operational requirements but also creates B2B market opportunity — HT can position as a trusted security partner for enterprises.
+
+**A44.** GDPR/ePrivacy framework remains stable — no radical new data regulation that would fundamentally undermine the data-as-a-product or AI-powered personalization ambitions.
+
+**A45.** Croatian regulatory environment (HAKOM) remains supportive of infrastructure investment and doesn't impose structural separation or aggressive wholesale obligations that would undermine the owner-operator model.
+
+---
+
+These are the 45 assumptions I'd test. Some are near-certain (A1, A23), some are genuine unknowns that could break the plan (A16, A22, A38). The ones I'd flag as highest-risk are:
+
+**A16** (BSS modernization without rip-and-replace) — if this doesn't hold, the investment envelope in A34 explodes and the timeline shifts by 2–3 years.
+
+**A22** (scaling the AI & Data Tribe to 80–100) — this is the capacity constraint. Everything depends on it.
+
+**A38** (talent supply in Croatia) — engineering talent in a market of 4M people is structurally scarce.
+
+**A19** (100% AI L1 including the long tail) — the top 10 contact reasons are solvable. The 200+ edge cases that make up the remaining 20% are the real test.
+
+Go through these and tell me which ones need adjusting, which are already covered by existing streams, and where you have projects in flight that map to specific assumptions. I'll then align the TOM to reality.
+
+## Human  *(2026-04-01T13:44:46.039189+00:00)*
+
+treba li prvo definirati operativni model ili way of work? Što opisuje operativni model, a što way of work (daj mi primjer)
+
+## Assistant  *(2026-04-01T13:45:33.512861+00:00)*
+
+The user is asking in Croatian whether we should first define the operating model or the way of work, and what each describes with examples. This is a fundamental strategic architecture question. Let me answer clearly and directly.Odlično pitanje — i odgovor na njega mijenja redoslijed svega što radimo. Razmislimo o tome konceptualno.
+
+## Operativni model vs. Way of Work — što je što
+
+**Operativni model** odgovara na pitanje **"ŠTO radimo i TKO to radi"**. To je arhitektura kompanije — struktura, odgovornosti, sposobnosti, tokovi vrijednosti.
+
+**Way of Work** odgovara na pitanje **"KAKO to radimo"**. To je režim izvršenja — procesi, rituali, alati, donošenje odluka, način suradnje ljudi i AI-a.
+
+Evo konkretnog primjera da razlika bude kristalno jasna:
+
+---
+
+**Primjer: Lansiranje novog konvergentnog paketa za Family segment**
+
+**Operativni model definira:**
+- Product domain je vlasnik životnog ciklusa proizvoda
+- Market & Sales domain definira go-to-market
+- Customer domain upravlja iskustvom i podrškom
+- Network domain osigurava kapacitet i aktivaciju
+- Pluto osigurava podatkovnu podlogu za personalizaciju
+- Postoji Product Council koji odobrava lansiranje
+- P&L odgovornost je na Product domeni s input KPI-jevima iz ostalih domena
+
+**Way of Work definira:**
+- Product tim koristi continuous discovery (ne sprinteve) za validaciju product-market fita
+- AI agent generira inicijalnu analizu tržišta i prijedlog bundle konfiguracije — čovjek recenzira i odlučuje
+- Odluka o lansiranju ide kroz asinkroni review (ne komitetski sastanak) s 48h SLA za sve domene
+- Engineering deploy ide kroz trunk-based development s automated testing — ne release train
+- Kampanja se generira AI-em, čovjek odobrava ton i brend, distribucija je automatska
+- Retrospektiva je AI-generirana na temelju metrika, ne facilitirani sastanak
+- Komunikacija ide kroz structured async (dokumenti > meetings), sa sync touchpointima samo za konflikt resolution
+
+---
+
+## Što dolazi prvo?
+
+Evo mog stava, i on je kontraintuitivan:
+
+**Way of Work dolazi prvo — ali ne cijeli, nego njegovi principi.** Evo zašto:
+
+Operativni model koji dizajniraš ovisi o tome kako pretpostavljaš da ljudi (i AI) rade. Ako pretpostaviš klasični agile s tjednim sprintevima i ceremonijama, dobit ćeš operativni model s puno koordinacijskih slojeva. Ako pretpostaviš continuous delivery s AI-native workflow-ovima, dobit ćeš radikalno drugačiji — tanji, brži operativni model.
+
+Ali ne možeš definirati cijeli Way of Work bez da znaš strukturu. Ne možeš reći "Product tim radi continuous discovery" ako nisi prvo definirao da Product tim postoji i što mu je scope.
+
+Dakle, pravi redoslijed je ovakav:
+
+**1. Way of Work principi** (5–8 principa koji definiraju KAKO želimo raditi u 2030)
+
+**2. Operativni model** (struktura, domene, odgovornosti, tokovi — dizajniran da podržava te principe)
+
+**3. Way of Work detaljni dizajn** (rituali, alati, decision-making procesi, AI-čovjek interakcijski obrasci — dizajnirani za konkretnu strukturu)
+
+To znači da trebamo **prije assumptiona i TOM-a** definirati WoW principe. Daj mi tvoju viziju na ovo:
+
+The user is asking a fundamental question about the relationship between operating model and way of work. I answered in Croatian since they asked in Croatian, and now I'm waiting for their input on the three questions about work rhythm, human-AI relationship, and decision-making model.Tvoji odgovori na ova tri pitanja će odrediti WoW principe, koji onda postaju **ulazni parametri** za operativni model — ne obrnuto. To je ključna razlika od onoga kako većina telco-a radi transformaciju (dizajniraju strukturu pa se nadaju da će se način rada prilagoditi).
+
+## Human  *(2026-04-01T13:50:37.666682+00:00)*
+
+Q: Kakav temeljni radni ritam vidiš za HT 2030?
+A: Hybrid (continuous za business, sprint-based za engineering)
+
+Q: Kako vidiš odnos čovjek ↔ AI u svakodnevnom radu 2030?
+A: Kontekst-ovisan — ovisi o tipu zadatka i riziku
+
+Q: Koji model donošenja odluka preferiraš?
+A: Empowered teams (tim odlučuje u okviru guardrailsa)
+
+## Assistant  *(2026-04-01T13:55:34.077968+00:00)*
+
+The user has made interesting choices - particularly the hybrid model being inverted from what I'd expect (continuous for business, sprint-based for engineering). Let me address this and build out the WoW principles, then create a comprehensive document.
+
+Let me think about what they said:
+1. Hybrid - continuous for BUSINESS, sprint-based for ENGINEERING (this is the opposite of what I proposed as an option - I said "continuous za engineering, sprint-based za business" but they flipped it)
+2. Context-dependent human-AI relationship
+3. Empowered teams with guardrails
+
+This is actually a very thoughtful set of choices. Let me unpack why the inverted hybrid is interesting and build the WoW principles around it.
+
+They deliberately chose the opposite approach, which makes sense in a telco context - business needs to respond continuously to market shifts and competitive moves without waiting for sprint boundaries, while engineering benefits from structured delivery cadences given the complexity of shared platform dependencies and integration requirements.
+
+Now I'm synthesizing their choices into a coherent Ways of Working framework and drafting the document.Zanimljiv odabir — i namjerno si obrnuo hybrid koji sam ponudio. Dao sam ti "continuous za engineering, sprint-based za business", a ti si rekao obrnuto. To je pronicljiv izbor i vrijedi ga raspakirati jer mijenja cijelu filozofiju.
+
+## Zašto "continuous business, sprint-based engineering" ima smisla za HT
+
+Većina tech kompanija radi obrnuto — engineering na continuous delivery, business na ciklusima. Ali za telco koji se transformira, tvoja logika je ispravnija:
+
+**Business mora biti continuous** jer tržišni signali ne čekaju sprint boundary. Kada A1 spusti cijenu, kada Telemach lansira novu ponudu, kada churn metrika skoči — komercijalni odgovor mora biti isti dan, ne za dva tjedna. Kampanje, pricing, ponude, retention akcije — sve to mora teći kontinuirano s AI-om koji reagira u realnom vremenu.
+
+**Engineering treba strukturirane cikluse** jer gradi na shared platformama s ozbiljnim ovisnostima. BSS/OSS integracije, network konfiguracije, Pluto pipeline-ovi — sve to zahtijeva koordinaciju, testiranje, release management. Continuous deployment u izoliranom SaaS startupu je trivijalan. Continuous deployment na telco stacku s 200 integracija je recept za katastrofu. Strukturirani ciklusi (ali kratki — tjedni, ne dvotjedni) daju stabilnost bez sporost.
+
+Sad imam dovoljno za definirati WoW principe. Ovo je temelj na koji stavljamo operativni model.
+
+Let me copy to outputs and present.
+
+Done, now present the file.
+
+Good, the file is created and presented. Let me give a concise summary.Evo WoW principa kao kompletnog dokumenta. Osvrnuo bih se na ono što smatram ključnim u cijelom dokumentu — scenarij na dnu.
+
+**Scenarij s A1 competitive response je najvažniji dio dokumenta.** Ne zato što je najsloženiji, nego zato što je najkonkretniji. Pokazuje da razlika između 53 sata i 6 tjedana za isti odgovor nije u ljudima — isti product owner donosi istu odluku. Razlika je u načinu rada: async vs meeting-driven, AI-initiated vs human-initiated, composable vs monolithic, empowered vs escalation-dependent.
+
+Kad ovaj scenarij prezentiraš leadershipa, pitanje koje treba postaviti nije "slažete li se s principom W1?" — to je apstraktno. Pitanje je: **"Želimo li na A1-ov potez reagirati za 2 dana ili za 6 tjedana?"** Odgovor na to pitanje automatski validira principe.
+
+Sada — prije nego se vratimo na TOM i assumptions, trebam tvoj input na dva mjesta:
+
+1. **Pregledaj 8 principa** — ima li neki koji ti ne sjeda, koji treba zaoštriti ili koji nedostaje? Posebno W5 ("Gradimo, ne naručujemo") jer je to princip koji će izazvati najviše otpora u organizaciji.
+
+2. **Pošalji mi strateške streamove i projekte** koji su već na horizontu — da ih mapiramo na principe i assumptions, i da vidimo gdje postoji alignment, a gdje gap između onoga što se planira i onoga što TOM zahtijeva.
+

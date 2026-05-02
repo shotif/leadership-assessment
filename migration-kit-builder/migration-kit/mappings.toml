@@ -1,0 +1,520 @@
+[meta]
+model = "claude-opus-4-7"
+generated_at = "2026-05-02T07:47:12.195257+00:00"
+threshold = 0.6
+input_tokens = 0
+output_tokens = 0
+cache_creation_input_tokens = 0
+cache_read_input_tokens = 0
+estimated_cost_usd = 0.0
+
+[conversations.43ffd6fd-0f74-4a1c-8589-82b4cdb3abc3]
+title = "Brisanje in-progress game sessions u Firebase"
+project_slug = "big-picture"
+confidence = 0.5
+reason = "Firebase query for deleting in-progress game sessions — Most Wanted game admin"
+needs_review = true
+
+[conversations.f78dfb77-68db-4965-9737-f43f6b13e651]
+title = "Reviewing recent conversation highlights"
+project_slug = "cico"
+confidence = 0.5
+reason = "reflective 'highlights from recent chats' opener — fits cico, though it pivots into work-task drafting later"
+needs_review = true
+
+[conversations.67a0afe3-bf40-4448-b644-60a14e7662be]
+title = "Browser game with bridge crossing challenges"
+project_slug = "big-picture"
+confidence = 0.55
+reason = "Most Wanted browser game built around HT's cultural transformation principles — companion to the Big Picture narrative"
+needs_review = true
+
+[conversations.da48f6fc-41f1-4ae0-90b7-471537eca435]
+title = "Deljivi custom bot na ChatGPT Enterprise"
+project_slug = "big-picture"
+confidence = 0.55
+reason = "evolves into a 'Big Picture Assistant' technical blueprint as the deliverable"
+needs_review = true
+
+[conversations.94007264-611d-4817-a684-48a774ad0663]
+title = "Enterprise AI use case generator"
+project_slug = "standalone"
+confidence = 0.55
+reason = "reusable enterprise AI use-case generator prompt + HTML report template"
+needs_review = true
+
+[conversations.9143831e-64bc-4812-a518-88b8ac8097a4]
+title = "Most Wanted igra razvoj nastavak"
+project_slug = "big-picture"
+confidence = 0.55
+reason = "continuing development of the Most Wanted game (multiplayer mode for DT board demo)"
+needs_review = true
+
+[conversations.454dbca9-c2d8-473e-a447-6a12cdf31c2f]
+title = "Nastavak pitanja za Most Wanted! - Korištenje upute iz privitka"
+project_slug = "big-picture"
+confidence = 0.55
+reason = "continuing Most Wanted game scenario generation"
+needs_review = true
+
+[conversations.81572bf2-32a9-4d7f-836d-6f4266fa28b1]
+title = "OKR-ovi za B-2 menadžment nivo"
+project_slug = "big-picture"
+confidence = 0.55
+reason = "B-2 OKRs based on a Building Blocks manifest (Povjerenje/Podrška/Potencijal/Promjena) — Big Picture vocabulary"
+needs_review = true
+
+[conversations.5fc082d6-25d6-4514-8306-c5675474e4e7]
+title = "Poboljšanje 3D grafike u Google AI studiju"
+project_slug = "big-picture"
+confidence = 0.55
+reason = "improving 3D graphics for the Most Wanted bridge game — companion to Big Picture"
+needs_review = true
+
+[conversations.90c03f68-1d82-4f76-9d2e-872a3865a48a]
+title = "Presentation restructuring for business impact"
+project_slug = "standalone"
+confidence = 0.55
+reason = "presentation restructuring for an AI agent training pitch — generic"
+needs_review = true
+
+[conversations.182ef207-27ba-45e2-bfb9-85f752584d89]
+title = "Zapisnik radionice kolega"
+project_slug = "ht-future-operating-model"
+confidence = 0.55
+reason = "workshop notes on capability scanning for operating model redesign — fits HT Future Operating Model scope"
+needs_review = true
+
+[conversations.256d371d-7355-4470-958f-601f614f9576]
+title = "Ažuriranje T brand designer skill"
+project_slug = "standalone"
+confidence = 0.6
+reason = "updating the T-Brand designer Claude skill — meta tool work"
+needs_review = false
+
+[conversations.41e217a8-e550-4bf1-88a4-d58c5cd1dfbf]
+title = "T-Brand designer skill creation"
+project_slug = "standalone"
+confidence = 0.6
+reason = "creating a T-Brand designer Claude skill from the brand PDF — meta tool work"
+needs_review = false
+
+[conversations.7f094323-60c6-4fef-a0cd-ec07ddcb20aa]
+title = "Analiza kvalitete pitanja iz dva excela"
+project_slug = "big-picture"
+confidence = 0.65
+reason = "analyzing Most Wanted question quality against the Big Picture visual dialogue guide"
+needs_review = false
+
+[conversations.ce478e78-27e6-4ab6-9e49-e5d8efb49a5e]
+title = "Customizing a new skill with skill creator"
+project_slug = "standalone"
+confidence = 0.65
+reason = "creating a custom Claude skill from a brand PDF — meta tool work, not project content"
+needs_review = false
+
+[conversations.918fd696-bb8e-4e73-8f21-f68e6ce68747]
+title = "Rewriting narrative: culture over strategy"
+project_slug = "big-picture"
+confidence = 0.65
+reason = "rewriting a culture-change narrative using 'Building Blocks' — Big Picture vocabulary and HT cultural transformation"
+needs_review = false
+
+[conversations.55f259e6-bb3a-44fd-bbce-42bdb143661d]
+title = "Meeting notes summary and action items"
+project_slug = "standalone"
+confidence = 0.7
+reason = "generic 'summarize meeting notes and create action items' request"
+needs_review = false
+
+[conversations.65297c61-b00d-412e-b090-e59c96508b46]
+title = "Modern 2026 dashboard redesign"
+project_slug = "standalone"
+confidence = 0.7
+reason = "generic '2026 dashboard redesign' UI request, no project fit"
+needs_review = false
+
+[conversations.85a9d2b0-3c6b-4aeb-9a81-3aedf9aa778e]
+title = "NEXT program session preparation in Rotterdam"
+project_slug = "cico"
+confidence = 0.7
+reason = "personal NEXT leadership-program preparation — personal-development territory"
+needs_review = false
+
+[conversations.faf2acb8-da90-4ad2-a7c0-972ef18b0ec7]
+title = "Operating plans strategic analysis and recommendations"
+project_slug = "qbr-next-level"
+confidence = 0.7
+reason = "strategic analysis of operating plans (excel) with EMM steering process — matches QBR Next Level operating-plan-review scope"
+needs_review = false
+
+[conversations.7da399ea-caa7-4776-b144-04bd375020d7]
+title = "Preparing questions for Dominique Leroy meeting"
+project_slug = "cico"
+confidence = 0.7
+reason = "preparing personal questions for NEXT-program meeting with DT Europe CEO — personal-development context"
+needs_review = false
+
+[conversations.1c25edd3-08b9-43d5-b583-012a9211992a]
+title = "Video transcription and subtitle embedding app"
+project_slug = "standalone"
+confidence = 0.7
+reason = "building a personal video-subtitle desktop app, no project fit"
+needs_review = false
+
+[conversations.750d6651-d9b9-4666-9fa2-eee25ca73c13]
+title = "AI analiza bilješki Uprave HT-a"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.413b3bcb-3fb4-4209-b247-e47483b65b8f]
+title = "AI edukacija za upravu Hrvatskog Telekoma"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.183592dd-8771-41a5-a68e-3cc977da3383]
+title = "AI governance model for accelerated use case delivery"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.d787fc2f-bc04-4461-8f96-53eae73637fb]
+title = "AI use cases by skill"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.f1d8a070-0752-4f2d-b09f-02939806ad88]
+title = "Analiza dokumenta i strategija za kritičku infrastrukturu"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.73d07b39-f8ea-47ed-be5d-3fee7e89dc16]
+title = "Analiza i dorade opisa AI Developer pozicije"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.927d76e9-fab0-45ab-a9fc-de7b49990718]
+title = "Analiza podataka sa HT brendingom"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.6ea58c29-cdf2-4d81-8bb5-252ec30edf5d]
+title = "Analiza tablica ocjena leadership tima"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.d329b57b-9cbc-41ca-92fe-4c219b657901]
+title = "Argumentacija za povećanje plaća AI & Data Tribea"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.a68a32a7-d76f-4d17-8b63-e022a36241f7]
+title = "B2Digital OKR struktura i prioritizacija"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.a927d5f4-1f88-463d-9ab2-2cc34c0c9310]
+title = "Career role recommendations for Telekom AI & Data Tribe"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.df419f44-5f06-4205-80c0-2af290806944]
+title = "Comprehensive meeting notes and action plan"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.62941468-9971-413d-b797-49cd4541e046]
+title = "Data governance implementation za Sprinklr i Digital telco"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.34a5db17-3291-4306-b855-e0bf9d2636fb]
+title = "Enhancing Hrvatski Telekom's board presentation"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.8aed3291-6789-4fd6-854f-52898cae24f8]
+title = "Enterprise AI use case generator with custom styling"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.5866c4ee-03e2-4910-91c9-5e6ef950e075]
+title = "Kritička analiza prezentacije i prijedlozi poboljšanja"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.1869ac55-88af-44c0-934c-ee164d50aff3]
+title = "LinkedIn objava za direktora"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.fd41d8e6-6372-4383-8e1d-4d3408ec36d1]
+title = "Preparing for AI ethics panel at Zagreb marketing conference"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.01d7e47b-92cd-4ee2-8287-5e8b1b8a0e75]
+title = "Presentation timeline for AI_Natcovisit deck"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.aab3e433-7c02-4ea2-8999-c012a45bbe73]
+title = "Priprema za intervju o AI-ju u Hrvatskom Telekomu"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.e4516261-ab94-4e8f-b407-570d6cc348de]
+title = "Priprema za panel o financiranju AI transformacije"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.e52d1862-13fa-4b7a-bf6e-149ef41fafde]
+title = "Razjašnjavanje uloga i odgovornosti u use caseu"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.d8ed72dd-e5f4-49f2-aabc-a3b373cc6609]
+title = "Sistemska analiza leadership tima kroz peer feedback"
+project_slug = "standalone"
+confidence = 0.75
+reason = "HT work task — moved out of cico per the 'cico = personal reflection only' rule"
+needs_review = false
+
+[conversations.1fc529d4-aea8-448f-8827-baac8213be75]
+title = "Analiza stabilnosti Big5 osobina kroz tri godine"
+project_slug = "cico"
+confidence = 0.8
+reason = "personal Big5 personality stability analysis with self-development reflection — coaching-style"
+needs_review = false
+
+[conversations.352835c6-c7bb-42f9-b825-7824ab307e2f]
+title = "Idealan omjer rada s ljudima i tehnologijom"
+project_slug = "cico"
+confidence = 0.8
+reason = "personal reflection on ideal balance of human/device interaction at b-1 position — coaching-style"
+needs_review = false
+
+[conversations.9e99e6a9-f6c7-4c95-b7cd-38c31923a89b]
+title = "Pregled projektnih materijala i OP_2026_Q1_v2"
+project_slug = "qbr-next-level"
+confidence = 0.8
+reason = "review of OP_2026_Q1_v2 (Q1 operating plan) materials with EMM/MB focus — direct match to QBR Next Level operating-plan-review knowledge file"
+needs_review = false
+
+[conversations.0a8b56ef-135c-4f22-8b71-db02f68d6b41]
+title = "Samorefleksija za godišnji performance review"
+project_slug = "cico"
+confidence = 0.8
+reason = "personal performance-review self-reflection prep — fits cico's reflective scope"
+needs_review = false
+
+[conversations.360645d8-cd7f-40eb-95cf-ab885da9041d]
+title = "Three-year trajectory and critical mistakes"
+project_slug = "cico"
+confidence = 0.8
+reason = "personal strategic reflection on 3-year trajectory and behavioral patterns — fits cico's coaching-style assistant scope"
+needs_review = false
+
+[conversations.73c5cab0-b118-4465-a88c-56ade7adc0d2]
+title = "Claude Enterprise license inquiry"
+project_slug = "standalone"
+confidence = 0.85
+reason = "one-off message draft to the Anthropic sales team — not project work"
+needs_review = false
+
+[conversations.cd447fdb-eec3-4ec5-9658-d2cbd078d8a4]
+title = "Inspirativni tekst za most u igri"
+project_slug = "big-picture"
+confidence = 0.85
+reason = "uses the Big Picture narrative directly to write the game's bridge intro text"
+needs_review = false
+
+[conversations.d29544e1-4871-4941-911e-94dc67f4ef21]
+title = "Ispravljanje greške u VBA funkciji AssignIDsForAllRows"
+project_slug = "standalone"
+confidence = 0.85
+reason = "VBA debugging help for an Excel macro, no project fit"
+needs_review = false
+
+[conversations.c321d7c2-c45b-45bd-89c4-824499476025]
+title = "Konsolidacija fotografija u PDF"
+project_slug = "standalone"
+confidence = 0.85
+reason = "building a personal photos-to-PDF web tool, no project fit"
+needs_review = false
+
+[conversations.25684967-6823-4343-8518-eba0db6c6732]
+title = "Transferring data between Claude subscriptions"
+project_slug = "standalone"
+confidence = 0.85
+reason = "one-off Q about transferring data between Claude account types — meta, not project work"
+needs_review = false
+
+[conversations.99b89462-3af6-4f55-ab41-ec2eaadb1c18]
+title = "Migrating personal Claude account to enterprise"
+project_slug = "standalone"
+confidence = 0.9
+reason = "the original 'how do I migrate Claude account' question — kicked off this very project"
+needs_review = false
+
+[conversations.f547ce90-8e96-4bf1-a346-bcec9a8d83ae]
+title = "Povrat poreza mladima sa suvlasništvom nekretnine"
+project_slug = "standalone"
+confidence = 0.9
+reason = "personal tax-refund question for first home purchase, no work tie"
+needs_review = false
+
+[conversations.301458c6-8e86-4f22-9d0d-de3581cb2146]
+title = "Putovanje u Italiju - organizacija prijevoza i smještaja"
+project_slug = "standalone"
+confidence = 0.9
+reason = "personal trip planning to Italy for 13 people, no project fit"
+needs_review = false
+
+[conversations.fece2e6c-10e1-4531-aa5a-2e60ccc398a8]
+title = "Skill builder skill availability"
+project_slug = "standalone"
+confidence = 0.9
+reason = "one-off Q about whether the Claude skill-builder skill is available"
+needs_review = false
+
+[conversations.9a629133-bd32-4d61-80a7-94df24007212]
+title = "Analiza nekretnine i preporuka za kupnju u Zagrebu"
+project_slug = "standalone"
+confidence = 0.95
+reason = "personal real-estate purchase contract review (66 messages, all personal)"
+needs_review = false
+
+[conversations.202c4e2f-f122-4ff2-aebe-790b2455e6d7]
+title = "Analiza police osiguranja i dodatak za potres"
+project_slug = "standalone"
+confidence = 0.95
+reason = "personal home insurance policy review with earthquake rider"
+needs_review = false
+
+[conversations.5e32506b-15ea-4bc0-bf8a-164a1f5b1bde]
+title = "Analiza procjene vrijednosti nekretnine"
+project_slug = "standalone"
+confidence = 0.95
+reason = "personal real-estate purchase: appraisal, deposit, contract review"
+needs_review = false
+
+[conversations.bd0739ad-e95e-4bc4-b66c-8700aa472a60]
+title = "Analiza zarade na prodaji dionica"
+project_slug = "standalone"
+confidence = 0.95
+reason = "personal stock sale tax analysis"
+needs_review = false
+
+[conversations.064ce9b7-854e-4d6e-9ed0-019c65854a51]
+title = "Audio transcription in Croatian"
+project_slug = "standalone"
+confidence = 0.95
+reason = "one-off audio transcription request"
+needs_review = false
+
+[conversations.7c23bb94-7c44-4a22-b635-e2d3bb8d3e52]
+title = "Big Picture strategy video production"
+project_slug = "big-picture"
+confidence = 0.95
+reason = "explicit Big Picture strategy video production with HT branding and visual dialogue guide"
+needs_review = false
+
+[conversations.ce45c427-3192-4216-9169-8cbdc2f254d6]
+title = "Future operating model framework for Hrvatski Telekom"
+project_slug = "ht-future-operating-model"
+confidence = 0.95
+reason = "title is literally 'Future operating model framework for Hrvatski Telekom' — direct project match"
+needs_review = false
+
+[conversations.f855fb30-b05e-4e74-82f4-9336f19832de]
+title = "Interaktivni vodič kroz Big Picture"
+project_slug = "big-picture"
+confidence = 0.95
+reason = "explicitly builds a single-page interactive guide through the Big Picture (HRV-Big Picture-narativ document)"
+needs_review = false
+
+[conversations.0c2196d5-6911-4e8d-acec-201ff24ad740]
+title = "Odabir televizora i soundbara za dnevni boravak"
+project_slug = "standalone"
+confidence = 0.95
+reason = "personal TV/soundbar shopping for the living room"
+needs_review = false
+
+[conversations.9a056900-977e-4b71-adf2-273136c89a39]
+title = "PetAIk Razvoj koncepta sa Opusom"
+project_slug = "petaik"
+confidence = 0.95
+reason = "title literally is 'PetAIk Razvoj koncepta' — direct continuation of the PetAIk concept"
+needs_review = false
+
+[conversations.aca5bd26-5af2-49b1-a68d-b20319ec2a39]
+title = "PetAIk koncept za HT organizaciju"
+project_slug = "petaik"
+confidence = 0.95
+reason = "explicitly develops the PetAIk concept ('AI@Work day') for HT — matches project name verbatim"
+needs_review = false
+
+[conversations.605869ea-da94-484b-9a0f-6778ba54ba4d]
+title = "Preporuka klima uređaja za stan od 68,5 kvadrata"
+project_slug = "standalone"
+confidence = 0.95
+reason = "personal AC unit shopping for the apartment, no work tie"
+needs_review = false
+
+[conversations.bc0618a2-7cd8-4737-a1b2-dc1a47c9324b]
+title = "Relationship analysis and recent communication patterns"
+project_slug = "coaching"
+confidence = 0.95
+reason = "218-message Petra relationship analysis — exact match to the Coaching project's WhatsApp-with-Petra knowledge file"
+needs_review = false
+
+[conversations.7f341215-ddf7-4694-a655-ae561f96f5d1]
+title = "Video content explanation"
+project_slug = "standalone"
+confidence = 0.95
+reason = "one-off 'explain this YouTube video' request"
+needs_review = false
