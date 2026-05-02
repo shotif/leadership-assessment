@@ -2,3 +2,7 @@
 __pycache__/
 *.pyc
 .python-version
+
+# Generated output — contains private export data, never commit.
+migration-kit/
+*.dms
